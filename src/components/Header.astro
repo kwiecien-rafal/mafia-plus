@@ -88,13 +88,25 @@ const hasRail = Astro.slots.has("rail");
       header.toggleAttribute("data-condensed", next);
     };
 
+    // Keep the header fully expanded until a tagged section reaches it. A page
+    // can hold the full header over a hero this way; the default is the top.
+    const holdEl = document.querySelector<HTMLElement>(
+      "[data-header-collapse-at]",
+    );
+    const activationY = () =>
+      holdEl
+        ? holdEl.getBoundingClientRect().top +
+          window.scrollY -
+          header.offsetHeight
+        : topBar.offsetHeight;
+
     let lastY = window.scrollY;
     const JITTER = 6; // ignore trackpad/rubber-band noise
 
     const update = () => {
       const y = Math.max(window.scrollY, 0);
-      if (y <= topBar.offsetHeight) {
-        setCondensed(false); // keep the full header anchored near the top
+      if (y <= activationY()) {
+        setCondensed(false); // full header stays put before the trigger point
       } else if (Math.abs(y - lastY) > JITTER) {
         setCondensed(y > lastY);
       }
