@@ -13,6 +13,9 @@ const faction = factions[character.faction];
 const factionClasses = faction.style;
 const suit = cardSuit(character.card);
 const rank = cardRank(character.card);
+const centerCard = character.centerCard ?? character.card;
+const centerRank = cardRank(centerCard);
+const centerSuit = cardSuit(centerCard);
 ---
 
 <div
@@ -44,7 +47,9 @@ const rank = cardRank(character.card);
         </header>
 
         <div class="pointer-events-none flex flex-1 items-center justify-center">
-          <span class={`font-display text-[7rem] leading-none opacity-10 ${factionClasses.text}`}>{suit}</span>
+          <span class={`font-display text-[7rem] leading-none ${factionClasses.text}`}>
+            <span>{centerRank}</span><span class="ml-1">{centerSuit}</span>
+          </span>
         </div>
 
         <div class="space-y-3">

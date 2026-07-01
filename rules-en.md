@@ -21,8 +21,8 @@ Nearly all Characters in the full pool are unique and have special **abilities**
 
 ## Types of Abilities
 
-- **Opening **– activated only once, during **Night Zero**.
-- **Night **– can only be activated during the **Night**.
+- **Opening** – activated only once, during **Night Zero**.
+- **Night** – can only be activated during the **Night**.
 - **Day** – can only be activated during the **Day**.
 - **Single-Use** – can be used only once per game.
 - **Voting** – affects the **vote**.
@@ -95,7 +95,7 @@ Whenever someone's **Faction** is **revealed** in any way, the **GM** shows the 
 
 #### (A♢) Loose Cannon
 
-**During** the **Day**, they may **stand up**, **declare themselves the Loose Cannon**, and gun down one person. The Day ends immediately after the shot, no matter the outcome. They can do this only **once**.
+**During** the **Day**, the **Loose Cannon** may **stand up**, **declare themselves the Loose Cannon**, and gun down one person. The Day ends immediately after the shot, no matter the outcome. They can do this only **once**.
 
 *"Gotcha!"*
 

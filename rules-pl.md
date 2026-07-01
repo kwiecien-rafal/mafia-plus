@@ -95,7 +95,7 @@ Gdy w jakikolwiek sposób **sprawdzana** jest kogoś przynależność do **Frakc
 
 #### (A♢) Świr
 
-**W ciągu** **Dnia**, może **wstać**, **ogłosić się Świrem** i zastrzelić jedną osobę. Dzień kończy się natychmiast po strzale, nieważne jaki będzie rezultat. Może to zrobić tylko **raz**.
+**W ciągu** **Dnia**, **Świr** może **wstać**, **ogłosić się Świrem** i zastrzelić jedną osobę. Dzień kończy się natychmiast po strzale, nieważne jaki będzie rezultat. Może to zrobić tylko **raz**.
 
 *„Gotcha!”*
 

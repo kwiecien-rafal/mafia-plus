@@ -12,7 +12,6 @@ export type AbilityType =
   | "voting"
   | "checking" // relates to revealing a faction
   | "posthumous" // fires on the owner's death
-  | "passive" // always on
   | "none";
 
 export interface Bilingual {
@@ -25,6 +24,7 @@ export interface Character {
   faction: Faction;
   card: string;
   cards?: string[]; // commoners span several cards
+  centerCard?: string; // large rank+suit shown in the card's center; defaults to `card`
   abilityTypes: AbilityType[];
   name: Bilingual;
   ability: Bilingual;
@@ -81,7 +81,6 @@ export const abilityTypeLabels: Record<AbilityType, Bilingual> = {
   voting: { pl: "Głosująca", en: "Voting" },
   checking: { pl: "Sprawdzania", en: "Reveal" },
   posthumous: { pl: "Pośmiertna", en: "Posthumous" },
-  passive: { pl: "Pasywna", en: "Passive" },
   none: { pl: "Brak umiejętności", en: "No Ability" },
 };
 
@@ -136,8 +135,8 @@ export const characters: Character[] = [
     abilityTypes: ["day", "oneTime"],
     name: { pl: "Świr", en: "Loose Cannon" },
     ability: {
-      pl: "W ciągu Dnia, może wstać, ogłosić się Świrem i zastrzelić jedną osobę. Dzień kończy się natychmiast po strzale, nieważne jaki będzie rezultat. Może to zrobić tylko raz.",
-      en: "During the Day, they may stand up, declare themselves the Loose Cannon, and gun down one person. The Day ends immediately after the shot, no matter the outcome. They can do this only once.",
+      pl: "W ciągu Dnia, Świr może wstać, ogłosić się Świrem i zastrzelić jedną osobę. Dzień kończy się natychmiast po strzale, nieważne jaki będzie rezultat. Może to zrobić tylko raz.",
+      en: "During the Day, the Loose Cannon may stand up, declare themselves the Loose Cannon, and gun down one person. The Day ends immediately after the shot, no matter the outcome. They can do this only once.",
     },
     flavor: { pl: "„Gotcha!”", en: "\"Gotcha!\"" },
   },
@@ -145,7 +144,7 @@ export const characters: Character[] = [
     id: "infantry",
     faction: "city",
     card: "7♥",
-    abilityTypes: ["passive", "checking"],
+    abilityTypes: ["checking"],
     name: { pl: "Biedna Przeklęta Piechota", en: "Poor Bloody Infantry" },
     ability: {
       pl: "Gdy kiedykolwiek przynależność Biednej Przeklętej Piechoty do Frakcji jest sprawdzana, zostaje wykryta jako członek Mafii. W rzeczywistości, należy do Miasta.",
@@ -175,7 +174,7 @@ export const characters: Character[] = [
     id: "bodyguard",
     faction: "city",
     card: "8♥",
-    abilityTypes: ["start", "passive"],
+    abilityTypes: ["start"],
     name: { pl: "Ochroniarz", en: "Bodyguard" },
     ability: {
       pl: "Zerowej Nocy, Ochroniarz wybiera jedną osobę do chronienia. Jeżeli kiedykolwiek miałaby zginąć z rąk śmiertelnika, Ochroniarz poświęca się, by ją ocalić.",
@@ -202,7 +201,7 @@ export const characters: Character[] = [
     id: "saint",
     faction: "city",
     card: "9♥",
-    abilityTypes: ["passive"],
+    abilityTypes: [],
     name: { pl: "Święty", en: "Saint" },
     ability: {
       pl: "Posiada dwa życia. Pierwsza próba, by wyeliminować Świętego, nie zadziała.",
@@ -231,8 +230,9 @@ export const characters: Character[] = [
   {
     id: "citizen",
     faction: "city",
-    card: "4♥",
-    cards: ["4♥", "4♦", "3♥", "3♦", "2♥", "2♦"],
+    card: "4♥ / 3♥ / 2♥",
+    cards: ["4♥", "3♥", "2♥"],
+    centerCard: "2♥",
     abilityTypes: ["none"],
     name: { pl: "Mieszczanin", en: "Citizen" },
     ability: { pl: "Brak specjalnych umiejętności.", en: "No special abilities." },
@@ -247,7 +247,7 @@ export const characters: Character[] = [
     id: "mafia-boss",
     faction: "mafia",
     card: "A♠",
-    abilityTypes: ["night", "passive"],
+    abilityTypes: ["night"],
     name: { pl: "Szef Mafii", en: "Mafia Boss" },
     ability: {
       pl: "Szef Szefów. Jeżeli Mafia nie może się zdecydować, kogo zabić w Nocy, to Szef wydaje ostateczny wyrok.",
@@ -274,7 +274,7 @@ export const characters: Character[] = [
     id: "coquette",
     faction: "mafia",
     card: "Q♠",
-    abilityTypes: ["passive", "checking"],
+    abilityTypes: ["checking"],
     name: { pl: "Kokietka", en: "Coquette" },
     ability: {
       pl: "Gdy ktokolwiek sprawdza, do jakiej Frakcji przynależy, zostaje wykryta jako członkini Miasta. W rzeczywistości, należy do Mafii.",
@@ -303,8 +303,9 @@ export const characters: Character[] = [
   {
     id: "mafioso",
     faction: "mafia",
-    card: "4♠",
+    card: "4♠ / 3♠ / 2♠",
     cards: ["4♠", "3♠", "2♠"],
+    centerCard: "2♠",
     abilityTypes: ["none"],
     name: { pl: "Mafioso", en: "Mafioso" },
     ability: { pl: "Brak specjalnych umiejętności.", en: "No special abilities." },
@@ -318,7 +319,8 @@ export const characters: Character[] = [
     faction: "mafia",
     card: "A♠ / K♠",
     cards: ["A♠ / K♠"],
-    abilityTypes: ["start", "passive"],
+    centerCard: "A♠",
+    abilityTypes: ["start"],
     name: { pl: "Szef Szantażysta", en: "Blackmailing Boss" },
     ability: {
       pl: "Zerowej Nocy wybiera jedną osobę do szantażowania. Wybrana osoba poznaje tożsamość Szantażysty, i od teraz nie może działać przeciwko niemu. Jeżeli Mafia nie może się zdecydować, kogo zabić w Nocy, to Szef wydaje ostateczny wyrok.",
