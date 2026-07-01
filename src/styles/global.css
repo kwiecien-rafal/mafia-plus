@@ -21,6 +21,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Keep anchor jumps clear of the sticky header. JS refines this to the exact
+     header height; this is the no-JS fallback for the two-tier header. */
+  scroll-padding-top: 6rem;
   background-color: var(--color-ink);
   /* Base wash: a quiet vertical shift in the dark, viewport-locked so it
      holds still while the page scrolls. */
@@ -191,6 +194,50 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .banner-stage { display: none !important; }
   .cut-enabled #hero-banner { opacity: 1; }
+}
+
+/* Quick-return header: hide the global tier on scroll-down, reveal on scroll-up.
+   Shifting the sticky header up by the top tier's height brings the contextual
+   rail to the top edge. Transform-only, so it rides the compositor. */
+[data-site-header] {
+  transition: transform 0.28s ease;
+}
+[data-site-header][data-condensed] {
+  transform: translateY(calc(-1 * var(--tier1-h, 0px)));
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-site-header] { transition: none; }
+}
+
+/* Contextual section rail (header tier 2): muted anchors with a gold marker
+   sliding in under whichever section is in view — aria-current is set by the
+   scroll-spy, so the active state needs no extra classes. */
+.section-link {
+  position: relative;
+  padding: 0.35rem 0;
+  color: var(--color-muted);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.section-link:hover { color: var(--color-bone); }
+.section-link[aria-current="location"] { color: var(--color-gold); }
+.section-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.section-link[aria-current="location"]::after { transform: scaleX(1); }
+
+@media (prefers-reduced-motion: reduce) {
+  .section-link::after { transition: none; }
 }
 
 /* Language switch: both labels are always shown; a gold ball slides behind

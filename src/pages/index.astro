@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
+import SectionRail from "../components/SectionRail.astro";
 import CharacterCard from "../components/CharacterCard.astro";
 import RuleCard from "../components/RuleCard.astro";
 import T from "../components/T.astro";
@@ -23,6 +24,7 @@ import {
   exampleSets,
   exampleSetsHeaders,
   exampleSetPoolPhrase,
+  sectionNav,
   type LineupItem,
 } from "../data/content";
 
@@ -56,7 +58,9 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 ---
 
 <Layout title="Mafia+">
-  <Header />
+  <Header>
+    <SectionRail slot="rail" sections={sectionNav} />
+  </Header>
 
   <!-- Fixed slice stage: overlays the hero wordmark at rest, then splits it
        diagonally and sinks it behind the page as the user scrolls. Sits below
@@ -114,7 +118,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
     </section>
 
     <!-- ── Characters ───────────────────────────────────────── -->
-    <section id="characters" class="scroll-mt-20 py-12">
+    <section id="characters" class="py-12">
       <h2 class="font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.characters} />
       </h2>
@@ -142,7 +146,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
     </section>
 
     <!-- ── Rules ────────────────────────────────────────────── -->
-    <section id="rules" class="scroll-mt-20 py-12">
+    <section id="rules" class="py-12">
       <h2 class="font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.rules} />
       </h2>
@@ -271,7 +275,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
     </script>
 
     <!-- ── Example sets ──────────────────────────────────────── -->
-    <section id="setup" class="scroll-mt-20 py-12">
+    <section id="setup" class="py-12">
       <h2 class="font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.setup} />
       </h2>
@@ -329,7 +333,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
     </section>
 
     <!-- ── Edge cases ───────────────────────────────────────── -->
-    <section id="edge-cases" class="scroll-mt-20 py-12">
+    <section id="edge-cases" class="py-12">
       <h2 class="font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.edgeCases} />
       </h2>

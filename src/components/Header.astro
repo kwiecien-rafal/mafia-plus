@@ -1,12 +1,23 @@
 ---
-// Cross-site navigation: the mafia subdomain, its downloads endpoint,
-// the source repo, and the parent site rafalkwiecien.com.
+// Two-tier site header. Tier 1 (this component) is the global shell, identical
+// on every route: wordmark, endpoint links (other pages), and the utility
+// cluster. Tier 2 is contextual, page-scoped in-page navigation passed in
+// through the `rail` slot (see SectionRail) — pages without one render only
+// the global tier.
 import T from "./T.astro";
 import { ui } from "../data/content";
+
+const hasRail = Astro.slots.has("rail");
 ---
 
-<header class="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur-md">
-  <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3">
+<header
+  data-site-header
+  class="sticky top-0 z-50 border-b border-white/10 bg-ink/80 backdrop-blur-md"
+>
+  <div
+    data-header-top
+    class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3"
+  >
     <a href="/" aria-label="Mafia+" class="block transition-opacity hover:opacity-80">
       <span class="banner block h-7" aria-hidden="true"></span>
     </a>
@@ -15,6 +26,8 @@ import { ui } from "../data/content";
       <a class="transition-colors hover:text-bone" href="/downloads">
         <T text={ui.nav.downloads} />
       </a>
+
+      <span class="hidden h-4 w-px bg-white/15 sm:block" aria-hidden="true"></span>
 
       <a
         href="https://github.com/kwiecien-rafal/mafia-plus"
@@ -43,4 +56,67 @@ import { ui } from "../data/content";
       </button>
     </nav>
   </div>
+
+  {
+    hasRail && (
+      <div class="border-t border-white/10">
+        <div class="mx-auto max-w-6xl px-4">
+          <slot name="rail" />
+        </div>
+      </div>
+    )
+  }
 </header>
+
+<script>
+  // Quick-return header: the global tier retracts on scroll-down and returns on
+  // scroll-up, leaving the contextual rail pinned. The whole header shifts up by
+  // the top tier's height, so the rail slides to the top edge (transform only —
+  // no reflow).
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const topBar = header?.querySelector<HTMLElement>("[data-header-top]");
+
+  if (header && topBar) {
+    const measure = () => {
+      header.style.setProperty("--tier1-h", `${topBar.offsetHeight}px`);
+    };
+
+    let condensed = false;
+    const setCondensed = (next: boolean) => {
+      if (next === condensed) return;
+      condensed = next;
+      header.toggleAttribute("data-condensed", next);
+    };
+
+    let lastY = window.scrollY;
+    const JITTER = 6; // ignore trackpad/rubber-band noise
+
+    const update = () => {
+      const y = Math.max(window.scrollY, 0);
+      if (y <= topBar.offsetHeight) {
+        setCondensed(false); // keep the full header anchored near the top
+      } else if (Math.abs(y - lastY) > JITTER) {
+        setCondensed(y > lastY);
+      }
+      lastY = y;
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        update();
+      });
+    };
+
+    measure();
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => {
+      measure();
+      update();
+    });
+  }
+</script>

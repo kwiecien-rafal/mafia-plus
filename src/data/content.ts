@@ -32,6 +32,15 @@ export const ui = {
   },
 } satisfies Record<string, Bilingual | Record<string, Bilingual>>;
 
+// Home-page section rail: in-page anchors with concise labels for the header's
+// contextual tier. Ids match the <section> ids on the index page.
+export const sectionNav: { id: string; label: Bilingual }[] = [
+  { id: "characters", label: ui.nav.characters },
+  { id: "rules", label: ui.nav.rules },
+  { id: "setup", label: { pl: "Przykładowe zestawy", en: "Example Sets" } },
+  { id: "edge-cases", label: ui.nav.edgeCases },
+];
+
 // Downloads page copy.
 export const downloadsCopy = {
   download: { pl: "Pobierz", en: "Download" },

@@ -1,0 +1,87 @@
+---
+// Contextual, page-scoped navigation: in-page section anchors with a scroll-spy
+// marker. Lives in the header's second tier, distinct from the global endpoint
+// links. Each page supplies its own set (or none).
+import T from "./T.astro";
+import type { Bilingual } from "../data/characters";
+
+interface Props {
+  sections: { id: string; label: Bilingual }[];
+}
+const { sections } = Astro.props;
+---
+
+<nav
+  data-section-rail
+  aria-label="On this page"
+  class="flex flex-wrap items-center gap-x-6 gap-y-1 py-1.5"
+>
+  {
+    sections.map((s) => (
+      <a href={`#${s.id}`} data-rail-link={s.id} class="section-link text-sm">
+        <T text={s.label} />
+      </a>
+    ))
+  }
+</nav>
+
+<script>
+  const rail = document.querySelector<HTMLElement>("[data-section-rail]");
+  const header = document.querySelector<HTMLElement>("header");
+
+  if (rail && header) {
+    const links = [
+      ...rail.querySelectorAll<HTMLAnchorElement>("[data-rail-link]"),
+    ];
+    const sections = links
+      .map((a) => document.getElementById(a.dataset.railLink!))
+      .filter((el): el is HTMLElement => el !== null);
+
+    // Land anchor jumps clear of the sticky header, whatever its current height
+    // (the header wraps on narrow screens, so this can change).
+    const syncOffset = () => {
+      document.documentElement.style.scrollPaddingTop = `${header.offsetHeight}px`;
+    };
+
+    const setActive = (id: string | null) => {
+      links.forEach((a) => {
+        if (a.dataset.railLink === id) a.setAttribute("aria-current", "location");
+        else a.removeAttribute("aria-current");
+      });
+    };
+
+    // The active section is the last one whose top has crossed just below the
+    // header — deterministic and reversible on up-scroll.
+    const spy = () => {
+      const line = header.offsetHeight + 8;
+      let current: string | null = null;
+      for (const sec of sections) {
+        if (sec.getBoundingClientRect().top <= line) current = sec.id;
+      }
+      // At the foot of the page the last section can sit entirely above the
+      // line; pin it so the final entry still reads as active.
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+        current = sections[sections.length - 1]?.id ?? current;
+      }
+      setActive(current);
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        spy();
+      });
+    };
+
+    syncOffset();
+    spy();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => {
+      syncOffset();
+      spy();
+    });
+  }
+</script>
