@@ -22,16 +22,69 @@
 html {
   scroll-behavior: smooth;
   background-color: var(--color-ink);
+  /* Base wash: a quiet vertical shift in the dark, viewport-locked so it
+     holds still while the page scrolls. */
+  background-image: linear-gradient(180deg, #0e1016 0%, var(--color-ink) 46%, #08090d 100%);
+  background-attachment: fixed;
   color: var(--color-bone);
   font-family: var(--font-body);
 }
 
-body {
-  background:
-    radial-gradient(120% 80% at 50% -10%, #1c1f2b 0%, transparent 55%),
-    radial-gradient(90% 60% at 110% 110%, #14241f 0%, transparent 50%),
-    var(--color-ink);
-  min-height: 100vh;
+body { min-height: 100vh; }
+
+/* ── Backdrop: faction threads ────────────────────────────────────────
+   The three suit colours fall through the dark as soft vertical threads —
+   City red, Mafia blue, Syndicate green. Nothing moves and nothing radiates
+   from a source: two fixed layers each paint a set of colour columns (a
+   horizontal gradient gives soft left/right edges) and a vertical mask fades
+   every thread in and out along its length. The two layers carry different
+   columns and masks, so the threads sit at staggered depths rather than in a
+   single tidy row. They stay behind the content (negative z) and above the
+   html wash. */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Upper set: red, blue, green threads through the top two-thirds. */
+body::before {
+  background: linear-gradient(
+    90deg,
+    transparent 6%,
+    rgb(216 71 90 / 0.09) 13%,
+    transparent 21%,
+    transparent 35%,
+    rgb(90 130 220 / 0.085) 43%,
+    transparent 51%,
+    transparent 68%,
+    rgb(52 150 108 / 0.085) 76%,
+    transparent 84%
+  );
+  -webkit-mask: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, transparent 88%);
+  mask: linear-gradient(180deg, transparent 0%, #000 12%, #000 52%, transparent 88%);
+}
+
+/* Lower set: the suits again, offset between the upper threads and carried
+   down to the foot of the page. */
+body::after {
+  background: linear-gradient(
+    90deg,
+    transparent 21%,
+    rgb(52 150 108 / 0.08) 28%,
+    transparent 36%,
+    transparent 53%,
+    rgb(216 71 90 / 0.08) 60%,
+    transparent 68%,
+    transparent 83%,
+    rgb(90 130 220 / 0.085) 90%,
+    transparent 96%
+  );
+  -webkit-mask: linear-gradient(180deg, transparent 8%, #000 46%, #000 84%, transparent 100%);
+  mask: linear-gradient(180deg, transparent 8%, #000 46%, #000 84%, transparent 100%);
 }
 
 /* Each translatable node is rendered in both languages; CSS shows the
