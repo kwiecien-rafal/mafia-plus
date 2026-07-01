@@ -58,12 +58,12 @@ const art = characterArt[character.id];
         </div>
 
         <div class="absolute inset-x-0 bottom-0 space-y-2 p-5">
-          <h3 class="card-symbol font-display text-xl leading-tight text-bone">
+          <h3 class="card-symbol font-display text-2xl leading-tight text-bone">
             <T text={character.name} />
           </h3>
           <div class="flex flex-wrap gap-1.5">
             {character.abilityTypes.map((t) => (
-              <span class="rounded-md bg-black/35 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-bone/85 backdrop-blur-sm">
+              <span class="rounded-md bg-black/35 px-2 py-0.5 text-[0.7rem] uppercase tracking-wide text-bone/85 backdrop-blur-sm">
                 <T text={abilityTypeLabels[t]} />
               </span>
             ))}
@@ -81,7 +81,7 @@ const art = characterArt[character.id];
         <h3 class={`font-display text-lg leading-tight ${factionClasses.text}`}>
           <T text={character.name} />
         </h3>
-        <div class="mt-2 flex-1 overflow-y-auto pr-1 text-sm leading-relaxed text-bone/90">
+        <div class="mt-2 flex-1 overflow-y-auto pr-1 text-[0.95rem] leading-relaxed text-bone/90">
           <T text={character.ability} as="p" />
           <p class="mt-3 italic text-muted">
             <T text={character.flavor} />

@@ -1,5 +1,5 @@
 // Site copy: UI strings, rules prose, glossary, edge cases and the
-// sample-set tables. All bilingual, matching rules-pl.md / rules-en.md verbatim.
+// example-set tables. All bilingual, matching rules-pl.md / rules-en.md verbatim.
 import type { AbilityType, Bilingual } from "./characters";
 
 export const ui = {
@@ -15,7 +15,7 @@ export const ui = {
   nav: {
     characters: { pl: "Postacie", en: "Characters" },
     rules: { pl: "Zasady", en: "Rules" },
-    setup: { pl: "Przykładowe Zestawy Kart Postaci", en: "Sample Character Card Sets" },
+    setup: { pl: "Przykładowe Zestawy Kart Postaci", en: "Example Character Card Sets" },
     edgeCases: { pl: "Skrajne scenariusze", en: "Edge Cases" },
     downloads: { pl: "Materiały do pobrania", en: "Downloadable content" },
   },
@@ -310,7 +310,7 @@ export const edgeCases: { q: Bilingual; a: Bilingual }[] = [
   { q: { pl: "Jeżeli Terrorysta umrze, a obok siebie ma osobę która już jest wyeliminowana, co się dzieje?", en: "If the Bomber dies and the person next to them is already eliminated, what happens?" }, a: { pl: "ZOSTAJE WYELIMINOWANA NAJBLIŻSZA ŻYJĄCA OSOBA Z TEJ STRONY", en: "THE NEAREST LIVING PERSON ON THAT SIDE IS ELIMINATED" } },
 ];
 
-// ── Sample character sets ─────────────────────────────────────
+// ── Example character sets ─────────────────────────────────────
 // Each lineup slot references character ids so names stay bilingual.
 export type LineupItem =
   | { id: string } //                     a fixed character
@@ -318,7 +318,7 @@ export type LineupItem =
   | { oneOf: string[] } //                a single slot, either-or
   | { anyOf: string[]; pick: number }; // pick N of these for the faction
 
-export interface SampleSet {
+export interface ExampleSet {
   players: number;
   stats: string;
   city: LineupItem[];
@@ -328,7 +328,7 @@ export interface SampleSet {
 
 const anySyndicate = ["bartender", "mayor", "bomber", "chairmans_daughter"];
 
-export const sampleSets: SampleSet[] = [
+export const exampleSets: ExampleSet[] = [
   {
     players: 6, stats: "4-2-0",
     city: [{ id: "doctor" }, { id: "detective" }, { id: "lady_of_the_night" }, { id: "poor_bloody_infantry" }],
@@ -439,17 +439,12 @@ export const sampleSets: SampleSet[] = [
   },
 ];
 
-export const sampleSetsNote: Bilingual = {
-  pl: "Pełna tabela proponowanych składów dla 6–23 graczy. „/” oznacza wybór jednej z dwóch Postaci na to miejsce.",
-  en: "The full table of suggested line-ups for 6 to 23 players. A “/” marks a single slot to fill with either character.",
-};
-
-export const sampleSetsHeaders = {
+export const exampleSetsHeaders = {
   players: { pl: "Graczy", en: "Players" },
   stats: { pl: "Statystyki", en: "Stats" },
 };
 
 // Wording used in the table when a faction draws several characters from a pool.
-export const sampleSetPoolPhrase: Record<number, Bilingual> = {
+export const exampleSetPoolPhrase: Record<number, Bilingual> = {
   2: { pl: "Dwie postacie z puli:", en: "Two characters from the pool:" },
 };

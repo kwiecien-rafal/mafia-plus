@@ -237,7 +237,7 @@ During the **Night** shift behind the bar, the **Bartender** can get the **Mafia
 
 *"C'mon! Won't you drink with your neighbor?"*
 
-## Sample Character Card Sets
+## Example Character Card Sets
 
 | Number of Players | Starting Stats | City                                                         | Mafia                                                        | Syndicate                                                    |
 | ----------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
