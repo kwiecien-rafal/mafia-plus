@@ -50,6 +50,96 @@ body {
   mask: url("/mafia-banner.png") center / contain no-repeat;
 }
 
+/* ── Hero wordmark slice ──────────────────────────────────────────────
+   Scroll-driven and fully reversible: JS feeds one progress value --p
+   (0→1) from scrollY. Two mask copies of the wordmark, clipped to either
+   side of a diagonal cut, slide apart, grow, blur and sink to a faint
+   watermark while a dagger sweeps across. Everything derives from --p, so
+   scrolling back up plays it in reverse with no extra state. */
+.banner-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  --p: 0;
+}
+
+/* Take over only once JS confirms it can drive the effect; otherwise the
+   static hero wordmark stays put (no-JS and reduced-motion fallback). */
+:root:not(.cut-enabled) .banner-stage { display: none; }
+.cut-enabled #hero-banner { opacity: 0; }
+
+.banner-cut {
+  position: absolute;
+  left: 50%;
+  top: var(--stage-top, 25vh);
+  width: var(--stage-w, min(90vw, 38rem));
+  aspect-ratio: 1920 / 680;
+  transform: translateX(-50%) translateY(calc(var(--p) * var(--drift-y, 0px)));
+}
+
+.banner-half {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+  opacity: calc(1 - var(--p) * 0.82);
+  filter: blur(calc(var(--p) * 3px));
+}
+
+/* Cut runs lower-left → upper-right. The bottom clip is pulled ~2% past the
+   top clip's edge so the halves overlap rather than gap: at rest both paint
+   the same pixels there, hiding the seam; once split the sliver fades out. */
+.banner-half--top {
+  clip-path: polygon(-6% 88%, 106% 12%, 106% -40%, -6% -40%);
+  transform:
+    translate(calc(var(--p) * -8%), calc(var(--p) * -44%))
+    rotate(calc(var(--p) * -3.5deg))
+    scale(calc(1 + var(--p) * 1.2));
+}
+.banner-half--bottom {
+  clip-path: polygon(-6% 86%, 106% 10%, 106% 140%, -6% 140%);
+  transform:
+    translate(calc(var(--p) * 8%), calc(var(--p) * 44%))
+    rotate(calc(var(--p) * 3.5deg))
+    scale(calc(1 + var(--p) * 1.2));
+}
+
+/* Bright glint left in the dagger's wake, aligned to the cut angle. */
+.banner-slash {
+  position: absolute;
+  left: -8%;
+  right: -8%;
+  top: 50%;
+  height: 3px;
+  transform: translateY(-50%) rotate(-15deg);
+  background: linear-gradient(90deg, transparent, #fff 45%, var(--color-gold) 58%, transparent);
+  opacity: calc(var(--knife-o, 0) * 0.9);
+  filter: drop-shadow(0 0 8px var(--color-gold));
+}
+
+.banner-knife { position: absolute; inset: 0; }
+.banner-knife svg {
+  position: absolute;
+  width: 42%;
+  height: auto;
+  /* Rides the cut: travels left→right while climbing to match the slope. */
+  left: calc(-15% + var(--knife, 0) * 130%);
+  top: calc(80% - var(--knife, 0) * 68%);
+  transform: translate(-50%, -50%) rotate(-15deg);
+  opacity: var(--knife-o, 0);
+  filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .banner-stage { display: none !important; }
+  .cut-enabled #hero-banner { opacity: 1; }
+}
+
 /* Language switch: both labels are always shown; a gold ball slides behind
    the active one. Position is driven by data-lang so it survives the
    pre-paint script with no flash and needs no JS for the animation. */
@@ -97,7 +187,10 @@ body {
 .download-btn[aria-busy="true"] .download-label { display: none; }
 .download-btn[aria-busy="true"] .download-spinner { display: inline-flex; }
 
-.flip { perspective: 1200px; }
+/* Perspective sits on an inner stage, not the card root, so the frosted panel
+   behind it (a sibling of the stage) is free of any transform ancestor and its
+   backdrop-filter can still blur the page behind the card. */
+.flip-stage { perspective: 1200px; }
 .flip-inner {
   transform-style: preserve-3d;
   transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
