@@ -190,14 +190,23 @@ body {
 /* Perspective sits on an inner stage, not the card root, so the frosted panel
    behind it (a sibling of the stage) is free of any transform ancestor and its
    backdrop-filter can still blur the page behind the card. */
+.flip { --flip-dur: 0.5s; }
 .flip-stage { perspective: 1200px; }
 .flip-inner {
   transform-style: preserve-3d;
-  transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform var(--flip-dur) ease-in-out;
 }
 .flip[data-flipped="true"] .flip-inner { transform: rotateY(180deg); }
+
 .flip-face {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  /* A backdrop-filter in the tree makes some engines ignore backface-visibility,
+     so the transparent back would let the front bleed through. Hard-swap the two
+     faces at the flip's midpoint, when the card is edge-on and the cut invisible.
+     ease-in-out keeps the rotation's 90° point exactly at half the duration. */
+  transition: border-color 0.2s ease, opacity 0s linear calc(var(--flip-dur) / 2);
 }
-.flip-back { transform: rotateY(180deg); }
+.flip-back { opacity: 0; transform: rotateY(180deg); }
+.flip[data-flipped="true"] .flip-face:not(.flip-back) { opacity: 0; }
+.flip[data-flipped="true"] .flip-back { opacity: 1; }
