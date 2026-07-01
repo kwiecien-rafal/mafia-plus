@@ -114,7 +114,7 @@ export const characters: Character[] = [
     },
   },
   {
-    id: "lady",
+    id: "lady_of_the_night",
     faction: "city",
     card: "Q♥",
     abilityTypes: ["start", "checking"],
@@ -129,7 +129,7 @@ export const characters: Character[] = [
     },
   },
   {
-    id: "loose-cannon",
+    id: "loose_cannon",
     faction: "city",
     card: "A♦",
     abilityTypes: ["day", "oneTime"],
@@ -141,7 +141,7 @@ export const characters: Character[] = [
     flavor: { pl: "„Gotcha!”", en: "\"Gotcha!\"" },
   },
   {
-    id: "infantry",
+    id: "poor_bloody_infantry",
     faction: "city",
     card: "7♥",
     abilityTypes: ["checking"],
@@ -160,14 +160,14 @@ export const characters: Character[] = [
     faction: "city",
     card: "K♦",
     abilityTypes: ["night"],
-    name: { pl: "Kolejarz", en: "Conductor" },
+    name: { pl: "Kolejarz", en: "Railwayman" },
     ability: {
       pl: "Każdej Nocy, Kolejarz wybiera jedną osobę do wywiezienia. Przez cały następny Dzień i Noc ta osoba jest poza miastem – nie może mówić, głosować, używać swojej umiejętności, ani zostać zaatakowana bądź sprawdzona. Każdy do pociągu może wsiąść tylko raz. Kolejarz nie może wywieźć sam siebie.",
-      en: "Every Night, the Conductor chooses one person to ship out of town. For the entire next Day and Night, that person is out of town – they cannot speak, vote, use their ability, or be attacked or investigated. Each person can board the train only once. The Conductor cannot ship themselves out.",
+      en: "Every Night, the Railwayman chooses one person to ship out of town. For the entire next Day and Night, that person is out of town – they cannot speak, vote, use their ability, or be attacked or investigated. Each person can board the train only once. The Railwayman cannot ship themselves out.",
     },
     flavor: {
       pl: "Kolejarz zatroszczy się o Pana…",
-      en: "The Conductor will take good care of you…",
+      en: "Railwayman will take good care of you…",
     },
   },
   {
@@ -213,7 +213,7 @@ export const characters: Character[] = [
     },
   },
   {
-    id: "gun-owner",
+    id: "gun_shop_owner",
     faction: "city",
     card: "10♦",
     abilityTypes: ["posthumous"],
@@ -244,7 +244,7 @@ export const characters: Character[] = [
 
   // ── MAFIA ────────────────────────────────────────────────────
   {
-    id: "mafia-boss",
+    id: "mafia_boss",
     faction: "mafia",
     card: "A♠",
     abilityTypes: ["night"],
@@ -315,7 +315,7 @@ export const characters: Character[] = [
     },
   },
   {
-    id: "blackmailer-boss",
+    id: "blackmailer_boss",
     faction: "mafia",
     card: "A♠ / K♠",
     cards: ["A♠ / K♠"],
@@ -335,7 +335,7 @@ export const characters: Character[] = [
 
   // ── SYNDICATE ────────────────────────────────────────────────
   {
-    id: "angel-of-death",
+    id: "angel_of_death",
     faction: "syndicate",
     card: "A♣",
     abilityTypes: ["night"],
@@ -380,7 +380,7 @@ export const characters: Character[] = [
     },
   },
   {
-    id: "terrorist",
+    id: "bomber",
     faction: "syndicate",
     card: "10♣",
     abilityTypes: ["posthumous"],
@@ -392,7 +392,7 @@ export const characters: Character[] = [
     flavor: { pl: "*Bum.*", en: "*Boom.*" },
   },
   {
-    id: "terrorist-plus",
+    id: "bomber_plus",
     faction: "syndicate",
     card: "10♣",
     abilityTypes: ["posthumous"],
@@ -404,7 +404,7 @@ export const characters: Character[] = [
     flavor: { pl: "*BUM!*", en: "*BOOM!*" },
   },
   {
-    id: "chairmans-daughter",
+    id: "chairmans_daughter",
     faction: "syndicate",
     card: "Q♣",
     abilityTypes: ["voting", "oneTime"],

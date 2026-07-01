@@ -263,3 +263,61 @@ body::after {
 .flip-back { opacity: 0; transform: rotateY(180deg); }
 .flip[data-flipped="true"] .flip-face:not(.flip-back) { opacity: 0; }
 .flip[data-flipped="true"] .flip-back { opacity: 1; }
+
+/* ── Character art ────────────────────────────────────────────────────
+   The drawing is the card front: it fills the whole face, the rank+suit
+   and the name/ability footer read over it on a scrim. --art-accent
+   carries the faction colour for the placeholder wash when a drawing is
+   missing. */
+.card-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Bias toward the head: when a wide card forces a vertical crop, keep the
+     face and lose the feet (which the footer covers anyway). */
+  object-position: 50% 22%;
+  transition: transform 0.5s ease;
+}
+
+/* Slow zoom while hovering the card, before the click flips it. */
+.group:hover .card-art { transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce) {
+  .card-art { transition: none; }
+  .group:hover .card-art { transform: none; }
+}
+
+/* Placeholder for characters whose drawing isn't in yet: a faction-tinted
+   wash standing in for the art's background, with the rank+suit centred. */
+.card-art--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(120% 90% at 50% 36%, color-mix(in srgb, var(--art-accent, var(--color-muted)) 28%, transparent), transparent 60%),
+    linear-gradient(180deg, var(--color-ink-soft), #0b0d12);
+}
+.card-art--empty span {
+  font-size: clamp(4rem, 9vw, 6rem);
+  line-height: 1;
+  opacity: 0.9;
+}
+
+/* Darkens the top (for the rank+suit) and foot (for the footer) while
+   leaving the figure in the clear middle band. */
+.card-scrim {
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0.5) 0%,
+    rgb(0 0 0 / 0.12) 15%,
+    transparent 34%,
+    transparent 48%,
+    rgb(0 0 0 / 0.5) 74%,
+    rgb(0 0 0 / 0.9) 100%
+  );
+}
+
+/* Keeps the symbols and name legible over any part of the drawing. */
+.card-symbol { text-shadow: 0 1px 4px rgb(0 0 0 / 0.65); }
