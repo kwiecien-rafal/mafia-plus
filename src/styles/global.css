@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Faction palette follows the playing-card suits each role maps to:
+   City ♥♦ red, Mafia ♠ blue, Syndicate ♣ bottle-green. Values below
+   are the dark-mode tints; a light-mode variant can override later. */
+@theme {
+  --color-ink: #0b0c10;
+  --color-ink-soft: #14161d;
+  --color-ink-card: #1b1e27;
+  --color-bone: #e8e3d3;
+  --color-muted: #9a9384;
+
+  --color-gold: #c9a227;
+  --color-city: #d8475a;
+  --color-mafia: #7fb0ec;
+  --color-syndicate: #3fb084;
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ink);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+}
+
+body {
+  background:
+    radial-gradient(120% 80% at 50% -10%, #1c1f2b 0%, transparent 55%),
+    radial-gradient(90% 60% at 110% 110%, #14241f 0%, transparent 50%),
+    var(--color-ink);
+  min-height: 100vh;
+}
+
+/* Each translatable node is rendered in both languages; CSS shows the
+   active one. English is the default, including the JS-off fallback. */
+:root[data-lang="pl"] [data-l="en"] { display: none; }
+:root[data-lang="en"] [data-l="pl"] { display: none; }
+
+.font-display { font-family: var(--font-display); }
+
+/* Logo wordmark, tinted via a mask so it inherits the bone color. Sized by
+   a width or height utility at the call site; aspect-ratio fills the rest. */
+.banner {
+  aspect-ratio: 1920 / 680;
+  background-color: var(--color-bone);
+  -webkit-mask: url("/mafia-banner.png") center / contain no-repeat;
+  mask: url("/mafia-banner.png") center / contain no-repeat;
+}
+
+/* Language switch: both labels are always shown; a gold ball slides behind
+   the active one. Position is driven by data-lang so it survives the
+   pre-paint script with no flash and needs no JS for the animation. */
+.lang-toggle {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  border-radius: 9999px;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  transition: border-color 0.2s;
+}
+.lang-toggle:hover { border-color: var(--color-gold); }
+
+.lang-ball {
+  position: absolute;
+  inset: 0.25rem auto 0.25rem 0.25rem;
+  width: calc(50% - 0.25rem);
+  border-radius: 9999px;
+  background: rgb(201 162 39 / 0.2);
+  transition: transform 0.3s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+:root[data-lang="pl"] .lang-ball { transform: translateX(100%); }
+
+.lang-label {
+  position: relative;
+  z-index: 1;
+  min-width: 2.5rem;
+  padding: 0.25rem 0.625rem;
+  text-align: center;
+  color: var(--color-muted);
+  transition: color 0.3s;
+}
+:root[data-lang="en"] .lang-label[data-l-active="en"],
+:root[data-lang="pl"] .lang-label[data-l-active="pl"] {
+  color: var(--color-bone);
+}
+
+/* Download button: while fetching it dims, blocks clicks and swaps its label
+   for a spinner. State is driven by aria-busy so it needs no extra classes. */
+.download-spinner { display: none; }
+.download-btn[aria-busy="true"] { pointer-events: none; opacity: 0.6; }
+.download-btn[aria-busy="true"] .download-label { display: none; }
+.download-btn[aria-busy="true"] .download-spinner { display: inline-flex; }
+
+.flip { perspective: 1200px; }
+.flip-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.5s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+.flip[data-flipped="true"] .flip-inner { transform: rotateY(180deg); }
+.flip-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.flip-back { transform: rotateY(180deg); }

@@ -1,0 +1,83 @@
+---
+import "../styles/global.css";
+import { ui } from "../data/content";
+
+interface Props {
+  title?: string;
+}
+const { title = "Mafia+" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" data-lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="description" content={`${ui.tagline.pl} — ${ui.tagline.en}`} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Resolve language before first paint to avoid a flash. -->
+    <script is:inline>
+      (function () {
+        try {
+          var l = localStorage.getItem("mafia-lang");
+          if (l !== "pl" && l !== "en") l = "en";
+          document.documentElement.setAttribute("data-lang", l);
+          document.documentElement.setAttribute("lang", l);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen antialiased">
+    <slot />
+
+    <!-- Language toggle + card flip behaviour -->
+    <script is:inline>
+      (function () {
+        var root = document.documentElement;
+        var langToggle = document.querySelector("[data-lang-toggle]");
+
+        function setLang(l) {
+          root.setAttribute("data-lang", l);
+          root.setAttribute("lang", l);
+          try {
+            localStorage.setItem("mafia-lang", l);
+          } catch (e) {}
+        }
+
+        if (langToggle) {
+          langToggle.addEventListener("click", function () {
+            setLang(root.getAttribute("data-lang") === "pl" ? "en" : "pl");
+          });
+        }
+
+        // Flip cards
+        document.querySelectorAll(".flip").forEach(function (card) {
+          function toggle() {
+            card.setAttribute(
+              "data-flipped",
+              card.getAttribute("data-flipped") === "true" ? "false" : "true"
+            );
+          }
+          card.addEventListener("click", toggle);
+          card.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              toggle();
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

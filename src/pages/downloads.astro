@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import T from "../components/T.astro";
+import { ui, downloadsCopy } from "../data/content";
+import { downloadFiles } from "../data/downloads";
+
+const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
+---
+
+<Layout title="Downloads — Mafia+">
+  <Header />
+
+  <main class="mx-auto max-w-4xl px-4 py-20">
+    <h1 class="font-display text-4xl text-bone sm:text-5xl">
+      <T text={ui.nav.downloads} />
+    </h1>
+
+    <ul class="mt-12 space-y-5">
+      {downloadFiles.map((file) => (
+        <li class="rounded-2xl border border-white/10 bg-ink-card/50 p-6">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <h2 class="font-display text-xl text-bone">
+                <T text={downloadsCopy.fileLabels[file.lang]} />
+              </h2>
+              <p class="mt-1 font-mono text-xs text-muted">{file.filename} · {kb(file.bytes)}</p>
+            </div>
+            <a
+              href={file.href}
+              download={file.filename}
+              aria-busy="false"
+              class="download-btn inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 px-5 py-2 text-sm font-semibold text-gold transition-colors hover:border-gold hover:bg-gold/10"
+            >
+              <span class="download-label inline-flex items-center gap-2"><T text={downloadsCopy.download} /> ↓</span>
+              <span class="download-spinner items-center gap-2" aria-hidden="true">
+                <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.37 0 0 5.37 0 12h4z"></path>
+                </svg>
+                <T text={downloadsCopy.downloading} />
+              </span>
+            </a>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </main>
+
+  <script>
+    // Progressive enhancement: the anchors already download natively. With JS we
+    // fetch the file as a blob so the button can show a real spinner until the
+    // bytes are in hand, then hand the blob to the browser's save flow.
+    document.querySelectorAll<HTMLAnchorElement>("a.download-btn").forEach((link) => {
+      link.addEventListener("click", async (event) => {
+        if (link.getAttribute("aria-busy") === "true") {
+          event.preventDefault();
+          return;
+        }
+        event.preventDefault();
+        link.setAttribute("aria-busy", "true");
+        try {
+          const res = await fetch(link.href);
+          if (!res.ok) throw new Error(String(res.status));
+          const url = URL.createObjectURL(await res.blob());
+          const tmp = document.createElement("a");
+          tmp.href = url;
+          tmp.download = link.getAttribute("download") ?? "";
+          document.body.appendChild(tmp);
+          tmp.click();
+          tmp.remove();
+          URL.revokeObjectURL(url);
+        } catch {
+          window.location.href = link.href; // fall back to the native download
+        } finally {
+          link.setAttribute("aria-busy", "false");
+        }
+      });
+    });
+  </script>
+</Layout>

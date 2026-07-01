@@ -1,0 +1,232 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import CharacterCard from "../components/CharacterCard.astro";
+import RuleCard from "../components/RuleCard.astro";
+import T from "../components/T.astro";
+import {
+  characters,
+  factions,
+  factionOrder,
+  abilityTypeLabels,
+  compareByCard,
+  type Bilingual,
+} from "../data/characters";
+import {
+  ui,
+  ruleSections,
+  abilityKinds,
+  checkGestures,
+  checkGestureIntro,
+  glossary,
+  edgeCases,
+  sampleSets,
+  sampleSetsNote,
+  sampleSetsHeaders,
+  sampleSetPoolPhrase,
+  type LineupItem,
+} from "../data/content";
+
+const charById = new Map(characters.map((c) => [c.id, c] as const));
+const ruleById = new Map(ruleSections.map((s) => [s.id, s] as const));
+
+function nm(id: string, lang: "pl" | "en") {
+  return charById.get(id)?.name[lang] ?? id;
+}
+const both = (fn: (lang: "pl" | "en") => string): Bilingual => ({ pl: fn("pl"), en: fn("en") });
+
+// Renders a lineup slot the way the source rulebook table phrases it: counts as
+// "Name x2", either-or slots joined by " / ", and a multi-pick pool on its own
+// line under a lead-in (prefixed with "+" when it follows a fixed character).
+function itemText(item: LineupItem, isFirst: boolean): Bilingual {
+  if ("count" in item) return both((l) => `${nm(item.id, l)} x${item.count}`);
+  if ("oneOf" in item) return both((l) => item.oneOf.map((i) => nm(i, l)).join(" / "));
+  if ("anyOf" in item) {
+    const list = (l: "pl" | "en") => item.anyOf.map((i) => nm(i, l)).join(" / ");
+    if (item.pick === 1) return both(list);
+    const lead = sampleSetPoolPhrase[item.pick];
+    return both((l) => `${isFirst ? "" : "+"}${lead?.[l] ?? ""}\n${list(l)}`);
+  }
+  return both((l) => nm(item.id, l));
+}
+---
+
+<Layout title="Mafia+">
+  <Header />
+
+  <main id="top" class="mx-auto max-w-6xl px-4">
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="flex flex-col items-center py-20 text-center sm:py-28">
+      <h1>
+        <span class="sr-only">Mafia+</span>
+        <span class="banner block w-[min(90vw,38rem)]" aria-hidden="true"></span>
+      </h1>
+      <p class="mt-10 max-w-xl text-balance text-lg text-muted">
+        <T text={ui.intro} />
+      </p>
+    </section>
+
+    <!-- ── Characters ───────────────────────────────────────── -->
+    <section id="characters" class="scroll-mt-20 py-12">
+      <h2 class="font-display text-3xl text-bone sm:text-4xl"><T text={ui.nav.characters} /></h2>
+
+      {factionOrder.map((f) => (
+        <div class="mt-12">
+          <h3 class={`mb-5 font-display text-2xl ${factions[f].style.text}`}>
+            <span class="mr-1">{factions[f].suit}</span><T text={factions[f].name} />
+          </h3>
+          <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {characters.filter((c) => c.faction === f).sort(compareByCard).map((c) => (
+              <CharacterCard character={c} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- ── Rules ────────────────────────────────────────────── -->
+    <section id="rules" class="scroll-mt-20 py-12">
+      <h2 class="font-display text-3xl text-bone sm:text-4xl"><T text={ui.nav.rules} /></h2>
+      <!-- Cards follow rules-en.md order; the masonry script packs them into
+           the shorter column, so this list is also their reading priority. -->
+      <div id="rules-masonry" class="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start">
+        <div class="flex flex-col gap-8 lg:flex-1" data-rules-col>
+          <RuleCard section={ruleById.get("goal")!} />
+          <RuleCard section={ruleById.get("setup")!} />
+
+          <div data-rules-card class="rounded-2xl border border-white/10 bg-ink-card/50 p-6">
+            <h3 class="font-display text-xl text-gold"><T text={ui.headings.abilityKinds} /></h3>
+            <dl class="mt-4 space-y-2.5 text-sm">
+              {abilityKinds.map((k) => (
+                <div class="flex gap-3">
+                  <dt class="w-28 shrink-0 font-semibold text-bone"><T text={abilityTypeLabels[k.key]} /></dt>
+                  <dd class="text-muted"><T text={k.desc} /></dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div data-rules-card class="rounded-2xl border border-white/10 bg-ink-card/50 p-6">
+            <h3 class="font-display text-xl text-gold"><T text={ui.headings.glossary} /></h3>
+            <dl class="mt-3 space-y-2 text-sm">
+              {glossary.map((g) => (
+                <div>
+                  <dt class="font-semibold text-bone"><T text={g.term} /></dt>
+                  <dd class="text-muted"><T text={g.def} /></dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <RuleCard section={ruleById.get("night")!} />
+          <RuleCard section={ruleById.get("day")!} />
+          <RuleCard section={ruleById.get("voting")!} />
+
+          <div data-rules-card class="rounded-2xl border border-white/10 bg-ink-card/50 p-6">
+            <h3 class="font-display text-xl text-gold"><T text={ui.headings.checking} /></h3>
+            <p class="mt-3 text-sm text-muted"><T text={checkGestureIntro} /></p>
+            <ul class="mt-4 space-y-3">
+              {checkGestures.map((g) => (
+                <li class="flex items-center gap-3 text-sm text-bone/90">
+                  <span class="text-2xl">{g.emoji}</span><T text={g.label} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col gap-8 lg:flex-1" data-rules-col></div>
+      </div>
+    </section>
+
+    <!-- Masonry: drop each rule card into the shorter column so blocks pack
+         tight by content height instead of stretching to a shared row. -->
+    <script>
+      const masonry = document.getElementById("rules-masonry");
+      if (masonry) {
+        const cols = [...masonry.querySelectorAll<HTMLElement>("[data-rules-col]")];
+        const cards = [...masonry.querySelectorAll<HTMLElement>("[data-rules-card]")];
+        const isWide = () => window.matchMedia("(min-width: 1024px)").matches;
+
+        const layout = () => {
+          cards.forEach((card) => card.remove());
+          if (!isWide()) {
+            cards.forEach((card) => cols[0].appendChild(card));
+            return;
+          }
+          cards.forEach((card) => {
+            const shortest = cols.reduce((a, b) => (a.offsetHeight <= b.offsetHeight ? a : b));
+            shortest.appendChild(card);
+          });
+        };
+
+        layout();
+        let frame: number;
+        window.addEventListener("resize", () => {
+          cancelAnimationFrame(frame);
+          frame = requestAnimationFrame(layout);
+        });
+      }
+    </script>
+
+    <!-- ── Sample sets ──────────────────────────────────────── -->
+    <section id="setup" class="scroll-mt-20 py-12">
+      <h2 class="font-display text-3xl text-bone sm:text-4xl"><T text={ui.nav.setup} /></h2>
+      <p class="mt-2 max-w-2xl text-muted"><T text={sampleSetsNote} /></p>
+      <div class="mt-8 overflow-x-auto rounded-2xl border border-white/10">
+        <table class="w-full border-collapse text-left text-sm">
+          <thead class="bg-white/5 text-xs uppercase tracking-wide text-muted">
+            <tr>
+              <th class="px-4 py-3"><T text={sampleSetsHeaders.players} /></th>
+              <th class="px-4 py-3"><T text={sampleSetsHeaders.stats} /></th>
+              <th class={`px-4 py-3 ${factions.city.style.text}`}>{factions.city.suit} <T text={factions.city.name} /></th>
+              <th class={`px-4 py-3 ${factions.mafia.style.text}`}>{factions.mafia.suit} <T text={factions.mafia.name} /></th>
+              <th class={`px-4 py-3 ${factions.syndicate.style.text}`}>{factions.syndicate.suit} <T text={factions.syndicate.name} /></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            {sampleSets.map((set) => (
+              <tr class="align-top">
+                <td class="px-4 py-4 font-display text-lg text-bone">{set.players}</td>
+                <td class="px-4 py-4 font-mono text-gold">{set.stats}</td>
+                {[set.city, set.mafia, set.syndicate].map((lineup) => (
+                  <td class="px-4 py-4">
+                    <ul class="space-y-1 text-bone/85">
+                      {lineup.length === 0 ? (
+                        <li class="text-muted">—</li>
+                      ) : (
+                        lineup.map((item, i) => <T text={itemText(item, i === 0)} as="li" class="whitespace-pre-line" />)
+                      )}
+                    </ul>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── Edge cases ───────────────────────────────────────── -->
+    <section id="edge-cases" class="scroll-mt-20 py-12">
+      <h2 class="font-display text-3xl text-bone sm:text-4xl"><T text={ui.nav.edgeCases} /></h2>
+      <div class="mt-8 grid gap-4 md:grid-cols-2">
+        {edgeCases.map((qa) => (
+          <div class="rounded-xl border border-white/10 bg-ink-card/50 p-4">
+            <p class="flex items-start gap-3 text-sm font-medium text-bone/90">
+              <span class="text-gold">?</span><T text={qa.q} />
+            </p>
+            <p class="mt-3 border-t border-white/10 pt-3 text-sm text-syndicate">
+              <T text={qa.a} />
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="mt-12 border-t border-white/10 py-10 text-center text-sm text-muted">
+    <p class="mx-auto max-w-md px-4"><T text={ui.footer} /></p>
+    <p class="mt-3 text-xs text-muted/60">© Mafia+</p>
+  </footer>
+</Layout>

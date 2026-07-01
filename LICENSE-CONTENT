@@ -1,0 +1,42 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Rafał Kwiecień
+
+This license covers the *creative content* of Mafia+ — distinct from the
+source code, which is licensed separately under the MIT License (see LICENSE).
+
+Content under this license includes, but is not limited to:
+
+  - the game rules and all rules prose (e.g. rules-en.md, rules-pl.md);
+  - character names, abilities, flavor text and other written material;
+  - artwork, images and other visual assets (e.g. files under public/).
+
+You are free to:
+
+  - Share — copy and redistribute the material in any medium or format;
+  - Adapt — remix, transform, and build upon the material for any purpose,
+    even commercially.
+
+Under the following term:
+
+  - Attribution — You must give appropriate credit, provide a link to this
+    license, and indicate if changes were made. You may do so in any
+    reasonable manner, but not in any way that suggests the licensor endorses
+    you or your use.
+
+Suggested attribution:
+
+  "Mafia+" by Rafał Kwiecień, licensed under CC BY 4.0.
+  https://github.com/kwiecien-rafal/mafia-plus
+
+The full legal text of this license is available at:
+
+  https://creativecommons.org/licenses/by/4.0/legalcode
+
+A plain-language summary (not a substitute for the license) is at:
+
+  https://creativecommons.org/licenses/by/4.0/
+
+Note: Copyright protects the specific expression above (the text and art),
+not the underlying game design, mechanics or methods of play, which are not
+subject to copyright.

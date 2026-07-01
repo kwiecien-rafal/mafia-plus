@@ -1,0 +1,13 @@
+# Cloudflare Pages headers. Applied at the edge to the static assets.
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+
+# Rulebook downloads: fixed type, served as an attachment, never sniffed.
+/downloads/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Content-Disposition: attachment
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600, must-revalidate

@@ -1,0 +1,15 @@
+---
+// Bilingual inline text. Renders both languages; CSS shows the active one.
+import type { Bilingual } from "../data/characters";
+
+interface Props {
+  text: Bilingual;
+  as?: keyof HTMLElementTagNameMap;
+  class?: string;
+}
+
+const { text, as = "span", class: className } = Astro.props;
+const Tag = as as any;
+---
+
+<Tag class={className}><span data-l="pl">{text.pl}</span><span data-l="en">{text.en}</span></Tag>
