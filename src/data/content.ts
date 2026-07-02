@@ -453,7 +453,7 @@ export const exampleSets: ExampleSet[] = [
 ];
 
 export const exampleSetsHeaders = {
-  players: { pl: "Graczy", en: "Players" },
+  players: { pl: "Gracze", en: "Players" },
   stats: { pl: "Statystyki", en: "Stats" },
 };
 
