@@ -9,13 +9,13 @@ Players take on mysterious characters belonging to one of three **Factions**. Ev
 
 Optionally, for more advanced players, you can play with a third, **Additional Faction**:
 
-- **Syndicate **– a shadowy organization that plays by its own rules. They care nothing for either side of the conflict and win independently of everyone else, as long as they survive to the end of the game.
+- **Syndicate** – a shadowy organization that plays by its own rules. They care nothing for either side of the conflict and win independently of everyone else, as long as they survive to the end of the game.
 
 The **City's** goal is to **eliminate the Mafia**, and the **Mafia's** goal is to **eliminate the City**. The **Syndicate**… well, it just has a good time and wins if it survives to the end of the game. The game ends the moment every player of one of the **Core Factions** has been **eliminated**.
 
 ## Game Setup
 
-The game needs one person to run it – the **Game Master **(**GM**). To begin, the group together picks as many Character Cards as there are players, not counting the **GM** (see below: Character Sets). The **GM** shuffles the chosen Character Cards and deals one to each player. !*Note: do this in secret — no one may see anyone else's card*.
+The game needs one person to run it – the **Game Master** (**GM**). To begin, the group together picks as many Character Cards as there are players, not counting the **GM** (see below: Character Sets). The **GM** shuffles the chosen Character Cards and deals one to each player. !*Note: do this in secret — no one may see anyone else's card*.
 
 Nearly all Characters in the full pool are unique and have special **abilities**. There are also Characters with no **abilities** at all, and several of those may appear in the same game at once.
 
@@ -26,20 +26,20 @@ Nearly all Characters in the full pool are unique and have special **abilities**
 - **Day** – can only be activated during the **Day**.
 - **Single-Use** – can be used only once per game.
 - **Voting** – affects the **vote**.
-- **Reveal** – related to **revealing**.
+- **Revealing** – related to the act of **revealing**.
 - **Posthumous** – triggers on its own the moment its owner dies.
 - **No Ability**
 
 ## Glossary
 
-- **elimination **– removing a player from the game. Once **eliminated**, a player may not speak for the rest of the game.
-- **stats **– the number of players currently alive in each **Faction**. For example, if at a given moment 6 people from the **City**, 2 from the **Mafia**, and 3 from the **Syndicate** are alive, the **stats** read "6-2-3".
-- **starting stats **– the size of each **Faction** at the start of the game.
-- **sleeping / falling asleep ** – we speak of **sleeping** when a player has their eyes closed. **Falling asleep** means closing your eyes until the **GM** announces they may be opened.
-- **waking **– opening your eyes on the **GM's** command.
+- **elimination** – removing a player from the game. Once **eliminated**, a player may not speak for the rest of the game.
+- **stats** – the number of players currently alive in each **Faction**. For example, if at a given moment 6 people from the **City**, 2 from the **Mafia**, and 3 from the **Syndicate** are alive, the **stats** read "6-2-3".
+- **starting stats** – the size of each **Faction** at the start of the game.
+- **sleeping / falling asleep** – we speak of **sleeping** when a player has their eyes closed. **Falling asleep** means closing your eyes until the **GM** announces they may be opened.
+- **waking** – opening your eyes on the **GM's** command.
 - **voting** – takes place at the end of every **Day**. When the **GM** announces that **voting** begins, anyone may name an **accused** they believe should walk the plank.
 - **accusation** – naming someone as a suspect during **voting**.
-- **revealing **– the act of the **GM **revealing someone's **Faction**.
+- **revealing** – the act of the **GM** revealing someone's **Faction**.
 
 ## Night
 
@@ -53,11 +53,11 @@ On every following **Night**, the **GM wakes the Mafia**, who choose one player 
 
 Example:
 
-- \**It's Night, everyone is asleep*\*
-- **GM**: “**The Doctor** wakes and chooses someone to heal.”
-- \****The Doctor** opens their eyes, then silently points at someone with their hand*\*
-- **GM**: “Thank you. That person can sleep soundly tonight. **The Doctor** goes back to sleep.”
-- \****The Doctor** closes their eyes*\*
+*It's Night, everyone is asleep*  
+**GM**: “**The Doctor** wakes and chooses someone to heal.”  
+***The Doctor** opens their eyes, then silently points at someone with their hand*  
+**GM**: “Thank you. That person can sleep soundly tonight. **The Doctor** goes back to sleep.”  
+***The Doctor** closes their eyes*
 
 ## Day
 
@@ -69,9 +69,9 @@ During the **Day**, players talk, work out who's suspicious, and throw out accus
 
 ## Voting
 
-**Voting **must take place at the end of each **Day**. It is the only way, unrelated to any character's **abilities**, for the **City **to **eliminate** someone. Anyone may **accuse** someone as a suspect, either to **reveal** or to **eliminate** them. The **accused **have the right to defend themselves. The **GM **decides when the discussion ends and the **vote** begins. **Voting** is open\* – the **GM** asks each player who they wish to cast their vote for. In the case of majority of votes landing on one person, that person is **eliminated**. In the event of a tie, the **GM **asks the players to debate again, potentially narrowing down the list of the accused.
+**Voting** must take place at the end of each **Day**. It is the only way, unrelated to any character's **abilities**, for the **City** to **eliminate** someone. Anyone may **accuse** someone as a suspect, either to **reveal** or to **eliminate** them. The **accused** have the right to defend themselves. The **GM** decides when the discussion ends and the **vote** begins. **Voting** is open\* – the **GM** asks each player who they wish to cast their vote for. In the case of majority of votes landing on one person, that person is **eliminated**. In the event of a tie, the **GM** asks the players to debate again, potentially narrowing down the list of the accused.
 
-It's also possible to hold a **vote to** **reveal** instead of **to** **eliminate** – but only if the **GM **allows it, at their discretion\*\*. A good example of when the **GM** might suggest a **vote to investigate** is <u>the first **Day**</u>, when players aren't yet sure of anything, or after a tie in a regular **vote**.
+It's also possible to hold a **vote to** **reveal** instead of **to** **eliminate** – but only if the **GM** allows it, at their discretion\*\*. A good example of when the **GM** might suggest a **vote to investigate** is <u>the first **Day**</u>, when players aren't yet sure of anything, or after a tie in a regular **vote**.
 
 \**You can also hold a secret vote, for example using slips of paper and pens.*
 
@@ -137,7 +137,7 @@ Has **two lives**. The first attempt to **eliminate the Saint will fail**.
 
 #### (8♡) Bodyguard
 
-On **Night Zero**, the **Bodyguard** choose **one person** to protect. If that person would ever die at the hands of a mortal, the **Bodyguard sacrifices themselves** **to save them**.
+On **Night Zero**, the **Bodyguard** choose **one person** to protect. If that person would ever die at the hands of a mortal, the **Bodyguard** **sacrifices themselves to save them**.
 
 *You'll wonder whether it was worth it in your grave.*
 
@@ -181,7 +181,7 @@ Whenever the **Coquette** gets her **Faction** **revealed**, she comes up as a m
 
 #### (10♠) Janitor
 
-During the **Night **shift at the city hall, the **Janitor** can sweep the **Mafia's **dirt under the rug. For the **entirety of the next Day**, no one can learn the **stats**. They can do this only **once**.
+During the **Night** shift at the city hall, the **Janitor** can sweep the **Mafia's** dirt under the rug. For the **entirety of the next Day**, no one can learn the **stats**. They can do this only **once**.
 
 *Some papers simply vanish.*
 
@@ -197,7 +197,7 @@ On **Night Zero**, the **Blackmailer Boss** chooses **one person** to blackmail.
 
 *Just don't get yourself killed.*
 
-<u>**a fusion of the Mafia Boss and the Blackmailer - useful for better Faction balance - make sure the pool of available characters doesn't include either of those two characters at the same time as the Blackmailing Boss.*</u>
+\**a fusion of the Mafia Boss and the Blackmailer - useful for better Faction balance - make sure the pool of available characters doesn't include either of those two characters at the same time as the Blackmailing Boss.*
 
 ### ♣ Syndicate
 
@@ -209,7 +209,7 @@ On **Night Zero**, the **Blackmailer Boss** chooses **one person** to blackmail.
 
 #### (K♣) Mayor
 
-If a **vote **ends with the **Mayor's elimination**, everyone who voted for the **Mayor** **dies as well**.
+If a **vote** ends with the **Mayor's elimination**, everyone who voted for the **Mayor** **dies as well**.
 
 *It was never about democracy.*
 
@@ -221,15 +221,15 @@ Right after the **vote**, she may **stand up and declare herself as the Chairman
 
 #### (10♣) Bomber
 
-If the **Bomber** **dies**, in any way whatsoever, the person sitting to the **Bomber's** **left** **dies as well**.
+If the **Bomber** **dies**, in any way whatsoever, the person sitting to the **Bomber's** **left dies as well**.
 
-*\*Boom.\**
+*Boom.*
 
 #### (10♣) Bomber+
 
-If the **Bomber+** **die**s, in any way whatsoever, the people sitting on **both** **sides of the** **Bomber** **die as well**.
+If the **Bomber+** **dies**, in any way whatsoever, the people sitting on **both** sides of the **Bomber** **die as well**.
 
-*\*BOOM!\**
+*BOOM!*
 
 #### (8♣) Bartender
 
@@ -263,26 +263,26 @@ During the **Night** shift behind the bar, the **Bartender** can get the **Mafia
 ## Edge Cases
 
 - When the **Doctor** heals someone, but that same **Night** the person is **marked for the second time** by the **Angel of Death**, are they eliminated? - YES.
-- Can the **Doctor **heal themselves? - YES.
-- Can the **Doctor **heal the same person more than once? - YES.
+- Can the **Doctor** heal themselves? - YES.
+- Can the **Doctor** heal the same person more than once? - YES.
 - Can the **Railwayman** ship themselves out of town? - NO.
 - Can the **Detective** investigate themselves? - NO.
-- Can the **Detective **investigate a person shipped out by the **Railwayman**? - NO.
-- Can the **Bodyguard **protect themselves? - NO.
-- Can the **Loose Cannon **shoot themselves? - YES. *(why? no idea, but they can)*
-- Can a blackmailed person **vote **against the **Blackmailer** if the **vote **is secret? - NO.
+- Can the **Detective** investigate a person shipped out by the **Railwayman**? - NO.
+- Can the **Bodyguard** protect themselves? - NO.
+- Can the **Loose Cannon** shoot themselves? - YES. *(why? no idea, but they can)*
+- Can a blackmailed person **vote** against the **Blackmailer** if the **vote** is secret? - NO.
 - Can the **Blackmailer** blackmail themselves? - NO.
 - Can the **Lady of the Night** check herself on **Night Zero**? - NO.
-- When the **Mafia **shoots the **Saint** during the **Night**, while the Saint still has two lives and is being healed by the **Doctor** at the same time, do they lose their first life? - NO.
+- When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being healed by the **Doctor** at the same time, do they lose their first life? - NO.
 - When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being protected by the **Bodyguard** at the same time, what happens? - THE **BODYGUARD** IS ELIMINATED. THE **SAINT** LOSES NO LIFE.
-- When the **Loose Cannon **shoots the **Saint**, who still has two lives, while being protected by the **Bodyguard** at the same time, what happens? - THE **BODYGUARD** IS ELIMINATED. THE **SAINT **LOSES NO LIFE.
-- When the **Mafia** shoots someone during the **Night** who is protected by the **Bodyguard**, and the **Doctor **healed the **Bodyguard** that same **Night**, what happens? - NO ONE IS ELIMINATED.
+- When the **Loose Cannon** shoots the **Saint**, who still has two lives, while being protected by the **Bodyguard** at the same time, what happens? - THE **BODYGUARD** IS ELIMINATED. THE **SAINT** LOSES NO LIFE.
+- When the **Mafia** shoots someone during the **Night** who is protected by the **Bodyguard**, and the **Doctor** healed the **Bodyguard** that same **Night**, what happens? - NO ONE IS ELIMINATED.
 - When the **Mafia** shoots someone being healed by the **Doctor** who is at the same time protected by the **Bodyguard**, what happens? - NO ONE IS ELIMINATED
 - Can the **Angel of Death** mark themselves? - YES. *(why? no idea, but they can)*
 - How many times must the **Angel of Death** mark the **Saint** for them to be eliminated? - 4
 - Does the **Bodyguard** protect against the **Angel of Death's** second mark? - NO.
 - When the **Bartender** shifts the **Mafia's** bullet and it lands on a person shipped out by the Railwayman, what happens? - NO ONE IS ELIMINATED.
 - Does the **Bodyguard** protect against the **Bomber** blowing themselves up? - YES.
-- The **Chairman **and **Chairman's Daughter** can use their **ability** during, or "right after," the vote. Up to exactly which moment can these characters use their **abilities**? - UNTIL THE GAME MASTER CARRIES OUT THE SENTENCE
+- The **Chairman** and **Chairman's Daughter** can use their **ability** during, or "right after," the vote. Up to exactly which moment can these characters use their **abilities**? - UNTIL THE GAME MASTER CARRIES OUT THE SENTENCE
 - If the **Bomber** dies and the person next to them has been shipped out by the **Railwayman**, what happens? - NO ONE IS ELIMINATED ON THAT SIDE.
 - If the **Bomber** dies and the person next to them is already **eliminated**, what happens? - THE NEAREST LIVING PERSON ON THAT SIDE IS ELIMINATED
