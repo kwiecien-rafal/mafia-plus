@@ -279,8 +279,9 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
       <h2 class="font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.setup} />
       </h2>
+      <div class="example-sets mt-8" data-expanded="false">
       <div
-        class="mt-8 overflow-x-auto rounded-2xl border border-white/10 bg-ink-card/75 backdrop-blur-md"
+        class="overflow-x-auto rounded-2xl border border-white/10 bg-ink-card/75 backdrop-blur-md"
       >
         <table class="w-full border-collapse text-left text-[0.95rem]">
           <thead class="bg-white/5 uppercase tracking-wide text-muted">
@@ -299,10 +300,10 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
               >
             </tr>
           </thead>
-          <tbody class="divide-y divide-white/5">
+          <tbody id="example-sets-rows" class="divide-y divide-white/5">
             {
-              exampleSets.map((set) => (
-                <tr class="align-top">
+              exampleSets.map((set, i) => (
+                <tr class={`align-top ${i >= 7 ? "example-row--extra" : ""}`}>
                   <td class="px-4 py-4 font-display text-lg text-bone">
                     {set.players}
                   </td>
@@ -330,6 +331,57 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
           </tbody>
         </table>
       </div>
+
+      <button
+        type="button"
+        class="example-toggle"
+        aria-controls="example-sets-rows"
+        aria-expanded="false"
+      >
+        <span class="example-toggle-label" data-when="more">
+          <T text={ui.exampleSets.showMore} />
+        </span>
+        <span class="example-toggle-label" data-when="less">
+          <T text={ui.exampleSets.showLess} />
+        </span>
+        <svg
+          class="example-toggle-chevron"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 9l6 6 6-6"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+      </div>
+
+      <script>
+        // Toggle the example-sets table between its seven-row preview (≤12
+        // players) and the full range. State lives on the wrapper so the CSS
+        // drives the rows, label and chevron off one attribute.
+        document
+          .querySelectorAll<HTMLElement>(".example-sets")
+          .forEach((root) => {
+            const toggle = root.querySelector<HTMLButtonElement>(".example-toggle");
+            if (!toggle) return;
+            toggle.addEventListener("click", () => {
+              const wasExpanded = root.dataset.expanded === "true";
+              root.dataset.expanded = String(!wasExpanded);
+              toggle.setAttribute("aria-expanded", String(!wasExpanded));
+              // Collapsing from far down the list can strand the viewport below
+              // the table; pull the section heading back into view.
+              const section = root.closest("section");
+              if (wasExpanded && section && section.getBoundingClientRect().top < 0) {
+                section.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            });
+          });
+      </script>
     </section>
 
     <!-- ── Edge cases ───────────────────────────────────────── -->

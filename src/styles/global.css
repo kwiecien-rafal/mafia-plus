@@ -368,3 +368,60 @@ body::after {
 
 /* Keeps the symbols and name legible over any part of the drawing. */
 .card-symbol { text-shadow: 0 1px 4px rgb(0 0 0 / 0.65); }
+
+/* ── Example-sets table collapse ──────────────────────────────────────
+   The table previews its first seven rows (up to 12 players) and reveals
+   the full range on demand. All state hangs off data-expanded on the
+   wrapper. The collapse is gated on html.js so no-JS visitors keep the
+   whole table and never see a dead button. */
+.example-toggle { display: none; }
+html.js .example-toggle {
+  display: flex;
+  width: fit-content;
+  margin: 1rem 0 0 auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.3rem;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--color-gold) 24%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.example-toggle:hover {
+  background: color-mix(in srgb, var(--color-gold) 38%, transparent);
+  border-color: color-mix(in srgb, var(--color-gold) 85%, transparent);
+  color: var(--color-bone);
+  box-shadow:
+    0 0 4px color-mix(in srgb, var(--color-gold) 60%, transparent),
+    0 0 16px color-mix(in srgb, var(--color-gold) 45%, transparent);
+}
+.example-toggle:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+html.js .example-sets[data-expanded="false"] .example-row--extra { display: none; }
+
+.example-sets[data-expanded="false"] .example-toggle-label[data-when="less"],
+.example-sets[data-expanded="true"] .example-toggle-label[data-when="more"] {
+  display: none;
+}
+
+.example-toggle-chevron {
+  width: 1.1rem;
+  height: 1.1rem;
+  transition: transform 0.25s ease;
+}
+.example-sets[data-expanded="true"] .example-toggle-chevron { transform: rotate(180deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .example-toggle,
+  .example-toggle-chevron { transition: none; }
+}

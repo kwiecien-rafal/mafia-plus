@@ -26,6 +26,10 @@ export const ui = {
     checking: { pl: "Sprawdzanie Frakcji", en: "Faction Reveal" },
     glossary: { pl: "Słowniczek", en: "Glossary" },
   },
+  exampleSets: {
+    showMore: { pl: "Pokaż wszystkie zestawy", en: "Show all sets" },
+    showLess: { pl: "Pokaż mniej", en: "Show fewer" },
+  },
   footer: {
     pl: "Hobbystyczny projekt — autorska wersja Mafii rozwijana z przyjaciółmi przez lata.",
     en: "A hobby project — a homemade take on Mafia, refined with friends over the years.",

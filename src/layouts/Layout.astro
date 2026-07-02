@@ -26,9 +26,11 @@ const { title = "Mafia+" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap"
       rel="stylesheet"
     />
-    <!-- Resolve language before first paint to avoid a flash. -->
+    <!-- Resolve language and mark JS available before first paint to avoid a
+         flash and to keep JS-gated collapses off for no-JS users. -->
     <script is:inline>
       (function () {
+        document.documentElement.classList.add("js");
         try {
           var l = localStorage.getItem("mafia-lang");
           if (l !== "pl" && l !== "en") l = "en";
