@@ -9,9 +9,9 @@ Gracze wcielają się w tajemnicze Postacie należące do jednej z trzech **Frak
 
 Opcjonalnie, dla bardziej zaawansowanych graczy, istnieje możliwość gry z trzecią, **Dodatkową Frakcją**:
 
-- **Syndykat **– tajemnicza organizacja grająca na własnych zasadach. Nie dbają o żadną stronę konfliktu i wygrywają niezależnie od reszty, jeżeli przetrwają do końca gry.
+- **Syndykat** – tajemnicza organizacja grająca na własnych zasadach. Nie dbają o żadną stronę konfliktu i wygrywają niezależnie od reszty, jeżeli przetrwają do końca gry.
 
-Celem **Miasta** jest **eliminacja Mafii**, a celem **Mafii** – **eliminacja Miasta**. **Syndykat**… no cóż, dobrze się bawi i wygrywa, jeżeli przetrwa do końca gry. Gra kończy się w momencie, gdy wszyscy gracze jednej z **Podstawowych Frakcji** zostaną **wyeliminowani**.
+Celem **Miasta** jest **eliminacja Mafii**, a celem **Mafii** – **eliminacja Miasta**. **Syndykat** … no cóż, dobrze się bawi i wygrywa, jeżeli przetrwa do końca gry. Gra kończy się w momencie, gdy wszyscy gracze jednej z **Podstawowych Frakcji** zostaną **wyeliminowani**.
 
 ## Przygotowanie do gry
 
@@ -25,21 +25,21 @@ W puli wszystkich dostępnych Postaci większość jest unikalnych, które posia
 - **Nocna** – może być aktywowana wyłącznie w trakcie **Nocy**.
 - **Dzienna** – może być aktywowana wyłącznie w trakcie **Dnia**.
 - **Jednorazowa** – można z niej skorzystać tylko raz w całej grze.
-- **Głosująca** – wpływa na **głosowanie**.
+- **Głosowania** – wpływa na **głosowanie**.
 - **Sprawdzania** – ma związek ze **sprawdzaniem**.
 - **Pośmiertna** – aktywuje się sama, w chwili śmierci jej właściciela.
 - **Brak umiejętności**
 
 ## Słowniczek
 
-- **eliminacja **– usunięcie gracza z gry. Po **eliminacji** danego gracza, nie może się on odzywać do końca gry.
+- **eliminacja** – usunięcie gracza z gry. Po **eliminacji** danego gracza, nie może się on odzywać do końca gry.
 - **statystyki** – liczebność obecnie żyjących graczy w każdej z **Frakcji**. Przykładowo, Jeżeli w grze w danym momencie żyje 6 osób z **Miasta**, 2 osoby z **Mafii** i 3 osoby z **Syndykatu**, **statystyki** będą brzmieć “6-2-3”.
-- **statystyki początkowe **– liczebność **Frakcji** na początku gry.
+- **statystyki początkowe** – liczebność **Frakcji** na początku gry.
 - **spanie / zasypianie** – mowa jest o **spaniu**, gdy gracz ma zamknięte oczy. **Zasypianie** to zamknięcie oczu, dopóki **MG** nie oznajmi, że można je otworzyć.
-- **wybudzanie **– otworzenie oczu na polecenie **MG**.
+- **wybudzanie** – otworzenie oczu na polecenie **MG**.
 - **głosowanie** – następuje na koniec każdego **Dnia**. Gdy **MG** ogłosi, że zaczyna się **głosowanie**, każdy może wytypować **oskarżonego**, który według niego powinien pójść na szafot.
-- **oskarżenie **– wytypowanie kogoś w trakcie **głosowania** jako podejrzanego.
-- **sprawdzenie** – akcja ujawnienia przez **MG **kogoś przynależności do **Frakcji**.
+- **oskarżenie** – wytypowanie kogoś w trakcie **głosowania** jako podejrzanego.
+- **sprawdzenie** – akcja ujawnienia przez **MG** kogoś przynależności do **Frakcji**.
 
 ## Noc
 
@@ -53,11 +53,11 @@ W każdą kolejną **Noc** **MG wybudza Mafię**, która wybiera jednego gracza 
 
 Przykład:
 
-- \**Jest Noc, wszyscy śpią*\*
-- **MG**: “Budzi się **Lekarz**, i wybiera osobę do leczenia.”
-- \****Lekarz** otwiera oczy, a następnie po cichu wskazuje kogoś ręką*\*
-- **MG**: “Dziękuję. Ta osoba może dzisiaj spać spokojnie. **Lekarz** idzie spać.”
-- \****Lekarz** zamyka oczy*\*
+*Jest Noc, wszyscy śpią*  
+**MG**: “Budzi się **Lekarz**, i wybiera osobę do leczenia.”  
+***Lekarz** otwiera oczy, a następnie po cichu wskazuje kogoś ręką*   
+**MG**: “Dziękuję. Ta osoba może dzisiaj spać spokojnie. **Lekarz** idzie spać.”  
+***Lekarz** zamyka oczy*
 
 ## Dzień
 
@@ -69,9 +69,9 @@ Podczas **Dnia** gracze rozmawiają, ustalają kto jest podejrzany i rzucają os
 
 ## Głosowanie
 
-**Głosowanie **musi nastąpić na koniec każdego **Dnia**. Jest to jedyny sposób, niezwiązany z **umiejętnościami** Postaci, w jaki **Miasto **może kogoś **wyeliminować**. Każdy może **oskarżyć** kogoś jako podejrzanego, w celu **sprawdzenia** bądź **eliminacji**. **Oskarżony **ma prawo się bronić. **MG **decyduje o zakończeniu obrad i rozpoczęciu **głosowania**. **Głosowanie** jest jawne\* – **MG** pyta po kolei każdego gracza, na kogo pragną oddać głos. W momencie, gdy większość głosów wskaże jedną osobę – zostaje ona **wyeliminowana**. W przypadku remisu, **MG **prosi graczy o ponowną debatę, potencjalnie zawężając listę oskarżonych.
+**Głosowanie** musi nastąpić na koniec każdego **Dnia**. Jest to jedyny sposób, niezwiązany z **umiejętnościami** Postaci, w jaki **Miasto** może kogoś **wyeliminować**. Każdy może **oskarżyć** kogoś jako podejrzanego, w celu **sprawdzenia** bądź **eliminacji**. **Oskarżony** ma prawo się bronić. **MG** decyduje o zakończeniu obrad i rozpoczęciu **głosowania**. **Głosowanie** jest jawne\* – **MG** pyta po kolei każdego gracza, na kogo pragną oddać głos. W momencie, gdy większość głosów wskaże jedną osobę – zostaje ona **wyeliminowana**. W przypadku remisu, **MG** prosi graczy o ponowną debatę, potencjalnie zawężając listę oskarżonych.
 
-Istnieje również możliwość przeprowadzenia **głosowania o** **sprawdzenie**, zamiast **eliminacji **– ale tylko Jeżeli **MG **na to pozwoli, wedle jego uznania\*\*. Przykładowa sytuacja, kiedy warto, by **MG** zaproponował przeprowadzenie **głosowania o sprawdzenie**, to <u>pierwszy **Dzień**</u>, gdy gracze jeszcze nie są do końca niczego pewni, lub po nastąpieniu remisu w zwykłym **głosowaniu**.
+Istnieje również możliwość przeprowadzenia **głosowania o** **sprawdzenie**, zamiast **eliminacji** – ale tylko Jeżeli **MG** na to pozwoli, wedle jego uznania\*\*. Przykładowa sytuacja, kiedy warto, by **MG** zaproponował przeprowadzenie **głosowania o sprawdzenie**, to <u>pierwszy **Dzień**</u>, gdy gracze jeszcze nie są do końca niczego pewni, lub po nastąpieniu remisu w zwykłym **głosowaniu**.
 
 \**Można również przeprowadzić głosowanie niejawne, na przykład przy użyciu kartek i długopisów.*
 
@@ -149,7 +149,7 @@ Gdy kiedykolwiek przynależność **Biednej Przeklętej Piechoty** do **Frakcji*
 
 #### (6♡) Prezes
 
-Tuż po **głosowaniu**, **Prezes** może **wstać i ogłosić się Prezesem**. Wyniki są natychmiast anulowane, a następnie **Prezes** ogłasza: ponowne **głosowanie **lub **koniec Dnia**. Jeżeli zostanie zarządzone **głosowanie** – **Prezes** również może wybrać efekt głosowania: **sprawdzenie **lub **eliminacja**. Może to wszystko zrobić tylko **raz**.
+Tuż po **głosowaniu**, **Prezes** może **wstać i ogłosić się Prezesem**. Wyniki są natychmiast anulowane, a następnie **Prezes** ogłasza ponowne **głosowanie** lub **koniec Dnia**. Jeżeli zostanie zarządzone **głosowanie** – **Prezes** również może wybrać efekt głosowania: **sprawdzenie** lub **eliminacja**. Może to wszystko zrobić tylko **raz**.
 
 *Niech przekona ich złoto.*
 
@@ -175,13 +175,13 @@ Szef Szefów. Jeżeli **Mafia** nie może się zdecydować, kogo **zabić w Nocy
 
 #### (Q♠) Kokietka
 
-Gdy **ktokolwiek sprawdza**, do jakiej **Frakcji **przynależy, zostaje wykryta jako członkini **Miasta**. W rzeczywistości, należy do **Mafii**.
+Gdy **ktokolwiek sprawdza**, do jakiej **Frakcji** przynależy, zostaje wykryta jako członkini **Miasta**. W rzeczywistości, należy do **Mafii**.
 
 *Urok czasem działa lepiej niż nóż.*
 
 #### (10♠) Woźny
 
-Podczas **Nocnej **zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii **pod dywan. Przez **cały następny Dzień** nikt nie może poznać **statystyk**. Może to zrobić tylko **raz**.
+Podczas **Nocnej** zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii** pod dywan. Przez **cały następny Dzień** nikt nie może poznać **statystyk**. Może to zrobić tylko **raz**.
 
 *Niektóre papiery po prostu znikają.*
 
@@ -197,7 +197,7 @@ Podczas **Nocnej **zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii **
 
 *Nie daj się zabić.*
 
-<u>**połączenie Szefa Mafii i Szantażysty - użyteczna by lepiej zbalansować Frakcje - upewnij się, że w puli dostępnych Postaci nie ma równocześnie żadnej z tych dwóch Postaci i Szefa Szantażysty.*</u>
+\**połączenie Szefa Mafii i Szantażysty - użyteczna by lepiej zbalansować Frakcje - upewnij się, że w puli dostępnych Postaci nie ma równocześnie żadnej z tych dwóch Postaci i Szefa Szantażysty.*
 
 ### ♣ Syndykat
 
@@ -209,7 +209,7 @@ Podczas **Nocnej **zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii **
 
 #### (K♣) Burmistrz
 
-Jeżeli **głosowanie **kończy się **eliminacją Burmistrza**, wszyscy, którzy na niego głosowali, **również giną**.
+Jeżeli **głosowanie** kończy się **eliminacją Burmistrza**, wszyscy, którzy na niego głosowali, **również giną**.
 
 *Tu nigdy nie chodziło o demokrację.*
 
@@ -223,13 +223,13 @@ Tuż po **głosowaniu**, może **wstać i ogłosić się Córcią Prezesa**. Jej
 
 Jeżeli **Terrorysta** **zginie**, w jakikolwiek sposób, osoba siedząca po lewej stronie **Terrorysty** **umiera razem z nim**.
 
-*\*Bum.\**
+*Bum.*
 
 #### (10♣) Terrorysta+
 
 Jeżeli **Terrorysta+** **zginie**, w jakikolwiek sposób, osoby siedzące po obydwu stronach **Terrorysty** **umierają razem z nim**.
 
-*\*BUM!\**
+*BUM!*
 
 #### (8♣) Barman
 
@@ -262,27 +262,27 @@ Podczas **Nocnej** zmiany na barze, **Barman** może upić **Mafię**. Cel **Maf
 
 ## Skrajne scenariusze
 
-- Gdy **Lekarz** kogoś leczy, a ta osoba tej samej **Nocy **została naznaczona drugi raz przez **Anioła Śmierci**, czy ta osoba zostaje wyeliminowana? - TAK.
-- Czy **Lekarz **może leczyć sam siebie? - TAK.
-- Czy **Lekarz **może leczyć tę samą osobę więcej niż jeden raz? - TAK.
+- Gdy **Lekarz** kogoś leczy, a ta osoba tej samej **Nocy** została naznaczona drugi raz przez **Anioła Śmierci**, czy ta osoba zostaje wyeliminowana? - TAK.
+- Czy **Lekarz** może leczyć sam siebie? - TAK.
+- Czy **Lekarz** może leczyć tę samą osobę więcej niż jeden raz? - TAK.
 - Czy **Kolejarz** może wywieźć sam siebie? - NIE.
 - Czy **Detektyw** może sprawdzić sam siebie? - NIE.
-- Czy **Detektyw **może sprawdzić osobę wywiezioną przez **Kolejarza**? - NIE.
-- Czy **Ochroniarz **może ochraniać sam siebie? - NIE.
-- Czy **Świr **może strzelić do siebie? - TAK. *(po co? nie wiem, ale może)*
-- Czy osoba szantażowana może **zagłosować **przeciw **Szantażyście**, Jeżeli **głosowanie **jest niejawne? - NIE.
+- Czy **Detektyw** może sprawdzić osobę wywiezioną przez **Kolejarza**? - NIE.
+- Czy **Ochroniarz** może ochraniać sam siebie? - NIE.
+- Czy **Świr** może strzelić do siebie? - TAK. *(po co? nie wiem, ale może)*
+- Czy osoba szantażowana może **zagłosować** przeciw **Szantażyście**, Jeżeli **głosowanie** jest niejawne? - NIE.
 - Czy **Szantażysta** może szantażować sam siebie? - NIE.
 - Czy **Panna Lekkich Obyczajów** może **Zerowej Nocy** sprawdzić sama siebie? - NIE.
-- Gdy **Mafia **strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest leczony przez **Lekarza**, czy traci swoje pierwsze życie? - NIE.
-- Gdy **Mafia** strzeli w **Nocy **w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje? - **OCHRONIARZ** ZOSTAJE WYELIMINOWANY. **ŚWIĘTY**NIE TRACI ŻYCIA.
-- Gdy **Świr **strzeli w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje? - **OCHRONIARZ**ZOSTAJE WYELIMINOWANY. **ŚWIĘTY **NIE TRACI ŻYCIA.
-- Gdy **Mafia** strzeli w **Nocy **w kogoś, kto jest chroniony przez **Ochroniarza**, a **Lekarz **uleczył tej samej **Nocy Ochroniarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY.
+- Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest leczony przez **Lekarza**, czy traci swoje pierwsze życie? - NIE.
+- Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje? - **OCHRONIARZ** ZOSTAJE WYELIMINOWANY. **ŚWIĘTY** NIE TRACI ŻYCIA.
+- Gdy **Świr** strzeli w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje? - **OCHRONIARZ** ZOSTAJE WYELIMINOWANY. **ŚWIĘTY** NIE TRACI ŻYCIA.
+- Gdy **Mafia** strzeli w **Nocy** w kogoś, kto jest chroniony przez **Ochroniarza**, a **Lekarz** uleczył tej samej **Nocy Ochroniarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY.
 - Gdy **Mafia** strzela do kogoś leczonego przez **Lekarza**, kto jest równocześnie chroniony przez **Ochroniarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY
 - Czy **Anioł Śmierci** może naznaczać sam siebie? - TAK. *(po co? nie wiem, ale może)*
 - Ile razy **Anioł Śmierci** musi naznaczyć **Świętego**, żeby został wyeliminowany? - 4
 - Czy **Ochroniarz** ochrania przed drugim naznaczeniem **Anioła Śmierci**? - NIE.
 - Gdy **Barman** przesunie kulę **Mafii**, a kula trafi na osobę wywiezioną przez Kolejarza, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY.
 - Czy **Ochroniarz** chroni przed wysadzeniem się w powietrze **Terrorysty**? - TAK.
-- **Prezes **oraz **Córcia Prezesa** mogą użyć swojej **umiejętności** podczas, lub “tuż po” głosowaniu. Do konkretnie którego momentu te Postacie mogą użyć swoich **umiejętności**? - DOPÓKI MISTRZ GRY NIE WYKONA WYROKU
+- **Prezes** oraz **Córcia Prezesa** mogą użyć swojej **umiejętności** podczas, lub “tuż po” głosowaniu. Do konkretnie którego momentu te Postacie mogą użyć swoich **umiejętności**? - DOPÓKI MISTRZ GRY NIE WYKONA WYROKU
 - Jeżeli **Terrorysta** umrze, a obok siebie ma osobę wywiezioną przez **Kolejarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY Z TEJ STRONY.
 - Jeżeli **Terrorysta** umrze, a obok siebie ma osobę która już jest **wyeliminowana**, co się dzieje? - ZOSTAJE WYELIMINOWANA NAJBLIŻSZA ŻYJĄCA OSOBA Z TEJ STRONY
