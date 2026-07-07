@@ -119,20 +119,22 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Characters ───────────────────────────────────────── -->
     <section id="characters" data-header-collapse-at class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.characters} />
       </h2>
 
       {
-        factionOrder.map((f) => (
-          <div class="mt-12">
-            <h3 class={`mb-5 font-display text-2xl ${factions[f].style.text}`}>
+        factionOrder.map((f, i) => (
+          <div class={i === 0 ? "mt-5" : "mt-12"}>
+            <h3
+              class={`heading-plate mb-5 font-display text-2xl ${factions[f].style.text}`}
+            >
               <>
-                <span class="mr-1">{factions[f].suit}</span>
-                <T text={factions[f].name} />
+                <T text={factions[f].name}/>
+                <span class="mr-1"> {factions[f].suit}</span>
               </>
             </h3>
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
               {characters
                 .filter((c) => c.faction === f)
                 .sort(compareByCard)
@@ -147,16 +149,16 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Rules ────────────────────────────────────────────── -->
     <section id="rules" class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.rules} />
       </h2>
       <!-- Cards follow rules-en.md order; the masonry script packs them into
            the shorter column, so this list is also their reading priority. -->
       <div
         id="rules-masonry"
-        class="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start"
+        class="mt-5 flex flex-col gap-4 lg:flex-row lg:items-start"
       >
-        <div class="flex flex-col gap-8 lg:flex-1" data-rules-col>
+        <div class="flex flex-col gap-4 lg:flex-1" data-rules-col>
           <RuleCard section={ruleById.get("goal")!} />
           <RuleCard section={ruleById.get("setup")!} />
 
@@ -234,7 +236,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
             </ul>
           </div>
         </div>
-        <div class="flex flex-col gap-8 lg:flex-1" data-rules-col></div>
+        <div class="flex flex-col gap-4 lg:flex-1" data-rules-col></div>
       </div>
     </section>
 
@@ -276,27 +278,31 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Example sets ──────────────────────────────────────── -->
     <section id="setup" class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.setup} />
       </h2>
-      <div class="example-sets mt-8" data-expanded="false">
+      <div class="example-sets mt-4" data-expanded="false">
       <div
-        class="overflow-x-auto rounded-2xl border border-white/10 bg-ink-card/75 backdrop-blur-md"
+        class="example-table-wrap overflow-x-auto rounded-2xl border border-white/10 bg-ink-card/75 backdrop-blur-md"
       >
-        <table class="w-full border-collapse text-left text-[0.95rem]">
+        <table class="example-table w-full border-collapse text-left text-[0.95rem]">
           <thead class="bg-white/5 uppercase tracking-wide text-muted">
             <tr>
-              <th class="px-4 py-3"><T text={exampleSetsHeaders.players} /></th>
-              <th class="px-4 py-3"><T text={exampleSetsHeaders.stats} /></th>
+              <th class="example-col-players px-4 py-3"
+                ><T text={exampleSetsHeaders.players} /></th
+              >
+              <th class="example-col-stats px-4 py-3"
+                ><T text={exampleSetsHeaders.stats} /></th
+              >
               <th class={`px-4 py-3 ${factions.city.style.text}`}
-                >{factions.city.suit} <T text={factions.city.name} /></th
+                ><T text={factions.city.name}/> {factions.city.suit}</th
               >
               <th class={`px-4 py-3 ${factions.mafia.style.text}`}
-                >{factions.mafia.suit} <T text={factions.mafia.name} /></th
+                ><T text={factions.mafia.name}/> {factions.mafia.suit}</th
               >
               <th class={`px-4 py-3 ${factions.syndicate.style.text}`}
-                >{factions.syndicate.suit}
-                <T text={factions.syndicate.name} /></th
+                >
+                <T text={factions.syndicate.name}/> {factions.syndicate.suit}</th
               >
             </tr>
           </thead>
@@ -304,19 +310,30 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
             {
               exampleSets.map((set, i) => (
                 <tr class={`align-top ${i >= 7 ? "example-row--extra" : ""}`}>
-                  <td class="px-4 py-4 font-display text-lg text-bone">
-                    {set.players}
+                  <td class="example-col-players px-4 py-4 font-display text-bone">
+                    <span class="example-players-num">{set.players}</span>
+                    <T
+                      text={exampleSetsHeaders.playersUnit}
+                      class="example-players-word"
+                    />
                   </td>
-                  <td class="px-4 py-4 font-mono text-gold">{set.stats}</td>
-                  {[set.city, set.mafia, set.syndicate].map((lineup) => (
-                    <td class="px-4 py-4">
+                  <td class="example-col-stats px-4 py-4">
+                    <span class="example-stats-pill font-mono text-gold">
+                      {set.stats}
+                    </span>
+                  </td>
+                  {factionOrder.map((f) => (
+                    <td class="example-cell-faction px-4 py-4">
+                      <span class={`example-cell-label ${factions[f].style.text}`}>
+                        <T text={factions[f].name} /> {factions[f].suit} 
+                      </span>
                       <ul class="space-y-1 text-bone/85">
-                        {lineup.length === 0 ? (
+                        {set[f].length === 0 ? (
                           <li class="text-muted">—</li>
                         ) : (
-                          lineup.map((item, i) => (
+                          set[f].map((item, idx) => (
                             <T
-                              text={itemText(item, i === 0)}
+                              text={itemText(item, idx === 0)}
                               as="li"
                               class="whitespace-pre-line"
                             />
@@ -386,10 +403,10 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Edge cases ───────────────────────────────────────── -->
     <section id="edge-cases" class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.edgeCases} />
       </h2>
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
         {
           edgeCases.map((qa) => (
             <div class="rounded-xl border border-white/10 bg-ink-card/75 p-4 backdrop-blur-md">

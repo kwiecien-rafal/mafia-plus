@@ -455,6 +455,8 @@ export const exampleSets: ExampleSet[] = [
 export const exampleSetsHeaders = {
   players: { pl: "Gracze", en: "Players" },
   stats: { pl: "Statystyki", en: "Stats" },
+  // Grammatical count form, used as the caption under the number on mobile cards.
+  playersUnit: { pl: "graczy", en: "players" },
 };
 
 // Wording used in the table when a faction draws several characters from a pool.
