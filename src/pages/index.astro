@@ -119,14 +119,16 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Characters ───────────────────────────────────────── -->
     <section id="characters" data-header-collapse-at class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.characters} />
       </h2>
 
       {
-        factionOrder.map((f) => (
-          <div class="mt-12">
-            <h3 class={`mb-5 font-display text-2xl ${factions[f].style.text}`}>
+        factionOrder.map((f, i) => (
+          <div class={i === 0 ? "mt-5" : "mt-12"}>
+            <h3
+              class={`heading-plate mb-5 font-display text-2xl ${factions[f].style.text}`}
+            >
               <>
                 <span class="mr-1">{factions[f].suit}</span>
                 <T text={factions[f].name} />
@@ -147,16 +149,16 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Rules ────────────────────────────────────────────── -->
     <section id="rules" class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.rules} />
       </h2>
       <!-- Cards follow rules-en.md order; the masonry script packs them into
            the shorter column, so this list is also their reading priority. -->
       <div
         id="rules-masonry"
-        class="mt-8 flex flex-col gap-8 lg:flex-row lg:items-start"
+        class="mt-5 flex flex-col gap-4 lg:flex-row lg:items-start"
       >
-        <div class="flex flex-col gap-8 lg:flex-1" data-rules-col>
+        <div class="flex flex-col gap-4 lg:flex-1" data-rules-col>
           <RuleCard section={ruleById.get("goal")!} />
           <RuleCard section={ruleById.get("setup")!} />
 
@@ -234,7 +236,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
             </ul>
           </div>
         </div>
-        <div class="flex flex-col gap-8 lg:flex-1" data-rules-col></div>
+        <div class="flex flex-col gap-4 lg:flex-1" data-rules-col></div>
       </div>
     </section>
 
@@ -276,10 +278,10 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Example sets ──────────────────────────────────────── -->
     <section id="setup" class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.setup} />
       </h2>
-      <div class="example-sets mt-8" data-expanded="false">
+      <div class="example-sets mt-4" data-expanded="false">
       <div
         class="overflow-x-auto rounded-2xl border border-white/10 bg-ink-card/75 backdrop-blur-md"
       >
@@ -386,10 +388,10 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
 
     <!-- ── Edge cases ───────────────────────────────────────── -->
     <section id="edge-cases" class="py-12">
-      <h2 class="font-display text-3xl text-bone sm:text-4xl">
+      <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.edgeCases} />
       </h2>
-      <div class="mt-8 grid gap-4 md:grid-cols-2">
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
         {
           edgeCases.map((qa) => (
             <div class="rounded-xl border border-white/10 bg-ink-card/75 p-4 backdrop-blur-md">

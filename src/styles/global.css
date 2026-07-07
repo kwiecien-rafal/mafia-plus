@@ -97,6 +97,27 @@ body::after {
 
 .font-display { font-family: var(--font-display); }
 
+/* Section and subsection titles sit on the page background, over the faction
+   threads. A soft frosted plate lifts them off that texture so the type stays
+   legible; inline-block keeps the plate hugging the text rather than the column. */
+.heading-plate {
+  display: inline-block;
+  border-radius: 0.7rem;
+  padding: 0.75rem 0.75rem;
+  /* Trim the line-box to cap-height/baseline so the plate's padding reads
+     equal top and bottom; line-height:1 is the fallback where text-box is
+     unsupported. */
+  line-height: 1;
+  text-box: trim-both cap alphabetic;
+  background: color-mix(in srgb, var(--color-ink-card) 68%, transparent);
+  border: 1px solid rgb(255 255 255 / 0.08);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.04),
+    0 8px 24px rgb(0 0 0 / 0.28);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
 /* Logo wordmark, tinted via a mask so it inherits the bone color. Sized by
    a width or height utility at the call site; aspect-ratio fills the rest. */
 .banner {
