@@ -446,3 +446,112 @@ html.js .example-sets[data-expanded="false"] .example-row--extra { display: none
   .example-toggle,
   .example-toggle-chevron { transition: none; }
 }
+
+/* ── Example-sets layout ──────────────────────────────────────────────
+   Two shapes off one table. On desktop it stays a table; the Players and
+   Stats columns shrink to their content (width:1% is the shrink-to-fit
+   idiom) so the three faction columns take the freed width. The per-row
+   caption and faction labels only exist for the mobile card and are hidden
+   here — the table head already names those columns. */
+.example-players-word,
+.example-cell-label { display: none; }
+
+@media (min-width: 48rem) {
+  .example-col-players,
+  .example-col-stats {
+    width: 1%;
+    white-space: nowrap;
+  }
+  .example-players-num { font-size: 1.3rem; }
+  .example-stats-pill { font-size: 1.05rem; }
+}
+
+/* Below md the five-column table can't breathe, so each configuration row
+   becomes a self-contained card. The row is a three-column grid: the header
+   band takes the top row (player count spanning left, stats pill right), and
+   the three faction lineups sit side by side beneath it as columns, each under
+   its own suit-coloured label. */
+@media (max-width: 47.99rem) {
+  .example-table-wrap {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .example-table,
+  .example-table tbody { display: block; width: 100%; }
+  .example-table thead { display: none; }
+
+  .example-table tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .example-table tr {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 0.8rem;
+    padding: 0.9rem 1rem 1.1rem;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 1rem;
+    background: color-mix(in srgb, var(--color-ink-card) 82%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+
+  /* Number and unit share a baseline and left-align with the City column
+     below; the cell centres against the stats pill across the header row. */
+  .example-col-players {
+    grid-column: 1 / 3;
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    align-self: center;
+    padding: 0;
+    white-space: nowrap;
+  }
+  .example-players-num { font-size: 1.85rem; line-height: 1; }
+  .example-players-word { font-size: 1.05rem; color: var(--color-muted); }
+
+  .example-col-stats {
+    grid-column: 3;
+    justify-self: end;
+    align-self: center;
+    padding: 0;
+  }
+  .example-stats-pill {
+    display: inline-block;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, var(--color-gold) 40%, transparent);
+    background: color-mix(in srgb, var(--color-gold) 14%, transparent);
+    font-size: 1.05rem;
+    letter-spacing: 0.02em;
+  }
+
+  /* Faction columns share row 2. With no column gap their top borders join
+     into a single rule across the card; left borders on the 2nd and 3rd
+     divide the columns. Cells stretch to equal height, so both rules stay
+     continuous however many characters each faction lists. */
+  .example-cell-faction {
+    padding: 1.05rem 0.65rem 0;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+  }
+  .example-col-stats + .example-cell-faction { padding-left: 0; }
+  .example-cell-faction:last-child { padding-right: 0; }
+  .example-cell-faction + .example-cell-faction {
+    border-left: 1px solid rgb(255 255 255 / 0.08);
+  }
+  .example-cell-label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  .example-cell-faction ul { font-size: 0.85rem; line-height: 1.45; }
+}

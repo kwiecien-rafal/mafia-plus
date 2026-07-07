@@ -283,13 +283,17 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
       </h2>
       <div class="example-sets mt-4" data-expanded="false">
       <div
-        class="overflow-x-auto rounded-2xl border border-white/10 bg-ink-card/75 backdrop-blur-md"
+        class="example-table-wrap overflow-x-auto rounded-2xl border border-white/10 bg-ink-card/75 backdrop-blur-md"
       >
-        <table class="w-full border-collapse text-left text-[0.95rem]">
+        <table class="example-table w-full border-collapse text-left text-[0.95rem]">
           <thead class="bg-white/5 uppercase tracking-wide text-muted">
             <tr>
-              <th class="px-4 py-3"><T text={exampleSetsHeaders.players} /></th>
-              <th class="px-4 py-3"><T text={exampleSetsHeaders.stats} /></th>
+              <th class="example-col-players px-4 py-3"
+                ><T text={exampleSetsHeaders.players} /></th
+              >
+              <th class="example-col-stats px-4 py-3"
+                ><T text={exampleSetsHeaders.stats} /></th
+              >
               <th class={`px-4 py-3 ${factions.city.style.text}`}
                 >{factions.city.suit} <T text={factions.city.name} /></th
               >
@@ -306,19 +310,30 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
             {
               exampleSets.map((set, i) => (
                 <tr class={`align-top ${i >= 7 ? "example-row--extra" : ""}`}>
-                  <td class="px-4 py-4 font-display text-lg text-bone">
-                    {set.players}
+                  <td class="example-col-players px-4 py-4 font-display text-bone">
+                    <span class="example-players-num">{set.players}</span>
+                    <T
+                      text={exampleSetsHeaders.playersUnit}
+                      class="example-players-word"
+                    />
                   </td>
-                  <td class="px-4 py-4 font-mono text-gold">{set.stats}</td>
-                  {[set.city, set.mafia, set.syndicate].map((lineup) => (
-                    <td class="px-4 py-4">
+                  <td class="example-col-stats px-4 py-4">
+                    <span class="example-stats-pill font-mono text-gold">
+                      {set.stats}
+                    </span>
+                  </td>
+                  {factionOrder.map((f) => (
+                    <td class="example-cell-faction px-4 py-4">
+                      <span class={`example-cell-label ${factions[f].style.text}`}>
+                        {factions[f].suit} <T text={factions[f].name} />
+                      </span>
                       <ul class="space-y-1 text-bone/85">
-                        {lineup.length === 0 ? (
+                        {set[f].length === 0 ? (
                           <li class="text-muted">—</li>
                         ) : (
-                          lineup.map((item, i) => (
+                          set[f].map((item, idx) => (
                             <T
-                              text={itemText(item, i === 0)}
+                              text={itemText(item, idx === 0)}
                               as="li"
                               class="whitespace-pre-line"
                             />
