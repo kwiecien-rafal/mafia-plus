@@ -515,7 +515,11 @@ html.js .example-sets[data-expanded="false"] .example-row--extra { display: none
     white-space: nowrap;
   }
   .example-players-num { font-size: 1.85rem; line-height: 1; }
-  .example-players-word { font-size: 1.05rem; color: var(--color-muted); }
+  .example-players-word {
+    display: inline;
+    font-size: 1.05rem;
+    color: var(--color-muted);
+  }
 
   .example-col-stats {
     grid-column: 3;
