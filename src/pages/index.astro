@@ -130,8 +130,8 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
               class={`heading-plate mb-5 font-display text-2xl ${factions[f].style.text}`}
             >
               <>
-                <span class="mr-1">{factions[f].suit}</span>
-                <T text={factions[f].name} />
+                <T text={factions[f].name}/>
+                <span class="mr-1"> {factions[f].suit}</span>
               </>
             </h3>
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
@@ -295,14 +295,14 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
                 ><T text={exampleSetsHeaders.stats} /></th
               >
               <th class={`px-4 py-3 ${factions.city.style.text}`}
-                >{factions.city.suit} <T text={factions.city.name} /></th
+                ><T text={factions.city.name}/> {factions.city.suit}</th
               >
               <th class={`px-4 py-3 ${factions.mafia.style.text}`}
-                >{factions.mafia.suit} <T text={factions.mafia.name} /></th
+                ><T text={factions.mafia.name}/> {factions.mafia.suit}</th
               >
               <th class={`px-4 py-3 ${factions.syndicate.style.text}`}
-                >{factions.syndicate.suit}
-                <T text={factions.syndicate.name} /></th
+                >
+                <T text={factions.syndicate.name}/> {factions.syndicate.suit}</th
               >
             </tr>
           </thead>
@@ -325,7 +325,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
                   {factionOrder.map((f) => (
                     <td class="example-cell-faction px-4 py-4">
                       <span class={`example-cell-label ${factions[f].style.text}`}>
-                        {factions[f].suit} <T text={factions[f].name} />
+                        <T text={factions[f].name} /> {factions[f].suit} 
                       </span>
                       <ul class="space-y-1 text-bone/85">
                         {set[f].length === 0 ? (
