@@ -332,6 +332,12 @@ body::after {
 .flip[data-flipped="true"] .flip-face:not(.flip-back) { opacity: 0; }
 .flip[data-flipped="true"] .flip-back { opacity: 1; }
 
+/* The opacity swap leaves the hidden face in the layout, so its scroll
+   container still catches wheel/touch gestures. Take it out of hit-testing. */
+.flip-back { pointer-events: none; }
+.flip[data-flipped="true"] .flip-face:not(.flip-back) { pointer-events: none; }
+.flip[data-flipped="true"] .flip-back { pointer-events: auto; }
+
 /* ── Character art ────────────────────────────────────────────────────
    The drawing is the card front: it fills the whole face, the rank+suit
    and the name/ability footer read over it on a scrim. --art-accent
