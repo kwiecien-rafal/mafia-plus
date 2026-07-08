@@ -1,6 +1,9 @@
 ---
-// Bilingual inline text. Renders both languages; CSS shows the active one.
+// Bilingual inline text. Renders both languages (CSS shows the active one) and
+// applies the shared inline-markdown subset — bold, italic, underline — via
+// inline.ts, the same markup the rulebook serializer passes through verbatim.
 import type { Bilingual } from "../data/characters";
+import { inlineToHtml } from "../data/inline";
 
 interface Props {
   text: Bilingual;
@@ -12,4 +15,4 @@ const { text, as = "span", class: className } = Astro.props;
 const Tag = as as any;
 ---
 
-<Tag class={className}><span data-l="pl">{text.pl}</span><span data-l="en">{text.en}</span></Tag>
+<Tag class={className}><span data-l="pl" set:html={inlineToHtml(text.pl)} /><span data-l="en" set:html={inlineToHtml(text.en)} /></Tag>

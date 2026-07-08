@@ -54,10 +54,10 @@ On every following **Night**, the **GM wakes the Mafia**, who choose one player 
 Example:
 
 *It's Night, everyone is asleep*  
-**GM**: “**The Doctor** wakes and chooses someone to heal.”  
-***The Doctor** opens their eyes, then silently points at someone with their hand*  
-**GM**: “Thank you. That person can sleep soundly tonight. **The Doctor** goes back to sleep.”  
-***The Doctor** closes their eyes*
+**GM**: "**The Doctor** wakes and chooses someone to heal."  
+*The Doctor opens their eyes, then silently points at someone with their hand*  
+**GM**: "Thank you. That person can sleep soundly tonight. **The Doctor** goes back to sleep."  
+*The Doctor closes their eyes*
 
 ## Day
 
@@ -85,75 +85,71 @@ Whenever someone's **Faction** is **revealed** in any way, the **GM** shows the 
 - *thumb sideways* means that the given person belongs to the **Syndicate**,
 - *thumbs down* means that the given person belongs to the **Mafia**.
 
-## Closing Notes
-
-<closing_notes>
-
 ## Characters
 
-### ♡♢ City
+### ♥♦ City
 
-#### (A♢) Loose Cannon
+#### (A♦) Loose Cannon
 
 **During** the **Day**, the **Loose Cannon** may **stand up**, **declare themselves the Loose Cannon**, and gun down one person. The Day ends immediately after the shot, no matter the outcome. They can do this only **once**.
 
 *"Gotcha!"*
 
-#### (K♡) Doctor
+#### (K♥) Doctor
 
 **Every Night**, the **Doctor** chooses **one person** to heal. If the person chosen that **Night** gets attacked by the **Mafia**, they **won't die**. The **Doctor** may heal themselves. Those who are healed don't know that someone is watching over them.
 
 *Let them sleep soundly…*
 
-#### (K♢) Railwayman
+#### (K♦) Railwayman
 
 **Every Night**, the **Railwayman** chooses **one person** to ship out of town. For the entire next **Day and Night**, that person is out of town – they cannot **speak**, **vote**, **use their ability**, or be **attacked** or **investigated**. Each person can board the train **only once**. The **Railwayman** cannot ship themselves out.
 
 *The Railwayman will take good care of you…*
 
-#### (Q♡) Lady of the Night
+#### (Q♥) Lady of the Night
 
 On **Night Zero**, **Lady of the Night** chooses **one person** to seduce. The chosen person wakes up, and the **LotN** sees their **character card**.
 
 *I wonder who'll be the first to spill your secret.*
 
-#### (10♡) Detective
+#### (10♥) Detective
 
 **Every Night**, the **Detective** chooses **one person** to **reveal**, and, through quiet detective work, **learn their Faction**. Suspects don't know they've been investigated.
 
 *Decide for yourself who to trust.*
 
-#### (10♢) Gun Shop Owner
+#### (10♦) Gun Shop Owner
 
 If the **Mafia kills the Owner during the Night**, they may **shoot once more**.
 
 *You left the key under the doormat.*
 
-#### (9♡) Saint
+#### (9♥) Saint
 
 Has **two lives**. The first attempt to **eliminate the Saint will fail**.
 
 *The second time, don't count on a miracle.*
 
-#### (8♡) Bodyguard
+#### (8♥) Bodyguard
 
 On **Night Zero**, the **Bodyguard** choose **one person** to protect. If that person would ever die at the hands of a mortal, the **Bodyguard** **sacrifices themselves to save them**.
 
 *You'll wonder whether it was worth it in your grave.*
 
-#### (7♡) Poor Bloody Infantry
+#### (7♥) Poor Bloody Infantry
 
 Whenever the **Poor Bloody Infantry** gets their **Faction** **revealed**, they come up as a member of the **Mafia**. In reality, they belong to the **City**.
 
 *"I's a war veteran! ... spare me a gold coin?"*
 
-#### (6♡) Chairman
+#### (6♥) Chairman
 
 Right after the **vote**, the **Chairman** may **stand up and declare themselves as the Chairman**. The **vote** results are immediately annulled, and the **Chairman** then declares either a **re-vote** or the **end of the Day**. If a **re-vote** is called – the **Chairman** may also choose its effect: **reveal** or **elimination**. They can do all of this only **once**.
 
 *Let gold do the talking.*
 
-#### (4♡♢/3♡♢/2♡♢) Citizen
+#### (4♥ / 3♥ / 2♥) Citizen
 
 **No special abilities**.
 
@@ -185,15 +181,15 @@ During the **Night** shift at the city hall, the **Janitor** can sweep the **Maf
 
 *Some papers simply vanish.*
 
-#### (4♠/3♠/2♠) Mafioso
+#### (4♠ / 3♠ / 2♠) Mafioso
 
 **No special abilities**.
 
 *But hey — you can still frame someone.*
 
-#### (A♠/K♠) Blackmailing Boss*
+#### (A♠ / K♠) Blackmailing Boss*
 
-On **Night Zero**, the **Blackmailer Boss** chooses **one person** to blackmail. The chosen person learns **BB's** identity and, from then on, **cannot** act **against them**. If the **Mafia** can't agree on who to **kill during the Night**, **BB** passes the **final death sentence**.
+On **Night Zero**, the **Blackmailing Boss** chooses **one person** to blackmail. The chosen person learns **BB's** identity and, from then on, **cannot** act **against them**. If the **Mafia** can't agree on who to **kill during the Night**, **BB** passes the **final death sentence**.
 
 *Just don't get yourself killed.*
 
@@ -239,26 +235,26 @@ During the **Night** shift behind the bar, the **Bartender** can get the **Mafia
 
 ## Example Character Card Sets
 
-| Number of Players | Starting Stats | City                                                         | Mafia                                                        | Syndicate                                                    |
-| ----------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 6                 | 4-2-0          | Doctor<br />Detective<br />Lady of the Night<br />Poor Bloody Infantry | Mafia Boss<br />Coquette                                     | —                                                            |
-| 7                 | 4-2-1          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon | Mafia Boss<br />Coquette                                     | Bartender / Mayor / Bomber / Chairman's Daughter             |
-| 8                 | 5-2-1          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner | Blackmailing Boss<br />Coquette                              | Bartender / Mayor / Bomber / Chairman's Daughter             |
-| 9                 | 5-2-2          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner | Mafia Boss<br />Coquette                                     | Two characters from the pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
-| 10                | 5-3-2          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Saint | Mafia Boss<br />Coquette<br />Janitor                        | Two characters from the pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
-| 11                | 6-3-2          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman | Mafia Boss<br />Coquette<br />Janitor                        | Bartender<br />Angel of Death / Mayor / Bomber / Chairman's Daughter |
-| 12                | 6-3-3          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman | Mafia Boss<br />Coquette<br />Janitor                        | Bartender<br />+Two characters from the pool:<br />Angel of Death / Mayor / Bomber / Chairman's Daughter |
-| 13                | 7-3-3          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor                 | Bartender<br />Angel of Death<br />Mayor / Bomber / Chairman's Daughter |
-| 14                | 7-3-4          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor                 | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
-| 15                | 8-3-4          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor                 | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
-| 16                | 8-4-4          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor       | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
-| 17                | 9-4-4          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint<br />Bodyguard | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor       | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
-| 18                | 9-4-5          | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint<br />Bodyguard | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor       | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
-| 19                | 10-4-5         | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint<br />Bodyguard | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor       | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
-| 20                | 10-5-5         | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
-| 21                | 11-5-5         | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen x2 | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
-| 22                | 12-5-5         | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen x3 | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
-| 23                | 12-6-5         | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen x3 | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso x2 | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
+| Players | Stats | City | Mafia | Syndicate |
+| --- | --- | --- | --- | --- |
+| 6 | 4-2-0 | Doctor<br />Detective<br />Lady of the Night<br />Poor Bloody Infantry | Mafia Boss<br />Coquette | — |
+| 7 | 4-2-1 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon | Mafia Boss<br />Coquette | Bartender / Mayor / Bomber / Chairman's Daughter |
+| 8 | 5-2-1 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner | Blackmailing Boss<br />Coquette | Bartender / Mayor / Bomber / Chairman's Daughter |
+| 9 | 5-2-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner | Mafia Boss<br />Coquette | Two characters from the pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
+| 10 | 5-3-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Saint | Mafia Boss<br />Coquette<br />Janitor | Two characters from the pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
+| 11 | 6-3-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman | Mafia Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death / Mayor / Bomber / Chairman's Daughter |
+| 12 | 6-3-3 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman | Mafia Boss<br />Coquette<br />Janitor | Bartender<br />+Two characters from the pool:<br />Angel of Death / Mayor / Bomber / Chairman's Daughter |
+| 13 | 7-3-3 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Mayor / Bomber / Chairman's Daughter |
+| 14 | 7-3-4 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
+| 15 | 8-3-4 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
+| 16 | 8-4-4 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
+| 17 | 9-4-4 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint<br />Bodyguard | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
+| 18 | 9-4-5 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint<br />Bodyguard | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
+| 19 | 10-4-5 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Saint<br />Bodyguard | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
+| 20 | 10-5-5 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
+| 21 | 11-5-5 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen x2 | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
+| 22 | 12-5-5 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen x3 | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
+| 23 | 12-6-5 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry<br />Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard<br />Citizen x3 | Mafia Boss<br />Blackmailer<br />Coquette<br />Janitor<br />Mafioso x2 | Bartender<br />Angel of Death<br />Bomber+<br />Mayor<br />Chairman's Daughter |
 
 ## Edge Cases
 

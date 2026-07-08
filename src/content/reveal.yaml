@@ -1,0 +1,16 @@
+intro:
+  pl: "Gdy w jakikolwiek sposób **sprawdzana** jest kogoś przynależność do **Frakcji**, **MG** pokaże wynik **sprawdzenia** za pomocą gestu kciukiem, niczym Cezar w starożytnym Rzymie:"
+  en: "Whenever someone's **Faction** is **revealed** in any way, the **GM** shows the **reveals** **the Faction** with a thumb gesture, just like Caesar in ancient Rome would:"
+gestures:
+  - emoji: 👍
+    label:
+      pl: "*kciuk w górę* oznacza przynależność tej osoby do **Miasta**,"
+      en: "*thumbs up* means that the given person belongs to the **City**,"
+  - emoji: 👉
+    label:
+      pl: "*kciuk w bok* oznacza przynależność tej osoby do **Syndykatu**,"
+      en: "*thumb sideways* means that the given person belongs to the **Syndicate**,"
+  - emoji: 👎
+    label:
+      pl: "*kciuk w dół* oznacza przynależność tej osoby do **Mafii**."
+      en: "*thumbs down* means that the given person belongs to the **Mafia**."

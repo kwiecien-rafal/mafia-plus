@@ -44,7 +44,7 @@ export const characterArtPosition: Record<string, ArtAdjust> = {
   coquette: { x: "45%", y: "4%" },
   janitor: { x: "45%", y: "5%" },
   mafioso: { y: "10%" },
-  blackmailer_boss: { x: "42%", y: "3%" },
+  blackmailing_boss: { x: "42%", y: "3%" },
   angel_of_death: { x: "42%", y: "3%" },
   mayor: { x: "32%", y: "3%" },
   chairmans_daughter: { x: "33%", y: "13%" },

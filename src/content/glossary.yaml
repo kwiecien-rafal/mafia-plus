@@ -1,0 +1,48 @@
+- term:
+    pl: eliminacja
+    en: elimination
+  def:
+    pl: usunięcie gracza z gry. Po **eliminacji** danego gracza, nie może się on odzywać do końca gry.
+    en: removing a player from the game. Once **eliminated**, a player may not speak for the rest of the game.
+- term:
+    pl: statystyki
+    en: stats
+  def:
+    pl: liczebność obecnie żyjących graczy w każdej z **Frakcji**. Przykładowo, Jeżeli w grze w danym momencie żyje 6 osób z **Miasta**, 2 osoby z **Mafii** i 3 osoby z **Syndykatu**, **statystyki** będą brzmieć „6-2-3”.
+    en: the number of players currently alive in each **Faction**. For example, if at a given moment 6 people from the **City**, 2 from the **Mafia**, and 3 from the **Syndicate** are alive, the **stats** read "6-2-3".
+- term:
+    pl: statystyki początkowe
+    en: starting stats
+  def:
+    pl: liczebność **Frakcji** na początku gry.
+    en: the size of each **Faction** at the start of the game.
+- term:
+    pl: spanie / zasypianie
+    en: sleeping / falling asleep
+  def:
+    pl: mowa jest o **spaniu**, gdy gracz ma zamknięte oczy. **Zasypianie** to zamknięcie oczu, dopóki **MG** nie oznajmi, że można je otworzyć.
+    en: we speak of **sleeping** when a player has their eyes closed. **Falling asleep** means closing your eyes until the **GM** announces they may be opened.
+- term:
+    pl: wybudzanie
+    en: waking
+  def:
+    pl: otworzenie oczu na polecenie **MG**.
+    en: opening your eyes on the **GM's** command.
+- term:
+    pl: głosowanie
+    en: voting
+  def:
+    pl: następuje na koniec każdego **Dnia**. Gdy **MG** ogłosi, że zaczyna się **głosowanie**, każdy może wytypować **oskarżonego**, który według niego powinien pójść na szafot.
+    en: takes place at the end of every **Day**. When the **GM** announces that **voting** begins, anyone may name an **accused** they believe should walk the plank.
+- term:
+    pl: oskarżenie
+    en: accusation
+  def:
+    pl: wytypowanie kogoś w trakcie **głosowania** jako podejrzanego.
+    en: naming someone as a suspect during **voting**.
+- term:
+    pl: sprawdzenie
+    en: revealing
+  def:
+    pl: akcja ujawnienia przez **MG** kogoś przynależności do **Frakcji**.
+    en: the act of the **GM** revealing someone's **Faction**.

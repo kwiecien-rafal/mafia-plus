@@ -1,21 +1,21 @@
-// Build-time manifest for the downloadable rulebooks. The canonical files
-// live at the repo root; reading them here keeps a single source of truth so
-// the served downloads never drift from the on-page content.
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+// Build-time manifest for the downloadable rulebooks. Both files are rendered
+// from the canonical data (see rulebook.ts), so the served downloads, the
+// committed rules-*.md and the on-page content can never drift apart.
+import type { Lang } from "./characters";
+import { serialize } from "./rulebook";
 
 export interface DownloadFile {
   /** Path the asset is served from. */
   href: string;
   /** Filename suggested to the browser. */
   filename: string;
-  lang: "pl" | "en";
+  lang: Lang;
   raw: string;
   bytes: number;
 }
 
-function load(source: string, filename: string, lang: "pl" | "en"): DownloadFile {
-  const raw = readFileSync(join(process.cwd(), source), "utf8");
+function build(lang: Lang, filename: string): DownloadFile {
+  const raw = serialize(lang);
   return {
     href: `/downloads/${filename}`,
     filename,
@@ -26,8 +26,8 @@ function load(source: string, filename: string, lang: "pl" | "en"): DownloadFile
 }
 
 export const downloadFiles: DownloadFile[] = [
-  load("rules-pl.md", "mafia-plus-rules-pl.md", "pl"),
-  load("rules-en.md", "mafia-plus-rules-en.md", "en"),
+  build("pl", "mafia-plus-rules-pl.md"),
+  build("en", "mafia-plus-rules-en.md"),
 ];
 
 export const downloadByFilename = new Map(downloadFiles.map((f) => [f.filename, f] as const));

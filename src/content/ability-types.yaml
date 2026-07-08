@@ -1,0 +1,56 @@
+- key: start
+  label:
+    pl: Startowa
+    en: Opening
+  desc:
+    pl: aktywowana tylko raz, podczas **Nocy Zerowej**.
+    en: activated only once, during **Night Zero**.
+- key: night
+  label:
+    pl: Nocna
+    en: Night
+  desc:
+    pl: może być aktywowana wyłącznie w trakcie **Nocy**.
+    en: can only be activated during the **Night**.
+- key: day
+  label:
+    pl: Dzienna
+    en: Day
+  desc:
+    pl: może być aktywowana wyłącznie w trakcie **Dnia**.
+    en: can only be activated during the **Day**.
+- key: oneTime
+  label:
+    pl: Jednorazowa
+    en: Single-Use
+  desc:
+    pl: można z niej skorzystać tylko raz w całej grze.
+    en: can be used only once per game.
+- key: voting
+  label:
+    pl: Głosowania
+    en: Voting
+  desc:
+    pl: wpływa na **głosowanie**.
+    en: affects the **vote**.
+- key: checking
+  label:
+    pl: Sprawdzania
+    en: Revealing
+  desc:
+    pl: ma związek ze **sprawdzaniem**.
+    en: related to the act of **revealing**.
+- key: posthumous
+  label:
+    pl: Pośmiertna
+    en: Posthumous
+  desc:
+    pl: aktywuje się sama, w chwili śmierci jej właściciela.
+    en: triggers on its own the moment its owner dies.
+- key: none
+  label:
+    pl: Brak umiejętności
+    en: No Ability
+  desc:
+    pl: ""
+    en: ""

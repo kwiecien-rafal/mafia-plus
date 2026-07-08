@@ -1,0 +1,24 @@
+city:
+  suit: ♥♦
+  name:
+    pl: Miasto
+    en: City
+  blurb:
+    pl: Uczciwi ludzie próbujący przetrwać i zarazem wyplenić całe plugastwo tej betonowej dżungli – Mafię.
+    en: "Honest folk trying to survive while rooting out all the filth festering in this concrete jungle: the Mafia."
+mafia:
+  suit: ♠
+  name:
+    pl: Mafia
+    en: Mafia
+  blurb:
+    pl: Działający w ukryciu gangsterzy, starający się sprzątnąć wszystkich zagrażających im osobników z Miasta.
+    en: Gangsters working from the shadows, looking to whack anyone from the City who gets in their way.
+syndicate:
+  suit: ♣
+  name:
+    pl: Syndykat
+    en: Syndicate
+  blurb:
+    pl: Tajemnicza organizacja grająca na własnych zasadach. Nie dbają o żadną stronę konfliktu i wygrywają niezależnie od reszty, jeżeli przetrwają do końca gry.
+    en: A shadowy organization that plays by its own rules. They care nothing for either side of the conflict and win independently of everyone else, as long as they survive to the end of the game.
