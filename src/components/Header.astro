@@ -16,44 +16,61 @@ const hasRail = Astro.slots.has("rail");
 >
   <div
     data-header-top
-    class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3"
+    class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3"
   >
     <a href="/" aria-label="Mafia+" class="block transition-opacity hover:opacity-80">
       <span class="banner block h-7" aria-hidden="true"></span>
     </a>
 
-    <nav class="flex items-center gap-4 text-sm text-muted sm:gap-5">
+    <button
+      data-menu-toggle
+      type="button"
+      aria-label="Menu"
+      aria-controls="site-nav"
+      aria-expanded="false"
+      class="site-menu-toggle inline-flex sm:hidden"
+    >
+      <span class="site-menu-icon" aria-hidden="true"></span>
+    </button>
+
+    <nav
+      id="site-nav"
+      data-site-nav
+      class="site-nav flex items-center gap-4 text-sm text-muted sm:gap-5"
+    >
       <a class="transition-colors hover:text-bone" href="/downloads">
         <T text={ui.nav.downloads} />
       </a>
 
       <span class="hidden h-4 w-px bg-white/15 sm:block" aria-hidden="true"></span>
 
-      <a
-        href="https://github.com/kwiecien-rafal/mafia-plus"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub repository"
-        class="transition-colors hover:text-bone"
-      >
-        <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
-        </svg>
-      </a>
+      <div class="site-nav-utils flex items-center gap-4 sm:gap-5">
+        <a
+          href="https://github.com/kwiecien-rafal/mafia-plus"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub repository"
+          class="transition-colors hover:text-bone"
+        >
+          <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+          </svg>
+        </a>
 
-      <a
-        href="https://rafalkwiecien.com"
-        aria-label="rafalkwiecien.com"
-        class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/15 font-display text-xs font-bold tracking-wide text-bone transition-colors hover:border-gold hover:text-gold"
-      >
-        RK
-      </a>
+        <a
+          href="https://rafalkwiecien.com"
+          aria-label="rafalkwiecien.com"
+          class="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/15 font-display text-xs font-bold tracking-wide text-bone transition-colors hover:border-gold hover:text-gold"
+        >
+          RK
+        </a>
 
-      <button data-lang-toggle type="button" aria-label="Switch language" class="lang-toggle">
-        <span class="lang-ball" aria-hidden="true"></span>
-        <span class="lang-label" data-l-active="en">EN</span>
-        <span class="lang-label" data-l-active="pl">PL</span>
-      </button>
+        <button data-lang-toggle type="button" aria-label="Switch language" class="lang-toggle">
+          <span class="lang-ball" aria-hidden="true"></span>
+          <span class="lang-label" data-l-active="en">EN</span>
+          <span class="lang-label" data-l-active="pl">PL</span>
+        </button>
+      </div>
     </nav>
   </div>
 
@@ -130,5 +147,37 @@ const hasRail = Astro.slots.has("rail");
       measure();
       update();
     });
+  }
+</script>
+
+<script>
+  // Mobile menu: the hamburger reveals the endpoint links + language switch as
+  // a dropdown panel. It closes on link tap, Escape, an outside click, scroll,
+  // and any resize back to the inline desktop layout.
+  const siteHeader = document.querySelector<HTMLElement>("[data-site-header]");
+  const menuToggle = siteHeader?.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const siteNav = siteHeader?.querySelector<HTMLElement>("[data-site-nav]");
+
+  if (siteHeader && menuToggle && siteNav) {
+    const setOpen = (open: boolean) => {
+      siteHeader.toggleAttribute("data-menu-open", open);
+      menuToggle.setAttribute("aria-expanded", String(open));
+    };
+    const isOpen = () => siteHeader.hasAttribute("data-menu-open");
+
+    menuToggle.addEventListener("click", () => setOpen(!isOpen()));
+    siteNav.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a")) setOpen(false);
+    });
+    document.addEventListener("click", (e) => {
+      if (isOpen() && !siteHeader.contains(e.target as Node)) setOpen(false);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setOpen(false);
+    });
+    window.addEventListener("scroll", () => setOpen(false), { passive: true });
+    window
+      .matchMedia("(min-width: 40rem)")
+      .addEventListener("change", (e) => e.matches && setOpen(false));
   }
 </script>

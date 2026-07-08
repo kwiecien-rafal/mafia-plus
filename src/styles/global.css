@@ -241,6 +241,141 @@ body::after {
   [data-site-header] { transition: none; }
 }
 
+/* ── Mobile menu (header tier 1) ───────────────────────────────────────
+   Below sm the endpoint links and language switch collapse behind a
+   hamburger. The nav drops out of the bar as an absolute panel, so the top
+   tier keeps its single-line height whether the menu is open or closed. */
+.site-menu-toggle {
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  /* Keep the comfortable tap target from growing the bar past the wordmark. */
+  margin-block: -0.4rem;
+  border-radius: 0.55rem;
+  border: 1px solid rgb(255 255 255 / 0.12);
+  color: var(--color-bone);
+  cursor: pointer;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+/* Guard the hover tint behind a real pointer: on touch the border-color would
+   otherwise stick after a tap until the next tap lands elsewhere. The open panel
+   keeps the border gold regardless, matching the menu's own border. */
+@media (hover: hover) {
+  .site-menu-toggle:hover { border-color: var(--color-gold); }
+}
+[data-site-header][data-menu-open] .site-menu-toggle { border-color: var(--color-gold); }
+.site-menu-toggle:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Three-bar glyph: the element is the middle bar, its pseudo-elements the
+   outer two. On open the middle fades and the outer bars fold into an X. */
+.site-menu-icon,
+.site-menu-icon::before,
+.site-menu-icon::after {
+  display: block;
+  width: 1.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.site-menu-icon { position: relative; }
+.site-menu-icon::before,
+.site-menu-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.site-menu-icon::before { top: -6px; }
+.site-menu-icon::after { top: 6px; }
+
+[data-site-header][data-menu-open] .site-menu-icon { background: transparent; }
+[data-site-header][data-menu-open] .site-menu-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+[data-site-header][data-menu-open] .site-menu-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+@media (max-width: 39.99rem) {
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0.75rem;
+    left: 0.75rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.15rem;
+    padding: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+    border-radius: 0.9rem;
+    background: var(--color-ink);
+    box-shadow: 0 14px 34px rgb(0 0 0 / 0.45);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.4rem);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+  }
+  [data-site-header][data-menu-open] .site-nav {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  .site-nav > a {
+    padding: 0.65rem 0.7rem;
+    border-radius: 0.6rem;
+    color: var(--color-bone);
+  }
+  .site-nav > a:hover { background: rgb(255 255 255 / 0.06); }
+  .site-nav-utils {
+    justify-content: flex-end;
+    gap: 1.25rem;
+    margin-top: 0.15rem;
+    padding: 0.55rem 0.7rem 0.35rem;
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav,
+  .site-menu-icon,
+  .site-menu-icon::before,
+  .site-menu-icon::after { transition: none; }
+}
+
+/* Contextual section rail (header tier 2): stays a single line at every width.
+   The links never wrap — on narrow screens the strip scrolls horizontally with
+   the scrollbar hidden, and an edge mask fades whichever side has more to reach
+   (JS sets --fade-l / --fade-r from the scroll position; both 0 = no fade). */
+.section-rail {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  --fade-l: 0px;
+  --fade-r: 0px;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 var(--fade-l),
+    #000 calc(100% - var(--fade-r)),
+    transparent 100%
+  );
+  mask: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 var(--fade-l),
+    #000 calc(100% - var(--fade-r)),
+    transparent 100%
+  );
+}
+.section-rail::-webkit-scrollbar { display: none; }
+
 /* Contextual section rail (header tier 2): muted anchors with a gold marker
    sliding in under whichever section is in view — aria-current is set by the
    scroll-spy, so the active state needs no extra classes. */
