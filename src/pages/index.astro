@@ -134,7 +134,7 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
                 <span class="mr-1"> {factions[f].suit}</span>
               </>
             </h3>
-            <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
+            <div class="mx-auto grid max-w-[85%] grid-cols-1 gap-4 min-[30rem]:max-w-none min-[30rem]:grid-cols-2 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
               {characters
                 .filter((c) => c.faction === f)
                 .sort(compareByCard)
