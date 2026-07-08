@@ -201,7 +201,7 @@ export const characters: Character[] = [
     id: "saint",
     faction: "city",
     card: "9♥",
-    abilityTypes: [],
+    abilityTypes: ["posthumous"],
     name: { pl: "Święty", en: "Saint" },
     ability: {
       pl: "Posiada dwa życia. Pierwsza próba, by wyeliminować Świętego, nie zadziała.",
@@ -320,7 +320,7 @@ export const characters: Character[] = [
     card: "A♠ / K♠",
     cards: ["A♠ / K♠"],
     centerCard: "A♠",
-    abilityTypes: ["start"],
+    abilityTypes: ["start", "night"],
     name: { pl: "Szef Szantażysta", en: "Blackmailing Boss" },
     ability: {
       pl: "Zerowej Nocy wybiera jedną osobę do szantażowania. Wybrana osoba poznaje tożsamość Szantażysty, i od teraz nie może działać przeciwko niemu. Jeżeli Mafia nie może się zdecydować, kogo zabić w Nocy, to Szef wydaje ostateczny wyrok.",
@@ -407,7 +407,7 @@ export const characters: Character[] = [
     id: "chairmans_daughter",
     faction: "syndicate",
     card: "Q♣",
-    abilityTypes: ["voting", "oneTime"],
+    abilityTypes: ["day", "voting", "oneTime"],
     name: { pl: "Córcia Prezesa", en: "Chairman's Daughter" },
     ability: {
       pl: "Tuż po głosowaniu, może wstać i ogłosić się Córcią Prezesa. Jej głos liczy się wtedy podwójnie. Możesz to zrobić tylko raz.",
