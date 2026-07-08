@@ -19,6 +19,17 @@
   --font-body: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
 }
 
+/* Flat fill behind each card portrait, matched to the drawing's own plain
+   background so a repositioned figure blends into the empty space. Plain
+   custom properties rather than @theme tokens: only inline styles read them,
+   and Tailwind prunes theme tokens no utility references. Kept together so the
+   three card colours stay editable in one place. */
+:root {
+  --card-city: #fc9770;
+  --card-mafia: #80a7df;
+  --card-syndicate: #80b38a;
+}
+
 html {
   scroll-behavior: smooth;
   /* Keep anchor jumps clear of the sticky header. JS refines this to the exact
@@ -349,9 +360,15 @@ body::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Bias toward the head: when a wide card forces a vertical crop, keep the
-     face and lose the feet (which the footer covers anyway). */
-  object-position: 50% 22%;
+  /* The square art fills the frame's height and overflows the sides, so --art-x
+     slides that horizontal crop. There's no vertical overflow to slide into, so
+     --art-zoom crops a little off top/bottom to create some and --art-y shifts
+     within it. scale/translate are the standalone properties, so they compose
+     with the hover transform below instead of overwriting it. Default bias
+     toward the head, since the footer covers the feet anyway. */
+  object-position: var(--art-x, 50%) 22%;
+  scale: var(--art-zoom, 1);
+  translate: 0 var(--art-y, 0%);
   transition: transform 0.5s ease;
 }
 
