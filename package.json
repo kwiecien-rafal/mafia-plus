@@ -1,7 +1,7 @@
 {
   "name": "mafia-plus",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "An extended take on the social deduction game Mafia / Werewolf — bilingual character & rules showcase.",
   "scripts": {

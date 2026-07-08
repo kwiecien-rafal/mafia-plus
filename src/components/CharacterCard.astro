@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import type { Character } from "../data/characters";
 import { abilityTypeLabels, cardRank, cardSuit, factions } from "../data/characters";
-import { characterArt } from "../data/characterArt";
+import { characterArt, characterArtPosition } from "../data/characterArt";
 import { ui } from "../data/content";
 import T from "./T.astro";
 
@@ -19,6 +19,16 @@ const centerCard = character.centerCard ?? character.card;
 const centerRank = cardRank(centerCard);
 const centerSuit = cardSuit(centerCard);
 const art = characterArt[character.id];
+const adjust = characterArtPosition[character.id];
+const artStyle = adjust
+  ? [
+      adjust.x != null && `--art-x: ${adjust.x}`,
+      adjust.y != null && `--art-y: ${adjust.y}`,
+      adjust.zoom != null && `--art-zoom: ${adjust.zoom}`,
+    ]
+      .filter(Boolean)
+      .join("; ")
+  : undefined;
 ---
 
 <!-- The grid sets the width; aspect-ratio locks the height to poker-card
@@ -41,10 +51,13 @@ const art = characterArt[character.id];
            name/ability footer sit over it on a legibility scrim. -->
       <article
         class={`flip-face absolute inset-0 overflow-hidden rounded-2xl border ${factionClasses.border} ${factionClasses.ring}`}
-        style={{ "--art-accent": `var(--color-${character.faction})` }}
+        style={{
+          "--art-accent": `var(--color-${character.faction})`,
+          "background-color": `var(--card-${character.faction})`,
+        }}
       >
         {art ? (
-          <Image src={art} alt="" widths={[400, 800]} sizes="(min-width: 1280px) 16rem, (min-width: 640px) 40vw, 92vw" class="card-art" />
+          <Image src={art} alt="" widths={[400, 800]} sizes="(min-width: 1280px) 16rem, (min-width: 640px) 40vw, 92vw" class="card-art" style={artStyle} />
         ) : (
           <div class="card-art card-art--empty">
             <span class={`font-display ${factionClasses.text}`}>
@@ -55,7 +68,7 @@ const art = characterArt[character.id];
 
         <div class="card-scrim pointer-events-none absolute inset-0"></div>
 
-        <div class="card-symbol absolute left-3 top-2.5 font-display text-xl leading-none text-bone sm:left-4 sm:top-3 sm:text-2xl">
+        <div class="card-symbol absolute left-3 top-2.5 font-display text-2xl leading-none text-bone sm:left-4 sm:top-3 sm:text-3xl">
           <span>{rank}</span><span class="ml-0.5">{suit}</span>
         </div>
 

@@ -14,7 +14,7 @@ const { sections } = Astro.props;
 <nav
   data-section-rail
   aria-label="On this page"
-  class="flex flex-wrap items-center gap-x-6 gap-y-1 py-1.5"
+  class="section-rail flex items-center gap-x-5 py-1.5 sm:gap-x-6"
 >
   {
     sections.map((s) => (
@@ -37,11 +37,19 @@ const { sections } = Astro.props;
       .map((a) => document.getElementById(a.dataset.railLink!))
       .filter((el): el is HTMLElement => el !== null);
 
-    // Land anchor jumps clear of the sticky header, whatever its current height
-    // (the header wraps on narrow screens, so this can change).
+    // Land anchor jumps clear of the sticky header, whatever its current height.
     const syncOffset = () => {
       document.documentElement.style.scrollPaddingTop = `${header.offsetHeight}px`;
     };
+
+    // Fade the strip's edge on whichever side hides overflowed links.
+    const FADE = "1.5rem";
+    const updateFade = () => {
+      const max = rail.scrollWidth - rail.clientWidth;
+      rail.style.setProperty("--fade-l", rail.scrollLeft > 4 ? FADE : "0px");
+      rail.style.setProperty("--fade-r", rail.scrollLeft < max - 4 ? FADE : "0px");
+    };
+    rail.addEventListener("scroll", updateFade, { passive: true });
 
     const setActive = (id: string | null) => {
       links.forEach((a) => {
@@ -78,10 +86,12 @@ const { sections } = Astro.props;
 
     syncOffset();
     spy();
+    updateFade();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", () => {
       syncOffset();
       spy();
+      updateFade();
     });
   }
 </script>
