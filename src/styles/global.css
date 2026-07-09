@@ -139,11 +139,12 @@ body::after {
 }
 
 /* ── Hero wordmark slice ──────────────────────────────────────────────
-   Scroll-driven and fully reversible: JS feeds one progress value --p
-   (0→1) from scrollY. Two mask copies of the wordmark, clipped to either
-   side of a diagonal cut, slide apart, grow, blur and sink to a faint
-   watermark while a dagger sweeps across. Everything derives from --p, so
-   scrolling back up plays it in reverse with no extra state. */
+   Two mask copies of the wordmark, clipped to either side of a diagonal cut,
+   slide apart, grow and cross-fade to a faint blurred watermark while a dagger
+   sweeps across. Reversible: progress maps straight from scroll position.
+   Where scroll-driven animations are supported the @supports block below runs
+   the whole thing on the compositor; otherwise the rules here read a single
+   progress value (--p, plus --knife/--knife-o) fed from scrollY by JS. */
 .banner-stage {
   position: fixed;
   inset: 0;
@@ -170,13 +171,30 @@ body::after {
 .banner-half {
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
   transform-origin: 50% 50%;
   backface-visibility: hidden;
-  will-change: transform, opacity, filter;
-  opacity: calc(1 - var(--p) * 0.82);
-  filter: blur(calc(var(--p) * 3px));
+  will-change: transform;
+}
+
+/* Two masked copies of the wordmark per half: a sharp face and a pre-blurred
+   one. Crossfading their opacity pulls focus from crisp to a soft watermark
+   without ever animating the blur radius, so the blurred texture is rasterized
+   once and only composited afterwards — no per-frame re-raster. */
+.banner-half::before,
+.banner-half::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bone);
+  -webkit-mask: url("/mafia-banner.png") center / contain no-repeat;
+  mask: url("/mafia-banner.png") center / contain no-repeat;
+  backface-visibility: hidden;
+  will-change: opacity;
+}
+.banner-half::before { opacity: calc(1 - var(--p)); }
+.banner-half::after {
+  filter: blur(3px);
+  opacity: calc(var(--p) * 0.2);
 }
 
 /* Cut runs lower-left → upper-right. The bottom clip is pulled ~2% past the
@@ -215,12 +233,100 @@ body::after {
   position: absolute;
   width: 42%;
   height: auto;
-  /* Rides the cut: travels left→right while climbing to match the slope. */
-  left: calc(-15% + var(--knife, 0) * 130%);
-  top: calc(80% - var(--knife, 0) * 68%);
-  transform: translate(-50%, -50%) rotate(-15deg);
+  left: -15%;
+  top: 80%;
+  /* Rides the cut: travels left→right and climbs to match the slope. Driven by
+     transform instead of left/top so scrolling never triggers layout. Travel is
+     130% of the stage width across and 68% of its height up; the height comes
+     from the fixed 1920/680 banner ratio, keeping the path on the cut line. */
+  transform:
+    translate(
+      calc(var(--knife, 0) * 1.3 * var(--stage-w, min(90vw, 38rem))),
+      calc(var(--knife, 0) * -0.68 * 680 / 1920 * var(--stage-w, min(90vw, 38rem)))
+    )
+    translate(-50%, -50%)
+    rotate(-15deg);
   opacity: var(--knife-o, 0);
   filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.5));
+  will-change: transform;
+}
+
+/* Preferred path: drive the whole slice from the scroll timeline. The browser
+   samples these on the compositor in lockstep with the real scroll offset, so
+   the effect no longer rides scroll events on the main thread (where it queued
+   behind the scroll-spy and header handlers and stuttered). Progress maps
+   linearly over the first min(90vh, 720px) of scroll — the JS window. The
+   var(--p)/--knife rules above stay as the fallback where this isn't supported. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .banner-cut,
+    .banner-half,
+    .banner-half::before,
+    .banner-half::after,
+    .banner-slash,
+    .banner-knife svg,
+    #hero-intro {
+      animation-timeline: scroll(root block);
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-range: 0 min(90vh, 720px);
+    }
+
+    .banner-cut { animation-name: slice-drift; }
+    .banner-half--top { animation-name: slice-top; }
+    .banner-half--bottom { animation-name: slice-bottom; }
+    .banner-half::before { animation-name: slice-face-sharp; }
+    .banner-half::after { animation-name: slice-face-blur; }
+    .banner-slash { animation-name: slice-glint; }
+    .banner-knife svg { animation-name: slice-knife; }
+    /* Tagline fades over its own shorter window. */
+    #hero-intro { animation-name: slice-intro; animation-range: 0 140px; }
+  }
+}
+
+@keyframes slice-drift {
+  from { transform: translateX(-50%) translateY(0); }
+  to   { transform: translateX(-50%) translateY(var(--drift-y, 0px)); }
+}
+@keyframes slice-top {
+  from { transform: translate(0, 0) rotate(0deg) scale(1); }
+  to   { transform: translate(-8%, -44%) rotate(-3.5deg) scale(2.2); }
+}
+@keyframes slice-bottom {
+  from { transform: translate(0, 0) rotate(0deg) scale(1); }
+  to   { transform: translate(8%, 44%) rotate(3.5deg) scale(2.2); }
+}
+@keyframes slice-face-sharp { from { opacity: 1; } to { opacity: 0; } }
+@keyframes slice-face-blur  { from { opacity: 0; } to { opacity: 0.2; } }
+@keyframes slice-intro      { to   { opacity: 0; } }
+
+/* Knife and glint live in the first 45% of the slice: the blade rides the cut
+   left→right while both fade in then out (a triangle standing in for the sine
+   the JS path uses). Travel is 130% of the stage width across and 68% of its
+   height up — height from the fixed 1920/680 banner ratio, keeping it on the cut. */
+@keyframes slice-knife {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) translate(-50%, -50%) rotate(-15deg);
+  }
+  22.5% { opacity: 1; }
+  45%,
+  100% {
+    opacity: 0;
+    transform:
+      translate(
+        calc(1.3 * var(--stage-w, min(90vw, 38rem))),
+        calc(-0.68 * 680 / 1920 * var(--stage-w, min(90vw, 38rem)))
+      )
+      translate(-50%, -50%)
+      rotate(-15deg);
+  }
+}
+@keyframes slice-glint {
+  0% { opacity: 0; }
+  22.5% { opacity: 0.9; }
+  45%,
+  100% { opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
