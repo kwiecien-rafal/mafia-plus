@@ -1,10 +1,6 @@
 # Mafia Plus
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="public/mafia-banner.png">
-  <source media="(prefers-color-scheme: light)" srcset="public/mafia-banner-light.png">
-  <img alt="Mafia Plus" src="public/mafia-banner.png">
-</picture>
+![Mafia Plus](.github/banner.png)
 
 An extended version of the popular social-deduction game — Mafia (also known as Werewolf).
 
