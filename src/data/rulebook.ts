@@ -1,9 +1,10 @@
 // Renders the canonical bilingual data to a full markdown rulebook — the exact
 // document served as the /downloads/*.md files and written to rules-{pl,en}.md.
-// Because both the website and this serializer read the same source (characters.ts
-// + content.ts), the on-page rules and the downloadable rulebook can never drift.
-// Prose fields carry inline markdown verbatim (see inline.ts); this module only
-// assembles block structure — headings, lists, the example table and hard breaks.
+// Because both the website and this serializer read the same authored content
+// (src/content, via load.ts), the on-page rules and the downloadable rulebook
+// can never drift. Prose fields carry inline markdown verbatim (see inline.ts);
+// this module only assembles block structure — headings, lists, the example
+// table and hard breaks.
 import type { Lang } from "./characters";
 import {
   characters,

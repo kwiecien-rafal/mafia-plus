@@ -1,10 +1,10 @@
 // Renders the canonical bilingual data to a print-ready PDF rulebook — the twin
-// of rulebook.ts's markdown serializer. Both read the same source (characters.ts
-// + content.ts), so the PDF, the markdown download and the on-page rules can
-// never drift. The document is deliberately light (dark ink on white) for legible
-// printing, translating the site's dark faction palette to print-safe tints.
-// Runs only at build time (Astro pre-renders the /downloads endpoints), so it
-// stays on node fs + pdfmake's server printer.
+// of rulebook.ts's markdown serializer. Both read the same authored content
+// (src/content, via load.ts), so the PDF, the markdown download and the on-page
+// rules can never drift. The document is deliberately light (dark ink on white)
+// for legible printing, translating the site's dark faction palette to print-safe
+// tints. Runs only at build time (Astro pre-renders the /downloads endpoints), so
+// it stays on node fs + pdfmake's server printer.
 import PdfPrinter from "pdfmake";
 import type { Content, TableCell, TDocumentDefinitions } from "pdfmake/interfaces";
 import { join } from "node:path";

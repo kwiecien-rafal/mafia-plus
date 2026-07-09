@@ -1,4 +1,4 @@
-# Content and its the source of truth
+# Content as the source of truth
 
 Everything a human reads in the game is authored here as plain Markdown/YAML.
 `src/data/load.ts` parses these files at build time into the shapes the site and

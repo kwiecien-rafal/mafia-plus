@@ -1,6 +1,6 @@
-// Inline-markdown renderer for the bilingual UI. The canonical content in
-// characters.ts / content.ts carries a small, deliberately restricted subset of
-// markdown — **bold**, *italic*, <u>underline</u>, and backslash-escaped literal
+// Inline-markdown renderer for the bilingual UI. The authored content under
+// src/content carries a small, deliberately restricted subset of markdown —
+// **bold**, *italic*, <u>underline</u>, and backslash-escaped literal
 // asterisks/underscores. The same strings are passed through verbatim when the
 // rulebook is serialized to markdown, so the page and the download can never
 // disagree. Bold and italic never nest, which keeps this a two-pass replace
