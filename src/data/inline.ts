@@ -30,3 +30,38 @@ export function inlineToHtml(source: string): string {
     .replaceAll(LITERAL_STAR, "*")
     .replaceAll(LITERAL_UNDERSCORE, "_");
 }
+
+// The same inline subset rendered as pdfmake text runs (see rulebook-pdf.ts).
+// Emphasis leaves are flat; underline recurses so <u> can still carry emphasis.
+export interface InlineRun {
+  text: string;
+  bold?: boolean;
+  italics?: boolean;
+  decoration?: "underline";
+}
+
+const INLINE_TOKEN = /<u>(.+?)<\/u>|\*\*(.+?)\*\*|\*(.+?)\*/g;
+
+function restore(text: string): string {
+  return text.replaceAll(LITERAL_STAR, "*").replaceAll(LITERAL_UNDERSCORE, "_");
+}
+
+function toRuns(source: string, base: Omit<InlineRun, "text">): InlineRun[] {
+  const runs: InlineRun[] = [];
+  let last = 0;
+  for (const m of source.matchAll(INLINE_TOKEN)) {
+    if (m.index > last) runs.push({ ...base, text: restore(source.slice(last, m.index)) });
+    if (m[1] !== undefined) runs.push(...toRuns(m[1], { ...base, decoration: "underline" }));
+    else if (m[2] !== undefined) runs.push({ ...base, text: restore(m[2]), bold: true });
+    else runs.push({ ...base, text: restore(m[3]), italics: true });
+    last = m.index + m[0].length;
+  }
+  if (last < source.length) runs.push({ ...base, text: restore(source.slice(last)) });
+  return runs;
+}
+
+export function inlineToRuns(source: string): InlineRun[] {
+  const parked = source.replaceAll("\\*", LITERAL_STAR).replaceAll("\\_", LITERAL_UNDERSCORE);
+  const runs = toRuns(parked, {});
+  return runs.length ? runs : [{ text: "" }];
+}

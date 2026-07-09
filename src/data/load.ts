@@ -187,6 +187,8 @@ export interface UiFile {
   downloadsCopy: {
     download: Bilingual;
     downloading: Bilingual;
+    formatLabel: Bilingual;
+    formats: { pdf: Bilingual; md: Bilingual };
     fileLabels: { pl: Bilingual; en: Bilingual };
   };
 }

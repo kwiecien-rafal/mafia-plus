@@ -6,6 +6,14 @@ import { ui, downloadsCopy } from "../data/content";
 import { downloadFiles } from "../data/downloads";
 
 const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
+
+// One card per language; PDF is the default, Markdown the dropdown alternate.
+const cards = (["pl", "en"] as const).map((lang) => ({
+  lang,
+  label: downloadsCopy.fileLabels[lang],
+  pdf: downloadFiles.find((f) => f.lang === lang && f.format === "pdf")!,
+  md: downloadFiles.find((f) => f.lang === lang && f.format === "md")!,
+}));
 ---
 
 <Layout title="Downloads — Mafia+">
@@ -17,30 +25,47 @@ const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
     </h1>
 
     <ul class="mt-12 space-y-5">
-      {downloadFiles.map((file) => (
-        <li class="rounded-2xl border border-white/10 bg-ink-card/50 p-6">
+      {cards.map((card) => (
+        <li class="download-card rounded-2xl border border-white/10 bg-ink-card/50 p-6">
           <div class="flex flex-wrap items-center justify-between gap-4">
             <div>
               <h2 class="font-display text-xl text-bone">
-                <T text={downloadsCopy.fileLabels[file.lang]} />
+                <T text={card.label} />
               </h2>
-              <p class="mt-1 font-mono text-xs text-muted">{file.filename} · {kb(file.bytes)}</p>
+              <p class="download-meta mt-1 font-mono text-xs text-muted">{card.pdf.filename} · {kb(card.pdf.bytes)}</p>
             </div>
-            <a
-              href={file.href}
-              download={file.filename}
-              aria-busy="false"
-              class="download-btn inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 px-5 py-2 text-sm font-semibold text-gold transition-colors hover:border-gold hover:bg-gold/10"
-            >
-              <span class="download-label inline-flex items-center gap-2"><T text={downloadsCopy.download} /> ↓</span>
-              <span class="download-spinner items-center gap-2" aria-hidden="true">
-                <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.37 0 0 5.37 0 12h4z"></path>
-                </svg>
-                <T text={downloadsCopy.downloading} />
-              </span>
-            </a>
+
+            <div class="flex items-center gap-3">
+              <label class="sr-only" for={`fmt-${card.lang}`}><T text={downloadsCopy.formatLabel} /></label>
+              <div class="format-field">
+                <select id={`fmt-${card.lang}`} class="format-select">
+                  <option value="pdf">{downloadsCopy.formats.pdf.en}</option>
+                  <option value="md">{downloadsCopy.formats.md.en}</option>
+                </select>
+              </div>
+
+              <a
+                href={card.pdf.href}
+                download={card.pdf.filename}
+                data-pdf-href={card.pdf.href}
+                data-pdf-name={card.pdf.filename}
+                data-pdf-size={kb(card.pdf.bytes)}
+                data-md-href={card.md.href}
+                data-md-name={card.md.filename}
+                data-md-size={kb(card.md.bytes)}
+                aria-busy="false"
+                class="download-btn inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 px-5 py-2 text-sm font-semibold text-gold transition-colors hover:border-gold hover:bg-gold/10"
+              >
+                <span class="download-label inline-flex items-center gap-2"><T text={downloadsCopy.download} /> ↓</span>
+                <span class="download-spinner items-center gap-2" aria-hidden="true">
+                  <svg class="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 0 1 8-8V0C5.37 0 0 5.37 0 12h4z"></path>
+                  </svg>
+                  <T text={downloadsCopy.downloading} />
+                </span>
+              </a>
+            </div>
           </div>
         </li>
       ))}
@@ -48,10 +73,26 @@ const kb = (bytes: number) => `${(bytes / 1024).toFixed(1)} KB`;
   </main>
 
   <script>
-    // Progressive enhancement: the anchors already download natively. With JS we
-    // fetch the file as a blob so the button can show a real spinner until the
-    // bytes are in hand, then hand the blob to the browser's save flow.
-    document.querySelectorAll<HTMLAnchorElement>("a.download-btn").forEach((link) => {
+    // The anchors download the default PDF natively. JS adds two enhancements:
+    // the dropdown repoints the anchor at the chosen format, and the click
+    // fetches the file as a blob so the button can show a real spinner until the
+    // bytes are in hand before handing them to the browser's save flow.
+    document.querySelectorAll<HTMLLIElement>("li.download-card").forEach((card) => {
+      const link = card.querySelector<HTMLAnchorElement>("a.download-btn");
+      const select = card.querySelector<HTMLSelectElement>("select.format-select");
+      const meta = card.querySelector<HTMLParagraphElement>(".download-meta");
+      if (!link) return;
+
+      if (select && meta) {
+        select.addEventListener("change", () => {
+          const f = select.value; // "pdf" | "md"
+          link.href = link.dataset[`${f}Href`] ?? link.href;
+          const name = link.dataset[`${f}Name`] ?? "";
+          link.setAttribute("download", name);
+          meta.textContent = `${name} · ${link.dataset[`${f}Size`] ?? ""}`;
+        });
+      }
+
       link.addEventListener("click", async (event) => {
         if (link.getAttribute("aria-busy") === "true") {
           event.preventDefault();

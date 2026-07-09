@@ -11,3 +11,9 @@
   Content-Disposition: attachment
   X-Content-Type-Options: nosniff
   Cache-Control: public, max-age=3600, must-revalidate
+
+/downloads/*.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600, must-revalidate

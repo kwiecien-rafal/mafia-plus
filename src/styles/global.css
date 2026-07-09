@@ -454,6 +454,40 @@ body::after {
 .download-btn[aria-busy="true"] .download-label { display: none; }
 .download-btn[aria-busy="true"] .download-spinner { display: inline-flex; }
 
+/* Format picker: PDF is the native default, so the dropdown that switches to
+   Markdown only appears once JS can rewire the button. A custom chevron stands
+   in for the platform one the reset appearance removes. */
+.format-field { position: relative; display: none; align-items: center; }
+html.js .format-field { display: inline-flex; }
+.format-select {
+  appearance: none;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  border-radius: 9999px;
+  background: color-mix(in srgb, var(--color-ink-card) 70%, transparent);
+  color: var(--color-bone);
+  font-size: 0.85rem;
+  padding: 0.5rem 2.1rem 0.5rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+.format-select:hover { border-color: color-mix(in srgb, var(--color-gold) 60%, transparent); }
+.format-select:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+.format-select option { background: var(--color-ink-card); color: var(--color-bone); }
+.format-select option:hover { color: var(--color-gold); }
+.format-select option:checked { color: var(--color-gold); font-weight: 600; }
+.format-field::after {
+  content: "";
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 2px solid var(--color-muted);
+  border-bottom: 2px solid var(--color-muted);
+  transform: translateY(-70%) rotate(45deg);
+  pointer-events: none;
+}
+
 /* Perspective sits on an inner stage, not the card root, so the frosted panel
    behind it (a sibling of the stage) is free of any transform ancestor and its
    backdrop-filter can still blur the page behind the card. */

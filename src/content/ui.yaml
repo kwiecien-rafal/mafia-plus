@@ -79,6 +79,16 @@ downloadsCopy:
   downloading:
     pl: Pobieranie…
     en: Downloading…
+  formatLabel:
+    pl: Format
+    en: Format
+  formats:
+    pdf:
+      pl: PDF
+      en: PDF
+    md:
+      pl: Markdown
+      en: Markdown
   fileLabels:
     pl:
       pl: Zasady — wersja polska
