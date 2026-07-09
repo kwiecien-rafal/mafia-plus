@@ -4,6 +4,7 @@ name: Rules drift check
 # This regenerates them and fails if the committed rules-*.md are out of date.
 on:
   push:
+    branches: ['**']
   pull_request:
 
 jobs:
