@@ -1,12 +1,19 @@
 title:
-  pl: Mafia+
-  en: Mafia+
+  pl: Mafia+ - Rozszerzona wersja klasycznej gry towarzysko-detektywistycznej.
+  en: Mafia+ - An extended take on the classic social deduction game.
 tagline:
   pl: Rozszerzona wersja klasycznej gry towarzysko-detektywistycznej.
-  en: An extended take on a classic social deduction game.
+  en: An extended take on the classic social deduction game.
 intro:
   pl: Rozszerzona wersja klasycznej gry towarzysko-detektywistycznej.
-  en: An extended take on a classic social deduction game.
+  en: An extended take on the classic social deduction game.
+seo:
+  title:
+    pl: Mafia+ — rozszerzona wersja gry towarzysko-detektywistycznej
+    en: Mafia+ — an extended take on the social deduction game
+  description:
+    pl: Rozszerzona wersja klasycznej Mafii. Trzy frakcje, autorskie karty postaci, pełne zasady i gotowe zestawy do gry. Wszystko darmowe, potrzebujesz tylko ludzi do grania!
+    en: An extended take on the classic social-deduction game Mafia. Three factions, custom character cards, complete rules, and ready-to-play example sets. All free, all you need is people to play!
 nav:
   characters:
     pl: Postacie
