@@ -176,6 +176,7 @@ export interface UiFile {
   title: Bilingual;
   tagline: Bilingual;
   intro: Bilingual;
+  seo: { title: Bilingual; description: Bilingual };
   nav: Record<"characters" | "rules" | "setup" | "edgeCases" | "downloads", Bilingual>;
   cardLabel: Bilingual;
   flipHint: Bilingual;

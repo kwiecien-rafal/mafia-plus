@@ -4,8 +4,15 @@ import { ui } from "../data/content";
 
 interface Props {
   title?: string;
+  description?: string;
 }
-const { title = "Mafia+" } = Astro.props;
+const { title = ui.seo.title.en, description = ui.seo.description.en } =
+  Astro.props;
+
+// Absolute URLs for canonical + social tags, resolved against the configured
+// site (astro.config.mjs). Crawlers and unfurlers require absolute image URLs.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL("/og-image.png", Astro.site).href;
 ---
 
 <!doctype html>
@@ -18,8 +25,27 @@ const { title = "Mafia+" } = Astro.props;
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="description" content={`${ui.tagline.pl} — ${ui.tagline.en}`} />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / Twitter link-preview card. Single-language (English) to
+         match the default lang; the image is the wordmark on the site's ink. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mafia+" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Mafia+" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
