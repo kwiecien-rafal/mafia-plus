@@ -71,8 +71,15 @@ const { title = "Mafia+" } = Astro.props;
               card.getAttribute("data-flipped") === "true" ? "false" : "true"
             );
           }
-          card.addEventListener("click", toggle);
+          // Links on the card (edge-case jumps) must act without flipping it:
+          // ignore clicks that land on an anchor, and only handle keys sent to
+          // the card itself, not to a focused link inside it.
+          card.addEventListener("click", function (e) {
+            if (e.target.closest("a")) return;
+            toggle();
+          });
           card.addEventListener("keydown", function (e) {
+            if (e.target !== card) return;
             if (e.key === "Enter" || e.key === " ") {
               e.preventDefault();
               toggle();

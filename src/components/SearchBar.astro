@@ -1,0 +1,370 @@
+---
+// Section-scoped search, in two projections. Desktop keeps the inline frosted
+// bar filtering the section in place. On mobile the bar renders as a trigger
+// that opens a full-screen overlay — input on top, compact result rows (the
+// `results` slot) underneath — so the keyboard never competes with the sticky
+// header stack. One script wires every [data-search-scope]: both projections
+// share the pre-built data-search haystacks (see src/data/search.ts), a scope
+// can be narrowed to one character via a chip (set from [data-edge-filter]
+// links), and [data-search-group] wrappers hide when they go empty. JS-gated:
+// no-JS visitors just see the full lists.
+import type { Bilingual } from "../data/characters";
+import { ui } from "../data/content";
+import T from "./T.astro";
+
+interface Props {
+  placeholder: Bilingual;
+  total: number;
+}
+const { placeholder, total } = Astro.props;
+const label = `${placeholder.pl} / ${placeholder.en}`;
+const clearLabel = `${ui.search.clear.pl} / ${ui.search.clear.en}`;
+---
+
+<div class="search-sticky" data-search-bar>
+  <!-- Desktop: inline bar -->
+  <div class="search-bar search-bar--page">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+      <path
+        d="M16.5 16.5 21 21"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"></path>
+    </svg>
+    <div class="search-chips" data-search-chips></div>
+    <input
+      class="search-input"
+      type="search"
+      data-search-input
+      data-ph-pl={placeholder.pl}
+      data-ph-en={placeholder.en}
+      aria-label={label}
+      autocomplete="off"
+      spellcheck="false"
+    />
+    <span class="search-count" data-search-count aria-live="polite" hidden>
+      <span data-search-shown></span> / {total}
+    </span>
+    <button
+      type="button"
+      class="search-clear"
+      data-search-clear
+      hidden
+      aria-label={clearLabel}>×</button
+    >
+  </div>
+
+  <!-- Mobile: trigger opening the overlay; chips render read-only here -->
+  <button type="button" class="search-trigger" data-search-trigger>
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+      <path
+        d="M16.5 16.5 21 21"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"></path>
+    </svg>
+    <span class="search-chips" data-search-chips data-static></span>
+    <span
+      class="search-trigger-label"
+      data-search-trigger-label
+      data-ph-pl={placeholder.pl}
+      data-ph-en={placeholder.en}></span>
+    <span class="search-count" data-search-count hidden>
+      <span data-search-shown></span> / {total}
+    </span>
+  </button>
+
+  <p class="search-empty search-empty--page" data-search-empty hidden>
+    <T text={ui.search.noResults} />
+    <span class="search-empty-q" data-search-query></span>
+  </p>
+
+  <!-- Mobile: full-screen search sheet. Re-parented to <body> by the script so
+       it stacks above the site header regardless of this bar's context. -->
+  <div
+    class="search-overlay"
+    data-search-overlay
+    role="dialog"
+    aria-modal="true"
+    aria-label={label}
+    hidden
+  >
+    <div class="search-overlay-bar">
+      <div class="search-bar search-bar--overlay">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"></circle>
+          <path
+            d="M16.5 16.5 21 21"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"></path>
+        </svg>
+        <div class="search-chips" data-search-chips></div>
+        <input
+          class="search-input"
+          type="search"
+          data-search-input
+          data-ph-pl={placeholder.pl}
+          data-ph-en={placeholder.en}
+          aria-label={label}
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button
+          type="button"
+          class="search-clear"
+          data-search-clear
+          hidden
+          aria-label={clearLabel}>×</button
+        >
+      </div>
+      <button type="button" class="search-cancel" data-search-cancel>
+        <T text={ui.search.cancel} />
+      </button>
+    </div>
+    <div class="search-overlay-results">
+      <slot name="results" />
+      <p class="search-empty" data-search-empty hidden>
+        <T text={ui.search.noResults} />
+        <span class="search-empty-q" data-search-query></span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { fold } from "../data/fold";
+
+  const controllers = new Map<
+    string,
+    (id: string, namePl: string, nameEn: string) => void
+  >();
+  const desktop = window.matchMedia("(min-width: 40rem)");
+  // Section id to scroll to once the overlay finishes closing through history.
+  let pendingJump: string | null = null;
+
+  document.querySelectorAll<HTMLElement>("[data-search-scope]").forEach((scope) => {
+    const root = scope.querySelector<HTMLElement>("[data-search-bar]");
+    if (!root) return;
+
+    const inputs = [...root.querySelectorAll<HTMLInputElement>("[data-search-input]")];
+    const counts = [...root.querySelectorAll<HTMLElement>("[data-search-count]")];
+    const showns = [...root.querySelectorAll<HTMLElement>("[data-search-shown]")];
+    const clears = [...root.querySelectorAll<HTMLButtonElement>("[data-search-clear]")];
+    const empties = [...root.querySelectorAll<HTMLElement>("[data-search-empty]")];
+    const chipSlots = [...root.querySelectorAll<HTMLElement>("[data-search-chips]")];
+    const overlay = root.querySelector<HTMLElement>("[data-search-overlay]");
+    const trigger = root.querySelector<HTMLButtonElement>("[data-search-trigger]");
+    const cancel = root.querySelector<HTMLButtonElement>("[data-search-cancel]");
+    const overlayInput = overlay?.querySelector<HTMLInputElement>("[data-search-input]");
+
+    const items = [...scope.querySelectorAll<HTMLElement>("[data-search-item]")];
+    // The overlay rows mirror the page items one-to-one, so only page items count.
+    const pageItems = items.filter((i) => !i.closest("[data-search-overlay]"));
+    const groups = [...scope.querySelectorAll<HTMLElement>("[data-search-group]")];
+
+    // All lookups above ran while the overlay was still in place; now portal it
+    // to <body> so it escapes the sticky bar's stacking context (z-index 30,
+    // below the z-50 header). The collected references stay valid.
+    if (overlay) document.body.append(overlay);
+
+    let chipId: string | null = null;
+
+    const apply = () => {
+      const query = inputs[0]?.value ?? "";
+      const tokens = fold(query).split(/\s+/).filter(Boolean);
+      for (const item of items) {
+        const chipHit =
+          !chipId || (item.dataset.chars ?? "").split(" ").includes(chipId);
+        const hay = item.dataset.search ?? "";
+        item.toggleAttribute("hidden", !(chipHit && tokens.every((t) => hay.includes(t))));
+      }
+      for (const group of groups) {
+        group.toggleAttribute(
+          "hidden",
+          !group.querySelector("[data-search-item]:not([hidden])"),
+        );
+      }
+      const shown = pageItems.filter((i) => !i.hidden).length;
+      const active = tokens.length > 0 || chipId !== null;
+      counts.forEach((el) => (el.hidden = !active));
+      showns.forEach((el) => (el.textContent = String(shown)));
+      clears.forEach((el) => (el.hidden = !active));
+      empties.forEach((el) => {
+        el.hidden = !active || shown > 0;
+        const echo = el.querySelector<HTMLElement>("[data-search-query]");
+        if (echo) echo.textContent = query.trim() || "…";
+      });
+    };
+
+    const setChip = (id: string | null, namePl = "", nameEn = "") => {
+      chipId = id;
+      for (const slot of chipSlots) {
+        slot.replaceChildren();
+        if (!id) continue;
+        // Chips inside the trigger <button> can't nest another button; they
+        // render read-only there and are cleared from the overlay instead.
+        const isStatic = slot.hasAttribute("data-static");
+        const chip = document.createElement(isStatic ? "span" : "button");
+        chip.className = "search-chip";
+        for (const [lang, name] of [["pl", namePl], ["en", nameEn]] as const) {
+          const span = document.createElement("span");
+          span.dataset.l = lang;
+          span.textContent = name;
+          chip.append(span);
+        }
+        if (chip instanceof HTMLButtonElement) {
+          chip.type = "button";
+          const x = document.createElement("span");
+          x.className = "search-chip-x";
+          x.setAttribute("aria-hidden", "true");
+          x.textContent = "×";
+          chip.append(x);
+          chip.addEventListener("click", () => setChip(null));
+        }
+        slot.append(chip);
+      }
+      apply();
+    };
+
+    const reset = () => {
+      inputs.forEach((el) => (el.value = ""));
+      setChip(null);
+    };
+
+    // ── Overlay open/close ─────────────────────────────────────
+    // Closing always goes through history.back(), so the Android back gesture,
+    // Cancel and Escape all take the same path (the popstate handler below).
+    let overlayOpen = false;
+
+    const openOverlay = () => {
+      if (!overlay || overlayOpen) return;
+      overlayOpen = true;
+      overlay.hidden = false;
+      document.documentElement.setAttribute("data-search-lock", "");
+      history.pushState({ searchOverlay: true }, "");
+      overlayInput?.focus();
+    };
+
+    const settleClose = () => {
+      if (!overlay || !overlayOpen) return false;
+      overlayOpen = false;
+      overlay.hidden = true;
+      document.documentElement.removeAttribute("data-search-lock");
+      reset();
+      trigger?.focus({ preventScroll: true });
+      return true;
+    };
+
+    trigger?.addEventListener("click", openOverlay);
+    cancel?.addEventListener("click", () => history.back());
+    window.addEventListener("popstate", () => {
+      if (settleClose() && pendingJump) {
+        document
+          .getElementById(pendingJump)
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        pendingJump = null;
+      }
+    });
+    desktop.addEventListener("change", (e) => {
+      if (e.matches && overlayOpen) history.back();
+    });
+
+    // ── Input wiring (page bar and overlay bar stay in sync) ───
+    inputs.forEach((input) => {
+      input.addEventListener("input", () => {
+        inputs.forEach((other) => {
+          if (other !== input) other.value = input.value;
+        });
+        apply();
+      });
+      input.addEventListener("keydown", (e) => {
+        if (e.key !== "Escape") return;
+        if (overlayOpen) history.back();
+        else reset();
+      });
+    });
+    clears.forEach((clear) => {
+      clear.addEventListener("click", () => {
+        reset();
+        clear
+          .closest(".search-bar")
+          ?.querySelector<HTMLInputElement>("[data-search-input]")
+          ?.focus();
+      });
+    });
+
+    controllers.set(scope.dataset.searchScope ?? "", (id, pl, en) =>
+      setChip(id, pl, en),
+    );
+  });
+
+  // Delegated: edge-case jumps and result-row expansion (rows may live in a
+  // portaled overlay, so this listens at the document).
+  document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+
+    const link = target.closest<HTMLElement>("[data-edge-filter]");
+    if (link) {
+      controllers.get("edge-cases")?.(
+        link.dataset.edgeFilter!,
+        link.dataset.namePl ?? "",
+        link.dataset.nameEn ?? "",
+      );
+      // From inside the overlay the anchor jump must wait for the overlay to
+      // close, so the popstate handler performs it instead of the browser.
+      if (link.closest("[data-search-overlay]")) {
+        e.preventDefault();
+        pendingJump = "edge-cases";
+        history.back();
+      }
+      return;
+    }
+
+    const row = target.closest<HTMLElement>("[data-srow]");
+    if (row && !target.closest("a")) {
+      const expanded = row.toggleAttribute("data-expanded");
+      row
+        .querySelector("[data-srow-toggle]")
+        ?.setAttribute("aria-expanded", String(expanded));
+    }
+  });
+
+  // Placeholders and trigger labels can't carry both languages in one
+  // attribute, so mirror the active data-lang and follow the header toggle.
+  const applyPlaceholders = () => {
+    const pl = document.documentElement.getAttribute("data-lang") === "pl";
+    document
+      .querySelectorAll<HTMLInputElement>("input[data-search-input]")
+      .forEach((el) => {
+        el.placeholder = (pl ? el.dataset.phPl : el.dataset.phEn) ?? "";
+      });
+    document
+      .querySelectorAll<HTMLElement>("[data-search-trigger-label]")
+      .forEach((el) => {
+        el.textContent = (pl ? el.dataset.phPl : el.dataset.phEn) ?? "";
+      });
+  };
+  applyPlaceholders();
+  new MutationObserver(applyPlaceholders).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-lang"],
+  });
+
+  // Expose the header's layout heights as root custom properties; the sticky
+  // bar's CSS pins itself below whichever tier state the quick-return header
+  // is in (transforms don't change offsetHeight, so one measure per resize).
+  const header = document.querySelector<HTMLElement>("[data-site-header]");
+  const topBar = header?.querySelector<HTMLElement>("[data-header-top]");
+  if (header && topBar) {
+    const measure = () => {
+      const root = document.documentElement.style;
+      root.setProperty("--header-h", `${header.offsetHeight}px`);
+      root.setProperty("--header-tier1-h", `${topBar.offsetHeight}px`);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+  }
+</script>

@@ -3,7 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import SectionRail from "../components/SectionRail.astro";
 import CharacterCard from "../components/CharacterCard.astro";
+import CharacterRow from "../components/CharacterRow.astro";
 import RuleCard from "../components/RuleCard.astro";
+import SearchBar from "../components/SearchBar.astro";
 import T from "../components/T.astro";
 import {
   characters,
@@ -27,9 +29,17 @@ import {
   sectionNav,
   type LineupItem,
 } from "../data/content";
+import { edgeCaseHaystack } from "../data/search";
 
 const charById = new Map(characters.map((c) => [c.id, c] as const));
 const ruleById = new Map(ruleSections.map((s) => [s.id, s] as const));
+
+// One ordering for both projections: the faction grids and the flat row list
+// in the mobile search overlay.
+const rosterByFaction = factionOrder.map((f) => ({
+  faction: f,
+  members: characters.filter((c) => c.faction === f).sort(compareByCard),
+}));
 
 function nm(id: string, lang: "pl" | "en") {
   return charById.get(id)?.name[lang] ?? id;
@@ -118,14 +128,32 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
     </section>
 
     <!-- ── Characters ───────────────────────────────────────── -->
-    <section id="characters" data-header-collapse-at class="py-12">
+    <section
+      id="characters"
+      data-header-collapse-at
+      data-search-scope="characters"
+      class="py-12"
+    >
       <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.characters} />
       </h2>
 
+      <SearchBar
+        placeholder={ui.search.charactersPlaceholder}
+        total={characters.length}
+      >
+        <ul slot="results" class="srow-list">
+          {rosterByFaction
+            .flatMap((g) => g.members)
+            .map((c) => (
+              <CharacterRow character={c} />
+            ))}
+        </ul>
+      </SearchBar>
+
       {
-        factionOrder.map((f, i) => (
-          <div class={i === 0 ? "mt-5" : "mt-12"}>
+        rosterByFaction.map(({ faction: f, members }, i) => (
+          <div class={i === 0 ? "mt-5" : "mt-12"} data-search-group>
             <h3
               class={`heading-plate mb-5 font-display text-2xl ${factions[f].style.text}`}
             >
@@ -135,12 +163,9 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
               </>
             </h3>
             <div class="mx-auto grid max-w-[85%] grid-cols-1 gap-4 min-[30rem]:max-w-none min-[30rem]:grid-cols-2 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4">
-              {characters
-                .filter((c) => c.faction === f)
-                .sort(compareByCard)
-                .map((c) => (
-                  <CharacterCard character={c} />
-                ))}
+              {members.map((c) => (
+                <CharacterCard character={c} />
+              ))}
             </div>
           </div>
         ))
@@ -402,14 +427,42 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
     </section>
 
     <!-- ── Edge cases ───────────────────────────────────────── -->
-    <section id="edge-cases" class="py-12">
+    <section id="edge-cases" data-search-scope="edge-cases" class="py-12">
       <h2 class="heading-plate font-display text-3xl text-bone sm:text-4xl">
         <T text={ui.nav.edgeCases} />
       </h2>
+
+      <SearchBar
+        placeholder={ui.search.edgeCasesPlaceholder}
+        total={edgeCases.length}
+      >
+        <ul slot="results" class="srow-list">
+          {edgeCases.map((qa) => (
+            <li
+              class="srow srow--qa"
+              data-search-item
+              data-search={edgeCaseHaystack(qa, charById)}
+              data-chars={qa.characters?.join(" ")}
+            >
+              <p class="srow-q">
+                <span class="text-gold">?</span>
+                <T text={qa.q} />
+              </p>
+              <p class="srow-a"><T text={qa.a} /></p>
+            </li>
+          ))}
+        </ul>
+      </SearchBar>
+
       <div class="mt-4 grid gap-4 md:grid-cols-2">
         {
           edgeCases.map((qa) => (
-            <div class="rounded-xl border border-white/10 bg-ink-card/75 p-4 backdrop-blur-md">
+            <div
+              class="rounded-xl border border-white/10 bg-ink-card/75 p-4 backdrop-blur-md"
+              data-search-item
+              data-search={edgeCaseHaystack(qa, charById)}
+              data-chars={qa.characters?.join(" ")}
+            >
               <p class="flex items-start gap-3 text-[0.95rem] font-medium text-bone/90">
                 <>
                   <span class="text-gold">?</span>

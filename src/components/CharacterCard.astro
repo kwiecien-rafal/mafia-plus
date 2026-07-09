@@ -3,7 +3,8 @@ import { Image } from "astro:assets";
 import type { Character } from "../data/characters";
 import { abilityTypeLabels, cardRank, cardSuit, factions } from "../data/characters";
 import { characterArt, characterArtPosition } from "../data/characterArt";
-import { ui } from "../data/content";
+import { edgeCases, ui } from "../data/content";
+import { characterHaystack } from "../data/search";
 import T from "./T.astro";
 
 interface Props {
@@ -20,6 +21,9 @@ const centerRank = cardRank(centerCard);
 const centerSuit = cardSuit(centerCard);
 const art = characterArt[character.id];
 const adjust = characterArtPosition[character.id];
+const relatedEdgeCases = edgeCases.filter((e) =>
+  e.characters?.includes(character.id),
+).length;
 const artStyle = adjust
   ? [
       adjust.x != null && `--art-x: ${adjust.x}`,
@@ -36,6 +40,8 @@ const artStyle = adjust
 <div
   class="flip group relative aspect-[5/7] cursor-pointer select-none rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-gold/70"
   data-flipped="false"
+  data-search-item
+  data-search={characterHaystack(character)}
   role="button"
   tabindex="0"
   aria-label={`${character.name.pl} / ${character.name.en}`}
@@ -107,6 +113,18 @@ const artStyle = adjust
             </p>
           )}
         </div>
+        {relatedEdgeCases > 0 && (
+          <a
+            href="#edge-cases"
+            class="edge-link"
+            data-edge-filter={character.id}
+            data-name-pl={character.name.pl}
+            data-name-en={character.name.en}
+          >
+            <T text={ui.search.edgeCasesLink} />
+            <span>({relatedEdgeCases}) ↓</span>
+          </a>
+        )}
         <footer class="mt-3 flex items-center justify-between border-t border-white/10 pt-2 text-xs text-muted">
           <span><T text={ui.cardLabel} />: <span class={factionClasses.text}>{(character.cards ?? [character.card]).join(" · ")}</span></span>
           <span class="opacity-70">↻</span>

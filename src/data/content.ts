@@ -53,7 +53,14 @@ export const checkGestureIntro: Bilingual = reveal.intro;
 
 // ── Glossary & edge cases ─────────────────────────────────────
 export const glossary: { term: Bilingual; def: Bilingual }[] = loadGlossary();
-export const edgeCases: { q: Bilingual; a: Bilingual }[] = loadEdgeCases();
+
+export interface EdgeCase {
+  q: Bilingual;
+  a: Bilingual;
+  characters?: string[]; // roster ids the ruling involves; drives card links + filtering
+}
+
+export const edgeCases: EdgeCase[] = loadEdgeCases();
 
 // ── Example character sets ─────────────────────────────────────
 // Each lineup slot references character ids so names stay bilingual.

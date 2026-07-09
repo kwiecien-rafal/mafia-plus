@@ -7,7 +7,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { parse as parseYaml } from "yaml";
 import type { AbilityType, Bilingual, Character, Faction, Lang } from "./characters";
-import type { ExampleSet, LineupItem, RuleBlock, RuleSection } from "./content";
+import type { EdgeCase, ExampleSet, LineupItem, RuleBlock, RuleSection } from "./content";
 
 const LANGS: Lang[] = ["pl", "en"];
 const contentDir = join(process.cwd(), "src", "content");
@@ -118,8 +118,17 @@ export function loadGlossary(): { term: Bilingual; def: Bilingual }[] {
   return loadYaml("glossary.yaml");
 }
 
-export function loadEdgeCases(): { q: Bilingual; a: Bilingual }[] {
-  return loadYaml("edge-cases.yaml");
+export function loadEdgeCases(): EdgeCase[] {
+  const cases = loadYaml<EdgeCase[]>("edge-cases.yaml");
+  const roster = new Set(mdFiles("characters").map((f) => f.replace(/\.md$/, "")));
+  for (const c of cases) {
+    for (const id of c.characters ?? []) {
+      if (!roster.has(id)) {
+        throw new Error(`edge case "${c.q.en}": unknown character id "${id}"`);
+      }
+    }
+  }
+  return cases;
 }
 
 // ── Factions, ability types, gestures ─────────────────────────
@@ -182,6 +191,14 @@ export interface UiFile {
   exampleLabel: Bilingual;
   headings: Record<"abilityKinds" | "checking" | "glossary" | "closingNotes", Bilingual>;
   exampleSets: { showMore: Bilingual; showLess: Bilingual };
+  search: {
+    charactersPlaceholder: Bilingual;
+    edgeCasesPlaceholder: Bilingual;
+    clear: Bilingual;
+    cancel: Bilingual;
+    noResults: Bilingual;
+    edgeCasesLink: Bilingual;
+  };
   footer: Bilingual;
   sectionNav: { id: string; label: Bilingual }[];
   downloadsCopy: {
