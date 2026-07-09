@@ -67,8 +67,8 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
        the content (z-10) but above the body background. -->
   <div class="banner-stage" aria-hidden="true">
     <div class="banner-cut">
-      <span class="banner banner-half banner-half--bottom"></span>
-      <span class="banner banner-half banner-half--top"></span>
+      <span class="banner-half banner-half--bottom"></span>
+      <span class="banner-half banner-half--top"></span>
       <span class="banner-slash"></span>
       <span class="banner-knife">
         <svg
@@ -443,14 +443,10 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     if (stage && heroBanner && !reduce.matches) {
-      const KNIFE_SPAN = 0.45; // slice finishes well before the halves settle
-      const INTRO_FADE = 140; // px of scroll over which the tagline fades out
-
-      // Scroll distance over which the whole slice plays out.
-      const range = () => Math.min(window.innerHeight * 0.9, 720);
-
-      // Pin the fixed stage to where the hero wordmark sits at scrollY 0, then
-      // let it drift to viewport centre as it grows.
+      // Pin the fixed stage to where the hero wordmark sits at scrollY 0 and
+      // give it the vertical drift to viewport centre it needs as it grows.
+      // Layout-only, so it runs on load/resize rather than per frame; both the
+      // scroll-driven CSS and the fallback read these.
       const measure = () => {
         const rect = heroBanner.getBoundingClientRect();
         const top = rect.top + window.scrollY;
@@ -462,42 +458,46 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
         );
       };
 
-      const update = () => {
-        const p = Math.min(Math.max(window.scrollY / range(), 0), 1);
-        const knife = Math.min(p / KNIFE_SPAN, 1);
-        stage.style.setProperty("--p", p.toFixed(4));
-        stage.style.setProperty("--knife", knife.toFixed(4));
-        stage.style.setProperty(
-          "--knife-o",
-          Math.sin(knife * Math.PI).toFixed(4),
-        );
-        if (heroIntro) {
-          heroIntro.style.opacity = Math.min(
-            Math.max(1 - window.scrollY / INTRO_FADE, 0),
-            1,
-          ).toFixed(3);
-        }
-      };
-
-      let ticking = false;
-      const onScroll = () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(() => {
-          ticking = false;
-          update();
-        });
-      };
-
       measure();
-      update();
       document.documentElement.classList.add("cut-enabled");
-      window.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", () => {
-        measure();
-        update();
-      });
+      window.addEventListener("resize", measure);
       window.addEventListener("load", measure);
+
+      // Where scroll-driven animations exist the CSS runs the slice on the
+      // compositor and no scroll listener is needed. Otherwise feed progress
+      // custom properties from a rAF-throttled handler as a fallback.
+      if (!CSS.supports("animation-timeline: scroll()")) {
+        const KNIFE_SPAN = 0.45; // slice finishes well before the halves settle
+        const INTRO_FADE = 140; // px of scroll over which the tagline fades out
+        const range = () => Math.min(window.innerHeight * 0.9, 720);
+
+        const update = () => {
+          const p = Math.min(Math.max(window.scrollY / range(), 0), 1);
+          const knife = Math.min(p / KNIFE_SPAN, 1);
+          stage.style.setProperty("--p", p.toFixed(4));
+          stage.style.setProperty("--knife", knife.toFixed(4));
+          stage.style.setProperty("--knife-o", Math.sin(knife * Math.PI).toFixed(4));
+          if (heroIntro) {
+            heroIntro.style.opacity = Math.min(
+              Math.max(1 - window.scrollY / INTRO_FADE, 0),
+              1,
+            ).toFixed(3);
+          }
+        };
+
+        let ticking = false;
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            ticking = false;
+            update();
+          });
+        };
+
+        update();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      }
     }
   </script>
 </Layout>

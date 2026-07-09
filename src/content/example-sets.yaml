@@ -1,0 +1,435 @@
+headers:
+  players:
+    pl: Gracze
+    en: Players
+  stats:
+    pl: Statystyki
+    en: Stats
+  playersUnit:
+    pl: graczy
+    en: players
+poolPhrases:
+  "2":
+    pl: "Dwie postacie z puli:"
+    en: "Two characters from the pool:"
+sets:
+  - players: 6
+    stats: 4-2-0
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - poor_bloody_infantry
+    mafia:
+      - mafia_boss
+      - coquette
+    syndicate: []
+  - players: 7
+    stats: 4-2-1
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+    mafia:
+      - mafia_boss
+      - coquette
+    syndicate:
+      - anyOf:
+          - bartender
+          - mayor
+          - bomber
+          - chairmans_daughter
+        pick: 1
+  - players: 8
+    stats: 5-2-1
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+    mafia:
+      - blackmailing_boss
+      - coquette
+    syndicate:
+      - anyOf:
+          - bartender
+          - mayor
+          - bomber
+          - chairmans_daughter
+        pick: 1
+  - players: 9
+    stats: 5-2-2
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+    mafia:
+      - mafia_boss
+      - coquette
+    syndicate:
+      - anyOf:
+          - bartender
+          - mayor
+          - bomber
+          - chairmans_daughter
+        pick: 2
+  - players: 10
+    stats: 5-3-2
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - saint
+    mafia:
+      - mafia_boss
+      - coquette
+      - janitor
+    syndicate:
+      - anyOf:
+          - bartender
+          - mayor
+          - bomber
+          - chairmans_daughter
+        pick: 2
+  - players: 11
+    stats: 6-3-2
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - oneOf:
+          - railwayman
+          - chairman
+    mafia:
+      - mafia_boss
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - anyOf:
+          - angel_of_death
+          - mayor
+          - bomber
+          - chairmans_daughter
+        pick: 1
+  - players: 12
+    stats: 6-3-3
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - oneOf:
+          - railwayman
+          - chairman
+    mafia:
+      - mafia_boss
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - anyOf:
+          - angel_of_death
+          - mayor
+          - bomber
+          - chairmans_daughter
+        pick: 2
+  - players: 13
+    stats: 7-3-3
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - oneOf:
+          - railwayman
+          - chairman
+      - bodyguard
+    mafia:
+      - blackmailing_boss
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - angel_of_death
+      - anyOf:
+          - mayor
+          - bomber
+          - chairmans_daughter
+        pick: 1
+  - players: 14
+    stats: 7-3-4
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - oneOf:
+          - railwayman
+          - chairman
+      - bodyguard
+    mafia:
+      - blackmailing_boss
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - anyOf:
+          - mayor
+          - chairmans_daughter
+        pick: 1
+  - players: 15
+    stats: 8-3-4
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - railwayman
+      - chairman
+      - bodyguard
+    mafia:
+      - blackmailing_boss
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - anyOf:
+          - mayor
+          - chairmans_daughter
+        pick: 1
+  - players: 16
+    stats: 8-4-4
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - railwayman
+      - chairman
+      - saint
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - anyOf:
+          - mayor
+          - chairmans_daughter
+        pick: 1
+  - players: 17
+    stats: 9-4-4
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - railwayman
+      - chairman
+      - saint
+      - bodyguard
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - anyOf:
+          - mayor
+          - chairmans_daughter
+        pick: 1
+  - players: 18
+    stats: 9-4-5
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - oneOf:
+          - poor_bloody_infantry
+          - gun_shop_owner
+      - railwayman
+      - chairman
+      - saint
+      - bodyguard
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - mayor
+      - chairmans_daughter
+  - players: 19
+    stats: 10-4-5
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - poor_bloody_infantry
+      - gun_shop_owner
+      - railwayman
+      - chairman
+      - saint
+      - bodyguard
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - mayor
+      - chairmans_daughter
+  - players: 20
+    stats: 10-5-5
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - poor_bloody_infantry
+      - gun_shop_owner
+      - railwayman
+      - chairman
+      - bodyguard
+      - citizen
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+      - mafioso
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - mayor
+      - chairmans_daughter
+  - players: 21
+    stats: 11-5-5
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - poor_bloody_infantry
+      - gun_shop_owner
+      - railwayman
+      - chairman
+      - bodyguard
+      - id: citizen
+        count: 2
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+      - mafioso
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - mayor
+      - chairmans_daughter
+  - players: 22
+    stats: 12-5-5
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - poor_bloody_infantry
+      - gun_shop_owner
+      - railwayman
+      - chairman
+      - bodyguard
+      - id: citizen
+        count: 3
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+      - mafioso
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - mayor
+      - chairmans_daughter
+  - players: 23
+    stats: 12-6-5
+    city:
+      - doctor
+      - detective
+      - lady_of_the_night
+      - loose_cannon
+      - poor_bloody_infantry
+      - gun_shop_owner
+      - railwayman
+      - chairman
+      - bodyguard
+      - id: citizen
+        count: 3
+    mafia:
+      - mafia_boss
+      - blackmailer
+      - coquette
+      - janitor
+      - id: mafioso
+        count: 2
+    syndicate:
+      - bartender
+      - angel_of_death
+      - bomber_plus
+      - mayor
+      - chairmans_daughter

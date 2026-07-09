@@ -11,7 +11,7 @@ Opcjonalnie, dla bardziej zaawansowanych graczy, istnieje możliwość gry z trz
 
 - **Syndykat** – tajemnicza organizacja grająca na własnych zasadach. Nie dbają o żadną stronę konfliktu i wygrywają niezależnie od reszty, jeżeli przetrwają do końca gry.
 
-Celem **Miasta** jest **eliminacja Mafii**, a celem **Mafii** – **eliminacja Miasta**. **Syndykat** … no cóż, dobrze się bawi i wygrywa, jeżeli przetrwa do końca gry. Gra kończy się w momencie, gdy wszyscy gracze jednej z **Podstawowych Frakcji** zostaną **wyeliminowani**.
+Celem **Miasta** jest **eliminacja Mafii**, a celem **Mafii** – **eliminacja Miasta**. **Syndykat**… no cóż, dobrze się bawi i wygrywa, jeżeli przetrwa do końca gry. Gra kończy się w momencie, gdy wszyscy gracze jednej z **Podstawowych Frakcji** zostaną **wyeliminowani**.
 
 ## Przygotowanie do gry
 
@@ -33,7 +33,7 @@ W puli wszystkich dostępnych Postaci większość jest unikalnych, które posia
 ## Słowniczek
 
 - **eliminacja** – usunięcie gracza z gry. Po **eliminacji** danego gracza, nie może się on odzywać do końca gry.
-- **statystyki** – liczebność obecnie żyjących graczy w każdej z **Frakcji**. Przykładowo, Jeżeli w grze w danym momencie żyje 6 osób z **Miasta**, 2 osoby z **Mafii** i 3 osoby z **Syndykatu**, **statystyki** będą brzmieć “6-2-3”.
+- **statystyki** – liczebność obecnie żyjących graczy w każdej z **Frakcji**. Przykładowo, Jeżeli w grze w danym momencie żyje 6 osób z **Miasta**, 2 osoby z **Mafii** i 3 osoby z **Syndykatu**, **statystyki** będą brzmieć „6-2-3”.
 - **statystyki początkowe** – liczebność **Frakcji** na początku gry.
 - **spanie / zasypianie** – mowa jest o **spaniu**, gdy gracz ma zamknięte oczy. **Zasypianie** to zamknięcie oczu, dopóki **MG** nie oznajmi, że można je otworzyć.
 - **wybudzanie** – otworzenie oczu na polecenie **MG**.
@@ -54,10 +54,10 @@ W każdą kolejną **Noc** **MG wybudza Mafię**, która wybiera jednego gracza 
 Przykład:
 
 *Jest Noc, wszyscy śpią*  
-**MG**: “Budzi się **Lekarz**, i wybiera osobę do leczenia.”  
-***Lekarz** otwiera oczy, a następnie po cichu wskazuje kogoś ręką*   
-**MG**: “Dziękuję. Ta osoba może dzisiaj spać spokojnie. **Lekarz** idzie spać.”  
-***Lekarz** zamyka oczy*
+**MG**: „Budzi się **Lekarz**, i wybiera osobę do leczenia.”  
+*Lekarz otwiera oczy, a następnie po cichu wskazuje kogoś ręką*  
+**MG**: „Dziękuję. Ta osoba może dzisiaj spać spokojnie. **Lekarz** idzie spać.”  
+*Lekarz zamyka oczy*
 
 ## Dzień
 
@@ -85,75 +85,71 @@ Gdy w jakikolwiek sposób **sprawdzana** jest kogoś przynależność do **Frakc
 - *kciuk w bok* oznacza przynależność tej osoby do **Syndykatu**,
 - *kciuk w dół* oznacza przynależność tej osoby do **Mafii**.
 
-## Końcowe uwagi
-
-<koncowe_uwagi>
-
 ## Postacie
 
-### ♡♢ Miasto
+### ♥♦ Miasto
 
-#### (A♢) Świr
+#### (A♦) Świr
 
 **W ciągu** **Dnia**, **Świr** może **wstać**, **ogłosić się Świrem** i zastrzelić jedną osobę. Dzień kończy się natychmiast po strzale, nieważne jaki będzie rezultat. Może to zrobić tylko **raz**.
 
 *„Gotcha!”*
 
-#### (K♡) Lekarz
+#### (K♥) Lekarz
 
 **Każdej Nocy**, Lekarz wybiera **jedną osobę** do leczenia. Jeżeli tej **Nocy** zostanie wybrana osoba zaatakowana przez **Mafię**, **nie zginie**. **Lekarz** może leczyć sam siebie. Leczeni nie wiedzą, że ktoś nad nimi czuwa.
 
 *Niech śpią spokojnie…*
 
-#### (K♢) Kolejarz
+#### (K♦) Kolejarz
 
 **Każdej Nocy**, Kolejarz wybiera **jedną osobę** do wywiezienia. Przez cały następny **Dzień i Noc** ta osoba jest poza miastem – nie może **mówić**, **głosować**, **używać swojej umiejętności**, ani zostać **zaatakowana** bądź **sprawdzona**. Każdy do pociągu może wsiąść **tylko raz**. **Kolejarz** nie może wywieźć sam siebie.
 
 *Kolejarz zatroszczy się o Pana…*
 
-#### (Q♡) Panna Lekkich Obyczajów
+#### (Q♥) Panna Lekkich Obyczajów
 
 **Zerowej Nocy**, **Panna Lekkich Obyczajów** wybiera **jedną osobę** do uwiedzenia. Wybrana osoba budzi się, a **PLO** widzi jej **kartę postaci**.
 
 *Ciekawe, kto pierwszy zdradzi wasz sekret.*
 
-#### (10♡) Detektyw
+#### (10♥) Detektyw
 
 **Każdej Nocy**, **Detektyw** wybiera **jedną osobę** do **sprawdzenia** i dzięki cichemu śledztwu **poznaje jej Frakcję**. Podejrzani nie wiedzą, że byli sprawdzani.
 
 *Sam wybierz, komu ufać.*
 
-#### (10♢) Właściciel sklepu z bronią
+#### (10♦) Właściciel Sklepu z Bronią
 
 Jeżeli **Mafia zabije Właściciela w Nocy**, mogą **strzelić jeszcze raz**.
 
 *Zostawiłeś klucz pod wycieraczką.*
 
-#### (9♡) Święty
+#### (9♥) Święty
 
 Posiada **dwa życia**. Pierwsza próba, by **wyeliminować Świętego, nie zadziała**.
 
 *Za drugim razem już nie licz na cud.*
 
-#### (8♡) Ochroniarz
+#### (8♥) Ochroniarz
 
 **Zerowej Nocy**, **Ochroniarz** wybiera **jedną osobę** do chronienia. Jeżeli kiedykolwiek miałaby zginąć z rąk śmiertelnika, **Ochroniarz poświęca się**, **by ją ocalić**.
 
 *W grobie zastanowisz się, czy było warto.*
 
-#### (7♡) Biedna Przeklęta Piechota
+#### (7♥) Biedna Przeklęta Piechota
 
 Gdy kiedykolwiek przynależność **Biednej Przeklętej Piechoty** do **Frakcji** jest **sprawdzana**, zostaje wykryta jako członek **Mafii**. W rzeczywistości, należy do **Miasta**.
 
 *„Z werbunku? Dawać papiery!” — i zanim się obejrzysz, już cię chcą wieszać.*
 
-#### (6♡) Prezes
+#### (6♥) Prezes
 
 Tuż po **głosowaniu**, **Prezes** może **wstać i ogłosić się Prezesem**. Wyniki są natychmiast anulowane, a następnie **Prezes** ogłasza ponowne **głosowanie** lub **koniec Dnia**. Jeżeli zostanie zarządzone **głosowanie** – **Prezes** również może wybrać efekt głosowania: **sprawdzenie** lub **eliminacja**. Może to wszystko zrobić tylko **raz**.
 
 *Niech przekona ich złoto.*
 
-#### (4♡♢/3♡♢/2♡♢) Mieszczanin
+#### (4♥ / 3♥ / 2♥) Mieszczanin
 
 **Brak specjalnych umiejętności**.
 
@@ -185,13 +181,13 @@ Podczas **Nocnej** zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii** 
 
 *Niektóre papiery po prostu znikają.*
 
-#### (4♠/3♠/2♠) Mafioso
+#### (4♠ / 3♠ / 2♠) Mafioso
 
 **Brak specjalnych umiejętności**.
 
 *Ale hej — wciąż możesz kogoś wrobić.*
 
-#### (A♠/K♠) Szef Szantażysta*
+#### (A♠ / K♠) Szef Szantażysta*
 
 **Zerowej Nocy** wybiera **jedną osobę** do szantażowania. Wybrana osoba poznaje tożsamość **Szantażysty**, i od teraz **nie może** działać **przeciwko niemu**. Jeżeli **Mafia** nie może się zdecydować, kogo **zabić w Nocy**, to **Szef** wydaje **ostateczny wyrok**.
 
@@ -239,26 +235,26 @@ Podczas **Nocnej** zmiany na barze, **Barman** może upić **Mafię**. Cel **Maf
 
 ## Przykładowe Zestawy Kart Postaci
 
-| Liczba graczy | Statystyki Początkowe | Miasto                                                       | Mafia                                                        | Syndykat                                                     |
-| ------------- | --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 6             | 4-2-0                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Biedna Przeklęta Piechota | Szef Mafii<br />Kokietka                                     | —                                                            |
-| 7             | 4-2-1                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr  | Szef Mafii<br />Kokietka                                     | Barman / Burmistrz / Terrorysta / Córcia Prezesa             |
-| 8             | 5-2-1                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią | Szef Szantażysta<br />Kokietka                               | Barman / Burmistrz / Terrorysta /Córcia Prezesa              |
-| 9             | 5-2-2                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią | Szef Mafii<br />Kokietka                                     | Dwie postacie z puli:<br />Barman / Burmistrz / Terrorysta / Córcia Prezesa |
-| 10            | 5-3-2                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Święty | Szef Mafii<br />Kokietka<br />Woźny                          | Dwie postacie z puli:<br />Barman / Burmistrz / Terrorysta / Córcia Prezesa |
-| 11            | 6-3-2                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes | Szef Mafii<br />Kokietka<br />Woźny                          | Barman<br />Anioł Śmierci / Burmistrz / Terrorysta / Córcia Prezesa |
-| 12            | 6-3-3                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes | Szef Mafii<br />Kokietka<br />Woźny                          | Barman<br />+Dwie postacie z puli:<br />Anioł Śmierci / Burmistrz / Terrorysta / Córcia Prezesa |
-| 13            | 7-3-3                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes<br />Ochroniarz | Szef Szantażysta<br />Kokietka<br />Woźny                    | Barman<br />Anioł Śmierci<br />Burmistrz / Terrorysta / Córcia Prezesa |
-| 14            | 7-3-4                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes<br />Ochroniarz | Szef Szantażysta<br />Kokietka<br />Woźny                    | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
-| 15            | 8-3-4                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz | Szef Szantażysta<br />Kokietka<br />Woźny                    | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
-| 16            | 8-4-4                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny         | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
-| 17            | 9-4-4                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty<br />Ochroniarz | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny         | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
-| 18            | 9-4-5                 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty<br />Ochroniarz | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny         | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
-| 19            | 10-4-5                | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty<br />Ochroniarz | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny         | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
-| 20            | 10-5-5                | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
-| 21            | 11-5-5                | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin x2 | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
-| 22            | 12-5-5                | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin x3 | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
-| 23            | 12-6-5                | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin x3 | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso x2 | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
+| Gracze | Statystyki | Miasto | Mafia | Syndykat |
+| --- | --- | --- | --- | --- |
+| 6 | 4-2-0 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Biedna Przeklęta Piechota | Szef Mafii<br />Kokietka | — |
+| 7 | 4-2-1 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr | Szef Mafii<br />Kokietka | Barman / Burmistrz / Terrorysta / Córcia Prezesa |
+| 8 | 5-2-1 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią | Szef Szantażysta<br />Kokietka | Barman / Burmistrz / Terrorysta / Córcia Prezesa |
+| 9 | 5-2-2 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią | Szef Mafii<br />Kokietka | Dwie postacie z puli:<br />Barman / Burmistrz / Terrorysta / Córcia Prezesa |
+| 10 | 5-3-2 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Święty | Szef Mafii<br />Kokietka<br />Woźny | Dwie postacie z puli:<br />Barman / Burmistrz / Terrorysta / Córcia Prezesa |
+| 11 | 6-3-2 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes | Szef Mafii<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci / Burmistrz / Terrorysta / Córcia Prezesa |
+| 12 | 6-3-3 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes | Szef Mafii<br />Kokietka<br />Woźny | Barman<br />+Dwie postacie z puli:<br />Anioł Śmierci / Burmistrz / Terrorysta / Córcia Prezesa |
+| 13 | 7-3-3 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes<br />Ochroniarz | Szef Szantażysta<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci<br />Burmistrz / Terrorysta / Córcia Prezesa |
+| 14 | 7-3-4 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz / Prezes<br />Ochroniarz | Szef Szantażysta<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
+| 15 | 8-3-4 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz | Szef Szantażysta<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
+| 16 | 8-4-4 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
+| 17 | 9-4-4 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty<br />Ochroniarz | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz / Córcia Prezesa |
+| 18 | 9-4-5 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota / Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty<br />Ochroniarz | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
+| 19 | 10-4-5 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Święty<br />Ochroniarz | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
+| 20 | 10-5-5 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
+| 21 | 11-5-5 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin x2 | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
+| 22 | 12-5-5 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin x3 | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
+| 23 | 12-6-5 | Lekarz<br />Detektyw<br />Panna Lekkich Obyczajów<br />Świr<br />Biedna Przeklęta Piechota<br />Właściciel Sklepu z Bronią<br />Kolejarz<br />Prezes<br />Ochroniarz<br />Mieszczanin x3 | Szef Mafii<br />Szantażysta<br />Kokietka<br />Woźny<br />Mafioso x2 | Barman<br />Anioł Śmierci<br />Terrorysta+<br />Burmistrz<br />Córcia Prezesa |
 
 ## Skrajne scenariusze
 
@@ -283,6 +279,6 @@ Podczas **Nocnej** zmiany na barze, **Barman** może upić **Mafię**. Cel **Maf
 - Czy **Ochroniarz** ochrania przed drugim naznaczeniem **Anioła Śmierci**? - NIE.
 - Gdy **Barman** przesunie kulę **Mafii**, a kula trafi na osobę wywiezioną przez Kolejarza, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY.
 - Czy **Ochroniarz** chroni przed wysadzeniem się w powietrze **Terrorysty**? - TAK.
-- **Prezes** oraz **Córcia Prezesa** mogą użyć swojej **umiejętności** podczas, lub “tuż po” głosowaniu. Do konkretnie którego momentu te Postacie mogą użyć swoich **umiejętności**? - DOPÓKI MISTRZ GRY NIE WYKONA WYROKU
+- **Prezes** oraz **Córcia Prezesa** mogą użyć swojej **umiejętności** podczas, lub „tuż po” głosowaniu. Do konkretnie którego momentu te Postacie mogą użyć swoich **umiejętności**? - DOPÓKI MISTRZ GRY NIE WYKONA WYROKU
 - Jeżeli **Terrorysta** umrze, a obok siebie ma osobę wywiezioną przez **Kolejarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY Z TEJ STRONY.
 - Jeżeli **Terrorysta** umrze, a obok siebie ma osobę która już jest **wyeliminowana**, co się dzieje? - ZOSTAJE WYELIMINOWANA NAJBLIŻSZA ŻYJĄCA OSOBA Z TEJ STRONY

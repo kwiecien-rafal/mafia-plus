@@ -1,6 +1,10 @@
 # Mafia Plus
 
-![Mafia Plus](public/mafia-banner.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="public/mafia-banner.png">
+  <source media="(prefers-color-scheme: light)" srcset="public/mafia-banner-light.png">
+  <img alt="Mafia Plus" src="public/mafia-banner.png">
+</picture>
 
 An extended version of the popular social-deduction game — Mafia (also known as Werewolf).
 
@@ -18,9 +22,9 @@ Live at [mafia.rafalkwiecien.com](https://mafia.rafalkwiecien.com) (work in prog
 
 ## Background
 
-When I was little, a supervisor on a kids camp I attended, taught us how to play Mafia. But his take on it was a little more advanced than straight 'doctor/detective/citizens vs mafioso' approach. Everybody was secretly and randomly assigned a named, unique character, which had its own little backstory, and most importantly, a specific ability. This enhanced way of playing was captivating, as every next game was very much different from the last. The skill in playing such version of Mafia suddenly had a tremendously more advanced learning curve - as each game, you also have to track what characters are in play, who used their ability, what even *is* every characters's ability, or even what to do with *the third faction*.
+When I was little, a supervisor on a kids camp I attended taught us how to play Mafia. But his take on it was a little more advanced than the 'doctor/detective/citizens vs mafioso' approach. Everybody was secretly assigned a named, unique character, which had its own backstory, and most importantly, a unique ability. This enhanced way of playing was captivating, as every next game was very much different from the last. The skill in playing such version of Mafia suddenly had a tremendously more advanced learning curve - as each game, you also have to track what characters are in play, who used their ability, what even *is* every characters's ability, or even what to do with *the third faction*.
 
-Throughout the years, me and my closest friends improved upon our version of Mafia, and I hope you can get to enjoy it as much as we do.
+Throughout the years, me and my closest friends improved upon our version of Mafia, and with this website, I hope you can get to enjoy it as much as we do.
 
 ## Rules
 

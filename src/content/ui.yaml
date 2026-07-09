@@ -1,0 +1,98 @@
+title:
+  pl: Mafia+
+  en: Mafia+
+tagline:
+  pl: Rozszerzona wersja klasycznej gry towarzysko-detektywistycznej.
+  en: An extended take on a classic social deduction game.
+intro:
+  pl: Rozszerzona wersja klasycznej gry towarzysko-detektywistycznej.
+  en: An extended take on a classic social deduction game.
+nav:
+  characters:
+    pl: Postacie
+    en: Characters
+  rules:
+    pl: Zasady
+    en: Rules
+  setup:
+    pl: Przykładowe Zestawy Kart Postaci
+    en: Example Character Card Sets
+  edgeCases:
+    pl: Skrajne scenariusze
+    en: Edge Cases
+  downloads:
+    pl: Materiały do pobrania
+    en: Downloadable content
+cardLabel:
+  pl: Karta
+  en: Card
+flipHint:
+  pl: Kliknij, by obrócić
+  en: Click to flip
+exampleLabel:
+  pl: "Przykład:"
+  en: "Example:"
+headings:
+  abilityKinds:
+    pl: Rodzaje Umiejętności
+    en: Types of Abilities
+  checking:
+    pl: Sprawdzanie Frakcji
+    en: Faction Reveal
+  glossary:
+    pl: Słowniczek
+    en: Glossary
+  closingNotes:
+    pl: Końcowe uwagi
+    en: Closing Notes
+exampleSets:
+  showMore:
+    pl: Pokaż wszystkie zestawy
+    en: Show all sets
+  showLess:
+    pl: Pokaż mniej
+    en: Show fewer
+footer:
+  pl: Hobbystyczny projekt — autorska wersja Mafii rozwijana z przyjaciółmi przez lata.
+  en: A hobby project — a homemade take on Mafia, refined with friends over the years.
+sectionNav:
+  - id: characters
+    label:
+      pl: Postacie
+      en: Characters
+  - id: rules
+    label:
+      pl: Zasady
+      en: Rules
+  - id: setup
+    label:
+      pl: Przykładowe zestawy
+      en: Example Sets
+  - id: edge-cases
+    label:
+      pl: Skrajne scenariusze
+      en: Edge Cases
+downloadsCopy:
+  download:
+    pl: Pobierz
+    en: Download
+  downloading:
+    pl: Pobieranie…
+    en: Downloading…
+  formatLabel:
+    pl: Format
+    en: Format
+  formats:
+    pdf:
+      pl: PDF
+      en: PDF
+    md:
+      pl: Markdown
+      en: Markdown
+  fileLabels:
+    pl:
+      pl: Zasady — wersja polska
+      en: Rules — Polish version
+    en:
+      pl: Zasady — wersja angielska
+      en: Rules — English version

@@ -1,0 +1,26 @@
+name: Rules drift check
+
+# The rulebooks are generated from src/data (see scripts/generate-rules.ts).
+# This regenerates them and fails if the committed rules-*.md are out of date.
+on:
+  push:
+  pull_request:
+
+jobs:
+  rules-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run generate
+      - name: Fail if rules-*.md are out of date
+        run: |
+          if ! git diff --quiet -- rules-en.md rules-pl.md; then
+            echo "::error::rules-*.md are out of date. Run 'npm run generate' and commit the result."
+            git diff -- rules-en.md rules-pl.md
+            exit 1
+          fi

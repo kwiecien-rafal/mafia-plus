@@ -4,9 +4,9 @@ import { downloadByFilename } from "../../data/downloads";
 const file = downloadByFilename.get("mafia-plus-rules-en.md")!;
 
 export const GET: APIRoute = () =>
-  new Response(file.raw, {
+  new Response(file.data, {
     headers: {
-      "Content-Type": "text/markdown; charset=utf-8",
+      "Content-Type": file.contentType,
       "Content-Disposition": `attachment; filename="${file.filename}"`,
     },
   });

@@ -1,0 +1,4 @@
+# The rulebooks are generated (scripts/generate-rules.ts) with LF newlines.
+# Pin them to LF so the CI drift check compares like-for-like on every OS.
+rules-en.md text eol=lf
+rules-pl.md text eol=lf

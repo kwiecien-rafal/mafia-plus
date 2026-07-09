@@ -1,33 +1,56 @@
-// Build-time manifest for the downloadable rulebooks. The canonical files
-// live at the repo root; reading them here keeps a single source of truth so
-// the served downloads never drift from the on-page content.
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+// Build-time manifest for the downloadable rulebooks. Every file is rendered
+// from the canonical data (PDF via rulebook-pdf.ts, Markdown via rulebook.ts),
+// so the served downloads, the committed rules-*.md and the on-page content can
+// never drift apart. Rendered once here at build; the /downloads endpoints and
+// the downloads page both read the bytes back out of this manifest.
+import type { Lang } from "./characters";
+import { serialize } from "./rulebook";
+import { serializePdf } from "./rulebook-pdf";
+
+export type DownloadFormat = "pdf" | "md";
 
 export interface DownloadFile {
   /** Path the asset is served from. */
   href: string;
   /** Filename suggested to the browser. */
   filename: string;
-  lang: "pl" | "en";
-  raw: string;
+  lang: Lang;
+  format: DownloadFormat;
+  contentType: string;
+  data: ArrayBuffer;
   bytes: number;
 }
 
-function load(source: string, filename: string, lang: "pl" | "en"): DownloadFile {
-  const raw = readFileSync(join(process.cwd(), source), "utf8");
+const contentType: Record<DownloadFormat, string> = {
+  pdf: "application/pdf",
+  md: "text/markdown; charset=utf-8",
+};
+
+// A standalone ArrayBuffer copy — the plain BodyInit the Response constructor
+// takes, without the Buffer/Uint8Array generic-variance friction across TS libs.
+function toArrayBuffer(bytes: Uint8Array): ArrayBuffer {
+  return bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength) as ArrayBuffer;
+}
+
+async function build(lang: Lang, format: DownloadFormat): Promise<DownloadFile> {
+  const filename = `mafia-plus-rules-${lang}.${format}`;
+  const bytes = format === "pdf" ? await serializePdf(lang) : Buffer.from(serialize(lang), "utf8");
   return {
     href: `/downloads/${filename}`,
     filename,
     lang,
-    raw,
-    bytes: Buffer.byteLength(raw, "utf8"),
+    format,
+    contentType: contentType[format],
+    data: toArrayBuffer(bytes),
+    bytes: bytes.byteLength,
   };
 }
 
-export const downloadFiles: DownloadFile[] = [
-  load("rules-pl.md", "mafia-plus-rules-pl.md", "pl"),
-  load("rules-en.md", "mafia-plus-rules-en.md", "en"),
-];
+export const downloadFiles: DownloadFile[] = await Promise.all([
+  build("pl", "pdf"),
+  build("pl", "md"),
+  build("en", "pdf"),
+  build("en", "md"),
+]);
 
 export const downloadByFilename = new Map(downloadFiles.map((f) => [f.filename, f] as const));
