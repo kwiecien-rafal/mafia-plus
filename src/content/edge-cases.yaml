@@ -1,144 +1,171 @@
+# `characters` lists roster ids (file names under characters/) the ruling
+# involves; the site links them from the character card and filters by them.
+# Ids are validated against the roster at build time.
 - q:
     pl: Gdy **Lekarz** kogoś leczy, a ta osoba tej samej **Nocy** została naznaczona drugi raz przez **Anioła Śmierci**, czy ta osoba zostaje wyeliminowana?
     en: When the **Doctor** heals someone, but that same **Night** the person is **marked for the second time** by the **Angel of Death**, are they eliminated?
   a:
     pl: TAK.
     en: YES.
+  characters: [doctor, angel_of_death]
 - q:
     pl: Czy **Lekarz** może leczyć sam siebie?
     en: Can the **Doctor** heal themselves?
   a:
     pl: TAK.
     en: YES.
+  characters: [doctor]
 - q:
     pl: Czy **Lekarz** może leczyć tę samą osobę więcej niż jeden raz?
     en: Can the **Doctor** heal the same person more than once?
   a:
     pl: TAK.
     en: YES.
+  characters: [doctor]
 - q:
     pl: Czy **Kolejarz** może wywieźć sam siebie?
     en: Can the **Railwayman** ship themselves out of town?
   a:
     pl: NIE.
     en: NO.
+  characters: [railwayman]
 - q:
     pl: Czy **Detektyw** może sprawdzić sam siebie?
     en: Can the **Detective** investigate themselves?
   a:
     pl: NIE.
     en: NO.
+  characters: [detective]
 - q:
     pl: Czy **Detektyw** może sprawdzić osobę wywiezioną przez **Kolejarza**?
     en: Can the **Detective** investigate a person shipped out by the **Railwayman**?
   a:
     pl: NIE.
     en: NO.
+  characters: [detective, railwayman]
 - q:
     pl: Czy **Ochroniarz** może ochraniać sam siebie?
     en: Can the **Bodyguard** protect themselves?
   a:
     pl: NIE.
     en: NO.
+  characters: [bodyguard]
 - q:
     pl: Czy **Świr** może strzelić do siebie?
     en: Can the **Loose Cannon** shoot themselves?
   a:
     pl: TAK. *(po co? nie wiem, ale może)*
     en: YES. *(why? no idea, but they can)*
+  characters: [loose_cannon]
 - q:
     pl: Czy osoba szantażowana może **zagłosować** przeciw **Szantażyście**, Jeżeli **głosowanie** jest niejawne?
     en: Can a blackmailed person **vote** against the **Blackmailer** if the **vote** is secret?
   a:
     pl: NIE.
     en: NO.
+  characters: [blackmailer, blackmailing_boss]
 - q:
     pl: Czy **Szantażysta** może szantażować sam siebie?
     en: Can the **Blackmailer** blackmail themselves?
   a:
     pl: NIE.
     en: NO.
+  characters: [blackmailer, blackmailing_boss]
 - q:
     pl: Czy **Panna Lekkich Obyczajów** może **Zerowej Nocy** sprawdzić sama siebie?
     en: Can the **Lady of the Night** check herself on **Night Zero**?
   a:
     pl: NIE.
     en: NO.
+  characters: [lady_of_the_night]
 - q:
     pl: Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest leczony przez **Lekarza**, czy traci swoje pierwsze życie?
     en: When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being healed by the **Doctor** at the same time, do they lose their first life?
   a:
     pl: NIE.
     en: NO.
+  characters: [saint, doctor]
 - q:
     pl: Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje?
     en: When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being protected by the **Bodyguard** at the same time, what happens?
   a:
     pl: "**OCHRONIARZ** ZOSTAJE WYELIMINOWANY. **ŚWIĘTY** NIE TRACI ŻYCIA."
     en: THE **BODYGUARD** IS ELIMINATED. THE **SAINT** LOSES NO LIFE.
+  characters: [saint, bodyguard]
 - q:
     pl: Gdy **Świr** strzeli w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje?
     en: When the **Loose Cannon** shoots the **Saint**, who still has two lives, while being protected by the **Bodyguard** at the same time, what happens?
   a:
     pl: "**OCHRONIARZ** ZOSTAJE WYELIMINOWANY. **ŚWIĘTY** NIE TRACI ŻYCIA."
     en: THE **BODYGUARD** IS ELIMINATED. THE **SAINT** LOSES NO LIFE.
+  characters: [loose_cannon, saint, bodyguard]
 - q:
     pl: Gdy **Mafia** strzeli w **Nocy** w kogoś, kto jest chroniony przez **Ochroniarza**, a **Lekarz** uleczył tej samej **Nocy Ochroniarza**, co się dzieje?
     en: When the **Mafia** shoots someone during the **Night** who is protected by the **Bodyguard**, and the **Doctor** healed the **Bodyguard** that same **Night**, what happens?
   a:
     pl: NIKT NIE ZOSTAJE WYELIMINOWANY.
     en: NO ONE IS ELIMINATED.
+  characters: [bodyguard, doctor]
 - q:
     pl: Gdy **Mafia** strzela do kogoś leczonego przez **Lekarza**, kto jest równocześnie chroniony przez **Ochroniarza**, co się dzieje?
     en: When the **Mafia** shoots someone being healed by the **Doctor** who is at the same time protected by the **Bodyguard**, what happens?
   a:
     pl: NIKT NIE ZOSTAJE WYELIMINOWANY
     en: NO ONE IS ELIMINATED
+  characters: [doctor, bodyguard]
 - q:
     pl: Czy **Anioł Śmierci** może naznaczać sam siebie?
     en: Can the **Angel of Death** mark themselves?
   a:
     pl: TAK. *(po co? nie wiem, ale może)*
     en: YES. *(why? no idea, but they can)*
+  characters: [angel_of_death]
 - q:
     pl: Ile razy **Anioł Śmierci** musi naznaczyć **Świętego**, żeby został wyeliminowany?
     en: How many times must the **Angel of Death** mark the **Saint** for them to be eliminated?
   a:
     pl: "4"
     en: "4"
+  characters: [angel_of_death, saint]
 - q:
     pl: Czy **Ochroniarz** ochrania przed drugim naznaczeniem **Anioła Śmierci**?
     en: Does the **Bodyguard** protect against the **Angel of Death's** second mark?
   a:
     pl: NIE.
     en: NO.
+  characters: [bodyguard, angel_of_death]
 - q:
     pl: Gdy **Barman** przesunie kulę **Mafii**, a kula trafi na osobę wywiezioną przez Kolejarza, co się dzieje?
     en: When the **Bartender** shifts the **Mafia's** bullet and it lands on a person shipped out by the Railwayman, what happens?
   a:
     pl: NIKT NIE ZOSTAJE WYELIMINOWANY.
     en: NO ONE IS ELIMINATED.
+  characters: [bartender, railwayman]
 - q:
     pl: Czy **Ochroniarz** chroni przed wysadzeniem się w powietrze **Terrorysty**?
     en: Does the **Bodyguard** protect against the **Bomber** blowing themselves up?
   a:
     pl: TAK.
     en: YES.
+  characters: [bodyguard, bomber, bomber_plus]
 - q:
     pl: "**Prezes** oraz **Córcia Prezesa** mogą użyć swojej **umiejętności** podczas, lub „tuż po” głosowaniu. Do konkretnie którego momentu te Postacie mogą użyć swoich **umiejętności**?"
     en: The **Chairman** and **Chairman's Daughter** can use their **ability** during, or "right after," the vote. Up to exactly which moment can these characters use their **abilities**?
   a:
     pl: DOPÓKI MISTRZ GRY NIE WYKONA WYROKU
     en: UNTIL THE GAME MASTER CARRIES OUT THE SENTENCE
+  characters: [chairman, chairmans_daughter]
 - q:
     pl: Jeżeli **Terrorysta** umrze, a obok siebie ma osobę wywiezioną przez **Kolejarza**, co się dzieje?
     en: If the **Bomber** dies and the person next to them has been shipped out by the **Railwayman**, what happens?
   a:
     pl: NIKT NIE ZOSTAJE WYELIMINOWANY Z TEJ STRONY.
     en: NO ONE IS ELIMINATED ON THAT SIDE.
+  characters: [bomber, bomber_plus, railwayman]
 - q:
     pl: Jeżeli **Terrorysta** umrze, a obok siebie ma osobę która już jest **wyeliminowana**, co się dzieje?
     en: If the **Bomber** dies and the person next to them is already **eliminated**, what happens?
   a:
     pl: ZOSTAJE WYELIMINOWANA NAJBLIŻSZA ŻYJĄCA OSOBA Z TEJ STRONY
     en: THE NEAREST LIVING PERSON ON THAT SIDE IS ELIMINATED
+  characters: [bomber, bomber_plus]

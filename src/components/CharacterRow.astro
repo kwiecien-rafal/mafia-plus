@@ -1,0 +1,76 @@
+---
+// Compact projection of a character for the mobile search overlay: a scannable
+// head (card, name, badges) over the ability text clamped to two lines, which
+// expands in place to the full flavor, note, cards and edge-case link. Shares
+// the card's haystack, so the overlay list and the grid filter identically.
+import type { Character } from "../data/characters";
+import { abilityTypeLabels, factions } from "../data/characters";
+import { edgeCases, ui } from "../data/content";
+import { characterHaystack } from "../data/search";
+import T from "./T.astro";
+
+interface Props {
+  character: Character;
+}
+const { character } = Astro.props;
+
+const faction = factions[character.faction];
+const relatedEdgeCases = edgeCases.filter((e) =>
+  e.characters?.includes(character.id),
+).length;
+---
+
+<li
+  class="srow"
+  data-srow
+  data-search-item
+  data-search={characterHaystack(character)}
+>
+  <button type="button" class="srow-head" data-srow-toggle aria-expanded="false">
+    <span class={`srow-card font-display ${faction.style.text}`}>
+      {character.centerCard ?? character.card}
+    </span>
+    <span class="srow-main">
+      <span class="srow-name font-display"><T text={character.name} /></span>
+      <span class="srow-badges">
+        {character.abilityTypes.map((t) => (
+          <span class="srow-badge"><T text={abilityTypeLabels[t]} /></span>
+        ))}
+      </span>
+    </span>
+    <svg class="srow-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path
+        d="M6 9l6 6 6-6"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"></path>
+    </svg>
+  </button>
+  <div class="srow-text">
+    <T text={character.ability} as="p" class="srow-ability" />
+    <div class="srow-more">
+      <p class="srow-flavor"><T text={character.flavor} /></p>
+      {character.note && (
+        <p class="srow-note"><T text={character.note} /></p>
+      )}
+      <p class="srow-cards">
+        <T text={ui.cardLabel} />: <span class={faction.style.text}
+          >{(character.cards ?? [character.card]).join(" · ")}</span
+        >
+      </p>
+      {relatedEdgeCases > 0 && (
+        <a
+          href="#edge-cases"
+          class="edge-link"
+          data-edge-filter={character.id}
+          data-name-pl={character.name.pl}
+          data-name-en={character.name.en}
+        >
+          <T text={ui.search.edgeCasesLink} />
+          <span>({relatedEdgeCases}) ↓</span>
+        </a>
+      )}
+    </div>
+  </div>
+</li>

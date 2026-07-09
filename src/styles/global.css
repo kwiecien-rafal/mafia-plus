@@ -745,6 +745,318 @@ html.js .example-sets[data-expanded="false"] .example-row--extra { display: none
   .example-toggle-chevron { transition: none; }
 }
 
+/* ── Section search ───────────────────────────────────────────────────
+   One frosted bar per searchable section (see SearchBar.astro). JS-gated —
+   the input is dead without it — and sticky just below the header: the
+   script measures --header-h/--header-tier1-h onto :root, and the top
+   offset follows the quick-return header's two states with its easing. */
+.search-sticky { display: none; }
+html.js .search-sticky {
+  display: block;
+  position: sticky;
+  top: calc(var(--header-h, 6rem) + 0.6rem);
+  z-index: 30;
+  margin-top: 1.25rem;
+  transition: top 0.28s ease;
+}
+html.js:has([data-site-header][data-condensed]) .search-sticky {
+  top: calc(var(--header-h, 6rem) - var(--header-tier1-h, 0px) + 0.6rem);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--color-ink-card) 82%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: border-color 0.2s;
+}
+.search-bar:focus-within {
+  border-color: color-mix(in srgb, var(--color-gold) 60%, transparent);
+}
+
+.search-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+  color: var(--color-muted);
+}
+
+.search-input {
+  flex: 1;
+  min-width: 4rem;
+  padding: 0.35rem 0;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  color: var(--color-bone);
+  /* 16px floor: anything smaller makes mobile Safari/Chrome zoom the viewport
+     on focus, which reads as the page lurching sideways. */
+  font-size: 1rem;
+}
+.search-input::placeholder { color: var(--color-muted); }
+/* The custom clear button replaces the platform one. */
+.search-input::-webkit-search-cancel-button { display: none; }
+
+.search-count {
+  flex: none;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.search-clear {
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+.search-clear:hover { color: var(--color-bone); border-color: rgb(255 255 255 / 0.2); }
+.search-clear:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+/* Character filter chip, set from a card-back edge-cases link. display:contents
+   keeps the chip inline in the bar's flex row. */
+.search-chips { display: contents; }
+.search-chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+  background: color-mix(in srgb, var(--color-gold) 20%, transparent);
+  color: var(--color-gold);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+.search-chip:hover {
+  background: color-mix(in srgb, var(--color-gold) 32%, transparent);
+  color: var(--color-bone);
+}
+.search-chip:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+.search-chip-x { opacity: 0.8; }
+
+.search-empty {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px dashed rgb(255 255 255 / 0.15);
+  border-radius: 0.9rem;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+.search-empty-q { color: var(--color-gold); }
+
+/* Filter state lives on the hidden attribute; guard it against any display
+   utility on the same element. */
+[data-search-item][hidden],
+[data-search-group][hidden] { display: none !important; }
+
+/* Card-back link to the character's tagged edge cases. */
+.edge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-gold);
+  transition: color 0.2s;
+}
+.edge-link:hover { color: var(--color-bone); text-decoration: underline; }
+.edge-link:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+/* ── Mobile search: trigger + full-screen overlay ─────────────────────
+   Below sm the inline bar gives way to a trigger button; tapping it opens
+   a full-screen sheet (input on top, compact result rows below) so the
+   keyboard never stacks against the sticky header. The overlay element is
+   re-parented to <body> by the SearchBar script. */
+.search-trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgb(255 255 255 / 0.1);
+  border-radius: 0.9rem;
+  background: color-mix(in srgb, var(--color-ink-card) 82%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  color: var(--color-muted);
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+}
+.search-trigger:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+.search-trigger-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* With an active chip the placeholder text yields the row to it. */
+.search-trigger .search-chips:not(:empty) ~ .search-trigger-label { display: none; }
+
+@media (max-width: 39.99rem) {
+  .search-bar--page,
+  .search-empty--page { display: none; }
+}
+@media (min-width: 40rem) {
+  .search-trigger { display: none; }
+  .search-overlay { display: none !important; }
+}
+
+html[data-search-lock],
+html[data-search-lock] body { overflow: hidden; }
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background: var(--color-ink);
+}
+.search-overlay:not([hidden]) {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-overlay-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: max(0.6rem, env(safe-area-inset-top)) 0.75rem 0.6rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+}
+.search-overlay-bar .search-bar { flex: 1; min-width: 0; }
+.search-bar--overlay .search-clear {
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.3rem;
+}
+
+.search-cancel {
+  flex: none;
+  min-height: 2.75rem;
+  padding: 0 0.6rem;
+  color: var(--color-gold);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.search-cancel:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+.search-overlay-results {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.25rem 1rem calc(1.5rem + env(safe-area-inset-bottom));
+}
+
+/* ── Search result rows ───────────────────────────────────────────────
+   Dense list projection of the cards for the overlay: a tappable head
+   (card, name, badges), the ability clamped to two lines, and an in-place
+   expansion for the rest. Q/A rows (edge cases) are read-only. */
+.srow { border-bottom: 1px solid rgb(255 255 255 / 0.08); }
+
+.srow-head {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 3rem;
+  padding: 0.6rem 0.1rem 0.15rem;
+  text-align: left;
+  color: var(--color-bone);
+  cursor: pointer;
+}
+.srow-card {
+  flex: none;
+  min-width: 2.9rem;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+.srow-main {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.srow-name { font-size: 1.05rem; line-height: 1.2; }
+.srow-badges { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.srow-badge {
+  border-radius: 0.375rem;
+  background: rgb(255 255 255 / 0.07);
+  padding: 0.1rem 0.45rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-bone) 85%, transparent);
+}
+.srow-chevron {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  color: var(--color-muted);
+  transition: transform 0.25s ease;
+}
+.srow[data-expanded] .srow-chevron { transform: rotate(180deg); }
+
+.srow-text {
+  padding: 0 0.1rem 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--color-bone) 90%, transparent);
+}
+.srow:not([data-expanded]) .srow-ability {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.srow:not([data-expanded]) .srow-more { display: none; }
+.srow-flavor { margin-top: 0.5rem; font-style: italic; color: var(--color-muted); }
+.srow-note {
+  margin-top: 0.5rem;
+  border-top: 1px solid rgb(255 255 255 / 0.1);
+  padding-top: 0.5rem;
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--color-muted) 80%, transparent);
+}
+.srow-cards { margin-top: 0.5rem; font-size: 0.8rem; color: var(--color-muted); }
+
+.srow--qa { padding: 0.7rem 0.1rem 0.8rem; }
+.srow-q {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--color-bone) 90%, transparent);
+}
+.srow-a { margin-top: 0.35rem; font-size: 0.92rem; color: var(--color-syndicate); }
+
+@media (prefers-reduced-motion: reduce) {
+  html.js .search-sticky,
+  .search-bar,
+  .search-clear,
+  .search-chip,
+  .search-trigger,
+  .srow-chevron,
+  .edge-link { transition: none; }
+}
+
 /* ── Example-sets layout ──────────────────────────────────────────────
    Two shapes off one table. On desktop it stays a table; the Players and
    Stats columns shrink to their content (width:1% is the shrink-to-fit

@@ -59,6 +59,25 @@ exampleSets:
   showLess:
     pl: Pokaż mniej
     en: Show fewer
+search:
+  charactersPlaceholder:
+    pl: "Szukaj: nazwa, karta, umiejętność…"
+    en: "Search: name, card, ability…"
+  edgeCasesPlaceholder:
+    pl: "Szukaj: postać, sytuacja…"
+    en: "Search: character, situation…"
+  clear:
+    pl: Wyczyść wyszukiwanie
+    en: Clear search
+  cancel:
+    pl: Anuluj
+    en: Cancel
+  noResults:
+    pl: "Brak wyników dla:"
+    en: "No results for:"
+  edgeCasesLink:
+    pl: Skrajne scenariusze
+    en: Edge cases
 footer:
   pl: Hobbystyczny projekt — autorska wersja Mafii rozwijana z przyjaciółmi przez lata.
   en: A hobby project — a homemade take on Mafia, refined with friends over the years.
