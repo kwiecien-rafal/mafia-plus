@@ -58,7 +58,7 @@
     en: YES. *(why? no idea, but they can)*
   characters: [loose_cannon]
 - q:
-    pl: Czy osoba szantażowana może **zagłosować** przeciw **Szantażyście**, Jeżeli **głosowanie** jest niejawne?
+    pl: Czy osoba szantażowana może **zagłosować** przeciw **Szantażyście**, jeżeli **głosowanie** jest niejawne?
     en: Can a blackmailed person **vote** against the **Blackmailer** if the **vote** is secret?
   a:
     pl: NIE.
@@ -79,8 +79,8 @@
     en: NO.
   characters: [lady_of_the_night]
 - q:
-    pl: Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest leczony przez **Lekarza**, czy traci swoje pierwsze życie?
-    en: When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being healed by the **Doctor** at the same time, do they lose their first life?
+    pl: Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest leczony przez **Lekarza**, czy **Święty** traci swoje pierwsze życie?
+    en: When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being healed by the **Doctor** at the same time, does the **Saint** lose their first life?
   a:
     pl: NIE.
     en: NO.
@@ -100,7 +100,7 @@
     en: THE **BODYGUARD** IS ELIMINATED. THE **SAINT** LOSES NO LIFE.
   characters: [loose_cannon, saint, bodyguard]
 - q:
-    pl: Gdy **Mafia** strzeli w **Nocy** w kogoś, kto jest chroniony przez **Ochroniarza**, a **Lekarz** uleczył tej samej **Nocy Ochroniarza**, co się dzieje?
+    pl: Gdy **Mafia** strzeli w **Nocy** w kogoś, kto jest chroniony przez **Ochroniarza**, a **Lekarz** uleczył tej samej **Nocy** **Ochroniarza**, co się dzieje?
     en: When the **Mafia** shoots someone during the **Night** who is protected by the **Bodyguard**, and the **Doctor** healed the **Bodyguard** that same **Night**, what happens?
   a:
     pl: NIKT NIE ZOSTAJE WYELIMINOWANY.

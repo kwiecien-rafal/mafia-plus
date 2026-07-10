@@ -11,7 +11,7 @@ headers:
 poolPhrases:
   "2":
     pl: "Dwie postacie z puli:"
-    en: "Two characters from the pool:"
+    en: "Two characters from this pool:"
 sets:
   - players: 6
     stats: 4-2-0
