@@ -21,7 +21,7 @@
     en: sleeping / falling asleep
   def:
     pl: mowa jest o **spaniu**, gdy gracz ma zamknięte oczy. **Zasypianie** to zamknięcie oczu, dopóki **MG** nie oznajmi, że można je otworzyć.
-    en: we speak of **sleeping** when a player has their eyes closed. **Falling asleep** means closing your eyes until the **GM** announces they may be opened.
+    en: we speak of **sleeping** when a player has their eyes closed. **Falling asleep** means closing your eyes until **GM** announces they may be opened.
 - term:
     pl: wybudzanie
     en: waking
@@ -33,7 +33,7 @@
     en: voting
   def:
     pl: następuje na koniec każdego **Dnia**. Gdy **MG** ogłosi, że zaczyna się **głosowanie**, każdy może wytypować **oskarżonego**, który według niego powinien pójść na szafot.
-    en: takes place at the end of every **Day**. When the **GM** announces that **voting** begins, anyone may name an **accused** they believe should walk the plank.
+    en: takes place at the end of every **Day**. When **GM** announces that **voting** begins, anyone may name an **accused** they believe should walk the plank.
 - term:
     pl: oskarżenie
     en: accusation
@@ -45,4 +45,4 @@
     en: revealing
   def:
     pl: akcja ujawnienia przez **MG** kogoś przynależności do **Frakcji**.
-    en: the act of the **GM** revealing someone's **Faction**.
+    en: the act of **GM** revealing someone's **Faction**.

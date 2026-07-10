@@ -79,8 +79,8 @@ search:
     pl: Skrajne scenariusze
     en: Edge cases
 footer:
-  pl: Hobbystyczny projekt — autorska wersja Mafii rozwijana z przyjaciółmi przez lata.
-  en: A hobby project — a homemade take on Mafia, refined with friends over the years.
+  pl: Hobbystyczny projekt. Autorska wersja Mafii rozwijana z przyjaciółmi przez lata.
+  en: A hobby project. Homemade take on Mafia, refined with friends over the years.
 sectionNav:
   - id: characters
     label:

@@ -1,6 +1,6 @@
 intro:
   pl: "Gdy w jakikolwiek sposób **sprawdzana** jest kogoś przynależność do **Frakcji**, **MG** pokaże wynik **sprawdzenia** za pomocą gestu kciukiem, niczym Cezar w starożytnym Rzymie:"
-  en: "Whenever someone's **Faction** is **revealed** in any way, the **GM** shows the **reveals** **the Faction** with a thumb gesture, just like Caesar in ancient Rome would:"
+  en: "Whenever someone's **Faction** is **revealed** in any way, **GM** **reveals** **the Faction** with a thumb gesture, just like Caesar in ancient Rome would:"
 gestures:
   - emoji: 👍
     label:

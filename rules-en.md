@@ -15,9 +15,20 @@ The **City's** goal is to **eliminate the Mafia**, and the **Mafia's** goal is t
 
 ## Game Setup
 
-The game needs one person to run it – the **Game Master** (**GM**). To begin, the group together picks as many Character Cards as there are players, not counting the **GM** (see below: Character Sets). The **GM** shuffles the chosen Character Cards and deals one to each player. !*Note: do this in secret — no one may see anyone else's card*.
+The game needs one person to run it – the **Game Master** (**GM**). To begin, the group together picks as many Character Cards as there are players, not counting **GM** (see below: Character Sets). **GM** shuffles the chosen Character Cards and deals one to each player. !*Note: do this in secret — no one may see anyone else's card*.
 
 Nearly all Characters in the full pool are unique and have special **abilities**. There are also Characters with no **abilities** at all, and several of those may appear in the same game at once.
+
+## Glossary
+
+- **elimination** – removing a player from the game. Once **eliminated**, a player may not speak for the rest of the game.
+- **stats** – the number of players currently alive in each **Faction**. For example, if at a given moment 6 people from the **City**, 2 from the **Mafia**, and 3 from the **Syndicate** are alive, the **stats** read "6-2-3".
+- **starting stats** – the size of each **Faction** at the start of the game.
+- **sleeping / falling asleep** – we speak of **sleeping** when a player has their eyes closed. **Falling asleep** means closing your eyes until **GM** announces they may be opened.
+- **waking** – opening your eyes on the **GM's** command.
+- **voting** – takes place at the end of every **Day**. When **GM** announces that **voting** begins, anyone may name an **accused** they believe should walk the plank.
+- **accusation** – naming someone as a suspect during **voting**.
+- **revealing** – the act of **GM** revealing someone's **Faction**.
 
 ## Types of Abilities
 
@@ -30,24 +41,13 @@ Nearly all Characters in the full pool are unique and have special **abilities**
 - **Posthumous** – triggers on its own the moment its owner dies.
 - **No Ability**
 
-## Glossary
-
-- **elimination** – removing a player from the game. Once **eliminated**, a player may not speak for the rest of the game.
-- **stats** – the number of players currently alive in each **Faction**. For example, if at a given moment 6 people from the **City**, 2 from the **Mafia**, and 3 from the **Syndicate** are alive, the **stats** read "6-2-3".
-- **starting stats** – the size of each **Faction** at the start of the game.
-- **sleeping / falling asleep** – we speak of **sleeping** when a player has their eyes closed. **Falling asleep** means closing your eyes until the **GM** announces they may be opened.
-- **waking** – opening your eyes on the **GM's** command.
-- **voting** – takes place at the end of every **Day**. When the **GM** announces that **voting** begins, anyone may name an **accused** they believe should walk the plank.
-- **accusation** – naming someone as a suspect during **voting**.
-- **revealing** – the act of the **GM** revealing someone's **Faction**.
-
 ## Night
 
 The game opens with the so-called **Night Zero** – no one dies, and no one even speaks. This **Night** serves two purposes: to let the **Mafia** players get to know one another, and to let Characters with **opening abilities** use them.
 
-The **GM** orders everyone to **fall asleep**, then calls the **Mafia** to **wake**. The **Mafia** quietly comply and, looking around, learn who the other members are – the **GM** also points out who the **Mafia Boss** is (*this matters, because the player on that Character makes the final **Mafia** decisions*).
+**GM** orders everyone to **fall asleep**, then calls the **Mafia** to **wake**. The **Mafia** quietly comply and, looking around, learn who the other members are – **GM** also points out who the **Mafia Boss** is (*this matters, because the player on that Character makes the final **Mafia** decisions*).
 
-Next, the **GM** wakes the Characters with **opening abilities**, one at a time, so they can use them.
+Next, **GM** wakes the Characters with **opening abilities**, one at a time, so they can use them.
 
 On every following **Night**, the **GM wakes the Mafia**, who choose one player to **eliminate** from the game, and then, one by one, every character with a **Night ability** gets woken up. All night actions must be carried out silently and signaled with a hand gesture or a head nod.
 
@@ -61,17 +61,17 @@ Example:
 
 ## Day
 
-The first **Day**, coming right after **Night Zero**, begins with the **GM** announcing the **starting stats**.
+The first **Day**, coming right after **Night Zero**, begins with **GM** announcing the **starting stats**.
 
-On every following **Day**, the first thing the **GM** reports is who was **eliminated during the Night**. The current **stats** are then announced. At any point during the **Day**, anyone may ask the **GM** what the current **stats** are, or what the **starting stats** were.
+On every following **Day**, the first thing **GM** reports is who was **eliminated during the Night**. The current **stats** are then announced. At any point during the **Day**, anyone may ask **GM** what the current **stats** are, or what the **starting stats** were.
 
 During the **Day**, players talk, work out who's suspicious, and throw out accusations. At the very end of the **Day** comes a group **vote**. The **Day** also ends immediately the moment anyone, in any way whatsoever, is **eliminated**.
 
 ## Voting
 
-**Voting** must take place at the end of each **Day**. It is the only way, unrelated to any character's **abilities**, for the **City** to **eliminate** someone. Anyone may **accuse** someone as a suspect, either to **reveal** or to **eliminate** them. The **accused** have the right to defend themselves. The **GM** decides when the discussion ends and the **vote** begins. **Voting** is open\* – the **GM** asks each player who they wish to cast their vote for. In the case of majority of votes landing on one person, that person is **eliminated**. In the event of a tie, the **GM** asks the players to debate again, potentially narrowing down the list of the accused.
+**Voting** must take place at the end of each **Day**. It is the only way, unrelated to any character's **abilities**, for the **City** to **eliminate** someone. Anyone may **accuse** someone as a suspect, either to **reveal** or to **eliminate** them. The **accused** have the right to defend themselves. **GM** decides when the discussion ends and the **vote** begins. **Voting** is open\* – **GM** asks each player who they wish to cast their vote for. In the case of majority of votes landing on one person, that person is **eliminated**. In the event of a tie, **GM** asks the players to debate again, potentially narrowing down the list of the accused.
 
-It's also possible to hold a **vote to** **reveal** instead of **to** **eliminate** – but only if the **GM** allows it, at their discretion\*\*. A good example of when the **GM** might suggest a **vote to investigate** is <u>the first **Day**</u>, when players aren't yet sure of anything, or after a tie in a regular **vote**.
+It's also possible to hold a **vote to** **reveal** instead of **to** **eliminate** – but only if **GM** allows it, at their discretion\*\*. A good example of when **GM** might suggest a **vote to investigate** is <u>the first **Day**</u>, when players aren't yet sure of anything, or after a tie in a regular **vote**.
 
 \**You can also hold a secret vote, for example using slips of paper and pens.*
 
@@ -79,7 +79,7 @@ It's also possible to hold a **vote to** **reveal** instead of **to** **eliminat
 
 ## Faction Reveal
 
-Whenever someone's **Faction** is **revealed** in any way, the **GM** shows the **reveals** **the Faction** with a thumb gesture, just like Caesar in ancient Rome would:
+Whenever someone's **Faction** is **revealed** in any way, **GM** **reveals** **the Faction** with a thumb gesture, just like Caesar in ancient Rome would:
 
 - *thumbs up* means that the given person belongs to the **City**,
 - *thumb sideways* means that the given person belongs to the **Syndicate**,
@@ -97,7 +97,7 @@ Whenever someone's **Faction** is **revealed** in any way, the **GM** shows the 
 
 #### (K♥) Doctor
 
-**Every Night**, the **Doctor** chooses **one person** to heal. If the person chosen that **Night** gets attacked by the **Mafia**, they **won't die**. The **Doctor** may heal themselves. Those who are healed don't know that someone is watching over them.
+**Every Night**, the **Doctor** chooses **one person** to heal. If the chosen person gets attacked by the **Mafia** on the same **Night**, they **won't die**. The **Doctor** may heal themselves. Those who are healed don't know that someone is watching over them.
 
 *Let them sleep soundly…*
 
@@ -109,7 +109,7 @@ Whenever someone's **Faction** is **revealed** in any way, the **GM** shows the 
 
 #### (Q♥) Lady of the Night
 
-On **Night Zero**, **Lady of the Night** chooses **one person** to seduce. The chosen person wakes up, and the **LotN** sees their **character card**.
+On **Night Zero**, **Lady of the Night** chooses **one person** to seduce. The chosen person wakes up, and the **Lady** sees their **character card**.
 
 *I wonder who'll be the first to spill your secret.*
 
@@ -133,7 +133,7 @@ Has **two lives**. The first attempt to **eliminate the Saint will fail**.
 
 #### (8♥) Bodyguard
 
-On **Night Zero**, the **Bodyguard** choose **one person** to protect. If that person would ever die at the hands of a mortal, the **Bodyguard** **sacrifices themselves to save them**.
+On **Night Zero**, the **Bodyguard** chooses **one person** to protect. If that person would ever die at the hands of a mortal, the **Bodyguard** **sacrifices themselves to save them**.
 
 *You'll wonder whether it was worth it in your grave.*
 
@@ -177,7 +177,7 @@ Whenever the **Coquette** gets her **Faction** **revealed**, she comes up as a m
 
 #### (10♠) Janitor
 
-During the **Night** shift at the city hall, the **Janitor** can sweep the **Mafia's** dirt under the rug. For the **entirety of the next Day**, no one can learn the **stats**. They can do this only **once**.
+During the **Night** shift at the city hall, the **Janitor** can sweep the **Mafia's** dirt under the rug. For the **entirety of the next Day**, no one can learn the **stats**, not the **starting stats**. They can do this only **once**.
 
 *Some papers simply vanish.*
 
@@ -199,7 +199,7 @@ On **Night Zero**, the **Blackmailing Boss** chooses **one person** to blackmail
 
 #### (A♣) Angel of Death
 
-**Every Night**, the **Angel of Death** chooses **one person** to mark. A person marked for the second time **dies**. Those who were marked don't know that…
+**Every Night**, the **Angel of Death** chooses **one person** to mark. A person marked for the second time **gets eliminated**. Those who were marked don't know that…
 
 *…Death is treading on their heels…*
 
@@ -211,7 +211,7 @@ If a **vote** ends with the **Mayor's elimination**, everyone who voted for the 
 
 #### (Q♣) Chairman's Daughter
 
-Right after the **vote**, she may **stand up and declare herself as the Chairman's Daughter**. Her vote then counts **double**. You can do this only **once**.
+Right after the **vote**, she may **stand up and declare herself as the Chairman's Daughter**. Her vote then counts **double**. She can do this only **once**.
 
 *No one dares to question you.*
 
@@ -240,10 +240,10 @@ During the **Night** shift behind the bar, the **Bartender** can get the **Mafia
 | 6 | 4-2-0 | Doctor<br />Detective<br />Lady of the Night<br />Poor Bloody Infantry | Mafia Boss<br />Coquette | — |
 | 7 | 4-2-1 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon | Mafia Boss<br />Coquette | Bartender / Mayor / Bomber / Chairman's Daughter |
 | 8 | 5-2-1 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner | Blackmailing Boss<br />Coquette | Bartender / Mayor / Bomber / Chairman's Daughter |
-| 9 | 5-2-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner | Mafia Boss<br />Coquette | Two characters from the pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
-| 10 | 5-3-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Saint | Mafia Boss<br />Coquette<br />Janitor | Two characters from the pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
+| 9 | 5-2-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner | Mafia Boss<br />Coquette | Two characters from this pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
+| 10 | 5-3-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Saint | Mafia Boss<br />Coquette<br />Janitor | Two characters from this pool:<br />Bartender / Mayor / Bomber / Chairman's Daughter |
 | 11 | 6-3-2 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman | Mafia Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death / Mayor / Bomber / Chairman's Daughter |
-| 12 | 6-3-3 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman | Mafia Boss<br />Coquette<br />Janitor | Bartender<br />+Two characters from the pool:<br />Angel of Death / Mayor / Bomber / Chairman's Daughter |
+| 12 | 6-3-3 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman | Mafia Boss<br />Coquette<br />Janitor | Bartender<br />+Two characters from this pool:<br />Angel of Death / Mayor / Bomber / Chairman's Daughter |
 | 13 | 7-3-3 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Mayor / Bomber / Chairman's Daughter |
 | 14 | 7-3-4 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman / Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
 | 15 | 8-3-4 | Doctor<br />Detective<br />Lady of the Night<br />Loose Cannon<br />Poor Bloody Infantry / Gun Shop Owner<br />Railwayman<br />Chairman<br />Bodyguard | Blackmailing Boss<br />Coquette<br />Janitor | Bartender<br />Angel of Death<br />Bomber+<br />Mayor / Chairman's Daughter |
@@ -269,7 +269,7 @@ During the **Night** shift behind the bar, the **Bartender** can get the **Mafia
 - Can a blackmailed person **vote** against the **Blackmailer** if the **vote** is secret? - NO.
 - Can the **Blackmailer** blackmail themselves? - NO.
 - Can the **Lady of the Night** check herself on **Night Zero**? - NO.
-- When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being healed by the **Doctor** at the same time, do they lose their first life? - NO.
+- When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being healed by the **Doctor** at the same time, does the **Saint** lose their first life? - NO.
 - When the **Mafia** shoots the **Saint** during the **Night**, while the Saint still has two lives and is being protected by the **Bodyguard** at the same time, what happens? - THE **BODYGUARD** IS ELIMINATED. THE **SAINT** LOSES NO LIFE.
 - When the **Loose Cannon** shoots the **Saint**, who still has two lives, while being protected by the **Bodyguard** at the same time, what happens? - THE **BODYGUARD** IS ELIMINATED. THE **SAINT** LOSES NO LIFE.
 - When the **Mafia** shoots someone during the **Night** who is protected by the **Bodyguard**, and the **Doctor** healed the **Bodyguard** that same **Night**, what happens? - NO ONE IS ELIMINATED.
