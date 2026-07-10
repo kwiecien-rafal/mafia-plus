@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mafia.rafalkwiecien.com/sitemap-index.xml
