@@ -201,6 +201,7 @@ export interface UiFile {
     edgeCasesLink: Bilingual;
   };
   footer: Bilingual;
+  notFound: { heading: Bilingual; message: Bilingual; backHome: Bilingual };
   sectionNav: { id: string; label: Bilingual }[];
   downloadsCopy: {
     download: Bilingual;
