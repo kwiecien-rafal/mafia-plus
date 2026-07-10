@@ -19,17 +19,6 @@ Gra wymaga jednej osoby, która poprowadzi rozgrywkę – **Mistrza Gry** (**MG*
 
 W puli wszystkich dostępnych Postaci większość jest unikalnych, które posiadają specjalne **umiejętności**. Istnieją również Postacie bez żadnych **umiejętności**, a tych natomiast może być równocześnie kilka w danej rozgrywce.
 
-## Rodzaje Umiejętności
-
-- **Startowa** – aktywowana tylko raz, podczas **Nocy Zerowej**.
-- **Nocna** – może być aktywowana wyłącznie w trakcie **Nocy**.
-- **Dzienna** – może być aktywowana wyłącznie w trakcie **Dnia**.
-- **Jednorazowa** – można z niej skorzystać tylko raz w całej grze.
-- **Głosowania** – wpływa na **głosowanie**.
-- **Sprawdzania** – ma związek ze **sprawdzaniem**.
-- **Pośmiertna** – aktywuje się sama, w chwili śmierci jej właściciela.
-- **Brak umiejętności**
-
 ## Słowniczek
 
 - **eliminacja** – usunięcie gracza z gry. Po **eliminacji** danego gracza, nie może się on odzywać do końca gry.
@@ -40,6 +29,17 @@ W puli wszystkich dostępnych Postaci większość jest unikalnych, które posia
 - **głosowanie** – następuje na koniec każdego **Dnia**. Gdy **MG** ogłosi, że zaczyna się **głosowanie**, każdy może wytypować **oskarżonego**, który według niego powinien pójść na szafot.
 - **oskarżenie** – wytypowanie kogoś w trakcie **głosowania** jako podejrzanego.
 - **sprawdzenie** – akcja ujawnienia przez **MG** kogoś przynależności do **Frakcji**.
+
+## Rodzaje Umiejętności
+
+- **Startowa** – aktywowana tylko raz, podczas **Nocy Zerowej**.
+- **Nocna** – może być aktywowana wyłącznie w trakcie **Nocy**.
+- **Dzienna** – może być aktywowana wyłącznie w trakcie **Dnia**.
+- **Jednorazowa** – można z niej skorzystać tylko raz w całej grze.
+- **Głosowania** – wpływa na **głosowanie**.
+- **Sprawdzania** – ma związek ze **sprawdzaniem**.
+- **Pośmiertna** – aktywuje się sama, w chwili śmierci jej właściciela.
+- **Brak umiejętności**
 
 ## Noc
 

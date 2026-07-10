@@ -19,17 +19,6 @@ The game needs one person to run it – the **Game Master** (**GM**). To begin, 
 
 Nearly all Characters in the full pool are unique and have special **abilities**. There are also Characters with no **abilities** at all, and several of those may appear in the same game at once.
 
-## Types of Abilities
-
-- **Opening** – activated only once, during **Night Zero**.
-- **Night** – can only be activated during the **Night**.
-- **Day** – can only be activated during the **Day**.
-- **Single-Use** – can be used only once per game.
-- **Voting** – affects the **vote**.
-- **Revealing** – related to the act of **revealing**.
-- **Posthumous** – triggers on its own the moment its owner dies.
-- **No Ability**
-
 ## Glossary
 
 - **elimination** – removing a player from the game. Once **eliminated**, a player may not speak for the rest of the game.
@@ -40,6 +29,17 @@ Nearly all Characters in the full pool are unique and have special **abilities**
 - **voting** – takes place at the end of every **Day**. When **GM** announces that **voting** begins, anyone may name an **accused** they believe should walk the plank.
 - **accusation** – naming someone as a suspect during **voting**.
 - **revealing** – the act of **GM** revealing someone's **Faction**.
+
+## Types of Abilities
+
+- **Opening** – activated only once, during **Night Zero**.
+- **Night** – can only be activated during the **Night**.
+- **Day** – can only be activated during the **Day**.
+- **Single-Use** – can be used only once per game.
+- **Voting** – affects the **vote**.
+- **Revealing** – related to the act of **revealing**.
+- **Posthumous** – triggers on its own the moment its owner dies.
+- **No Ability**
 
 ## Night
 

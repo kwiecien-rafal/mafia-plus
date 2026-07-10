@@ -192,29 +192,6 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
             class="rounded-2xl border border-white/10 bg-ink-card/75 p-6 backdrop-blur-md"
           >
             <h3 class="font-display text-xl text-gold">
-              <T text={ui.headings.abilityKinds} />
-            </h3>
-            <dl class="mt-4 space-y-2.5 text-sm">
-              {
-                abilityKinds.map((k) => (
-                  <div class="flex gap-3">
-                    <dt class="w-28 shrink-0 font-semibold text-bone">
-                      <T text={abilityTypeLabels[k.key]} />
-                    </dt>
-                    <dd class="text-muted">
-                      <T text={k.desc} />
-                    </dd>
-                  </div>
-                ))
-              }
-            </dl>
-          </div>
-
-          <div
-            data-rules-card
-            class="rounded-2xl border border-white/10 bg-ink-card/75 p-6 backdrop-blur-md"
-          >
-            <h3 class="font-display text-xl text-gold">
               <T text={ui.headings.glossary} />
             </h3>
             <dl class="mt-3 space-y-2 text-sm">
@@ -226,6 +203,29 @@ function itemText(item: LineupItem, isFirst: boolean): Bilingual {
                     </dt>
                     <dd class="text-muted">
                       <T text={g.def} />
+                    </dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+          
+          <div
+            data-rules-card
+            class="rounded-2xl border border-white/10 bg-ink-card/75 p-6 backdrop-blur-md"
+          >
+            <h3 class="font-display text-xl text-gold">
+              <T text={ui.headings.abilityKinds} />
+            </h3>
+            <dl class="mt-4 space-y-2.5 text-sm">
+              {
+                abilityKinds.map((k) => (
+                  <div class="flex gap-3">
+                    <dt class="w-28 shrink-0 font-semibold text-bone">
+                      <T text={abilityTypeLabels[k.key]} />
+                    </dt>
+                    <dd class="text-muted">
+                      <T text={k.desc} />
                     </dd>
                   </div>
                 ))
