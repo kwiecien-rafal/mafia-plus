@@ -12,6 +12,7 @@
     "generate": "tsx scripts/generate-rules.ts"
   },
   "dependencies": {
+    "@fontsource-variable/playfair-display": "^5.2.8",
     "astro": "^7.0.3",
     "pdfmake": "^0.2.23",
     "yaml": "^2.9.0"
