@@ -97,7 +97,7 @@ Gdy w jakikolwiek sposób **sprawdzana** jest kogoś przynależność do **Frakc
 
 #### (K♥) Lekarz
 
-**Każdej Nocy**, Lekarz wybiera **jedną osobę** do leczenia. Jeżeli tej **Nocy** zostanie wybrana osoba zaatakowana przez **Mafię**, **nie zginie**. **Lekarz** może leczyć sam siebie. Leczeni nie wiedzą, że ktoś nad nimi czuwa.
+**Każdej Nocy**, Lekarz wybiera **jedną osobę** do leczenia. Jeżeli tej samej **Nocy** wybrana osoba zostanie zaatakowana przez **Mafię**, **nie zginie**. **Lekarz** może leczyć sam siebie. Leczeni nie wiedzą, że ktoś nad nimi czuwa.
 
 *Niech śpią spokojnie…*
 
@@ -177,7 +177,7 @@ Gdy **ktokolwiek sprawdza**, do jakiej **Frakcji** przynależy, zostaje wykryta 
 
 #### (10♠) Woźny
 
-Podczas **Nocnej** zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii** pod dywan. Przez **cały następny Dzień** nikt nie może poznać **statystyk**. Może to zrobić tylko **raz**.
+Podczas **Nocnej** zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii** pod dywan. Przez **cały następny Dzień** nikt nie może poznać **statystyk**, ani **statystyk początkowych**. Może to zrobić tylko **raz**.
 
 *Niektóre papiery po prostu znikają.*
 
@@ -199,7 +199,7 @@ Podczas **Nocnej** zmiany w ratuszu, **Woźny** może zamieść brudy **Mafii** 
 
 #### (A♣) Anioł Śmierci
 
-**Każdej Nocy** **Anioł Śmierci** wybiera **jedną osobę** do naznaczenia. Osoba naznaczona po raz drugi **umiera**. Naznaczeni nie wiedzą, że...
+**Każdej Nocy** **Anioł Śmierci** wybiera **jedną osobę** do naznaczenia. Osoba naznaczona po raz drugi **zostaje wyeliminowana**. Naznaczeni nie wiedzą, że...
 
 *...Śmierć depcze im po piętach…*
 
@@ -211,7 +211,7 @@ Jeżeli **głosowanie** kończy się **eliminacją Burmistrza**, wszyscy, którz
 
 #### (Q♣) Córcia Prezesa
 
-Tuż po **głosowaniu**, może **wstać i ogłosić się Córcią Prezesa**. Jej głos liczy się wtedy **podwójnie**. Możesz to zrobić tylko **raz**.
+Tuż po **głosowaniu**, może **wstać i ogłosić się Córcią Prezesa**. Jej głos liczy się wtedy **podwójnie**. Może to zrobić tylko **raz**.
 
 *Nikt nie śmie Cię podważyć.*
 
@@ -266,13 +266,13 @@ Podczas **Nocnej** zmiany na barze, **Barman** może upić **Mafię**. Cel **Maf
 - Czy **Detektyw** może sprawdzić osobę wywiezioną przez **Kolejarza**? - NIE.
 - Czy **Ochroniarz** może ochraniać sam siebie? - NIE.
 - Czy **Świr** może strzelić do siebie? - TAK. *(po co? nie wiem, ale może)*
-- Czy osoba szantażowana może **zagłosować** przeciw **Szantażyście**, Jeżeli **głosowanie** jest niejawne? - NIE.
+- Czy osoba szantażowana może **zagłosować** przeciw **Szantażyście**, jeżeli **głosowanie** jest niejawne? - NIE.
 - Czy **Szantażysta** może szantażować sam siebie? - NIE.
 - Czy **Panna Lekkich Obyczajów** może **Zerowej Nocy** sprawdzić sama siebie? - NIE.
-- Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest leczony przez **Lekarza**, czy traci swoje pierwsze życie? - NIE.
+- Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest leczony przez **Lekarza**, czy **Święty** traci swoje pierwsze życie? - NIE.
 - Gdy **Mafia** strzeli w **Nocy** w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje? - **OCHRONIARZ** ZOSTAJE WYELIMINOWANY. **ŚWIĘTY** NIE TRACI ŻYCIA.
 - Gdy **Świr** strzeli w **Świętego**, który wciąż ma dwa życia, a równocześnie jest chroniony przez **Ochroniarza**, co się dzieje? - **OCHRONIARZ** ZOSTAJE WYELIMINOWANY. **ŚWIĘTY** NIE TRACI ŻYCIA.
-- Gdy **Mafia** strzeli w **Nocy** w kogoś, kto jest chroniony przez **Ochroniarza**, a **Lekarz** uleczył tej samej **Nocy Ochroniarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY.
+- Gdy **Mafia** strzeli w **Nocy** w kogoś, kto jest chroniony przez **Ochroniarza**, a **Lekarz** uleczył tej samej **Nocy** **Ochroniarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY.
 - Gdy **Mafia** strzela do kogoś leczonego przez **Lekarza**, kto jest równocześnie chroniony przez **Ochroniarza**, co się dzieje? - NIKT NIE ZOSTAJE WYELIMINOWANY
 - Czy **Anioł Śmierci** może naznaczać sam siebie? - TAK. *(po co? nie wiem, ale może)*
 - Ile razy **Anioł Śmierci** musi naznaczyć **Świętego**, żeby został wyeliminowany? - 4
