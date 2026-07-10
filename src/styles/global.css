@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/playfair-display/wght-italic.css";
 
 /* Faction palette follows the playing-card suits each role maps to:
    City ♥♦ red, Mafia ♠ blue, Syndicate ♣ bottle-green. Values below
@@ -15,7 +17,7 @@
   --color-mafia: #7fb0ec;
   --color-syndicate: #3fb084;
 
-  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-display: "Playfair Display Variable", Georgia, "Times New Roman", serif;
   --font-body: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
 }
 

@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import T from "../components/T.astro";
+import { ui } from "../data/content";
+---
+
+<Layout title="404 — Mafia+">
+  <Header />
+
+  <main class="mx-auto max-w-4xl px-4 py-24 text-center">
+    <p class="font-mono text-sm text-muted">404</p>
+    <h1 class="mt-4 font-display text-4xl text-bone sm:text-5xl">
+      <T text={ui.notFound.heading} />
+    </h1>
+    <p class="mt-4 text-muted">
+      <T text={ui.notFound.message} />
+    </p>
+    <a
+      href="/"
+      class="mt-10 inline-flex items-center justify-center gap-2 rounded-full border border-gold/50 px-5 py-2 text-sm font-semibold text-gold transition-colors hover:border-gold hover:bg-gold/10"
+    >
+      <T text={ui.notFound.backHome} />
+    </a>
+  </main>
+</Layout>

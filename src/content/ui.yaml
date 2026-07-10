@@ -81,6 +81,16 @@ search:
 footer:
   pl: Hobbystyczny projekt. Autorska wersja Mafii rozwijana z przyjaciółmi przez lata.
   en: A hobby project. Homemade take on Mafia, refined with friends over the years.
+notFound:
+  heading:
+    pl: Nie ma takiej strony
+    en: Page not found
+  message:
+    pl: Ten trop prowadzi donikąd.
+    en: This lead goes nowhere.
+  backHome:
+    pl: Wróć na stronę główną
+    en: Back to the home page
 sectionNav:
   - id: characters
     label:

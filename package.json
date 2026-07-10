@@ -1,7 +1,7 @@
 {
   "name": "mafia-plus",
   "type": "module",
-  "version": "0.4.0",
+  "version": "1.0.0",
   "private": true,
   "description": "An extended take on the social deduction game Mafia / Werewolf — bilingual character & rules showcase.",
   "scripts": {
@@ -12,6 +12,8 @@
     "generate": "tsx scripts/generate-rules.ts"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/playfair-display": "^5.2.8",
     "astro": "^7.0.3",
     "pdfmake": "^0.2.23",
     "yaml": "^2.9.0"
