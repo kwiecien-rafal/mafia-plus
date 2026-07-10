@@ -348,9 +348,10 @@ body::after {
 }
 
 /* ── Mobile menu (header tier 1) ───────────────────────────────────────
-   Below sm the endpoint links and language switch collapse behind a
-   hamburger. The nav drops out of the bar as an absolute panel, so the top
-   tier keeps its single-line height whether the menu is open or closed. */
+   Below sm the endpoint links collapse behind a hamburger; the language
+   switch is a site setting, so it stays inline beside the toggle. The nav
+   drops out of the bar as an absolute panel, so the top tier keeps its
+   single-line height whether the menu is open or closed. */
 .site-menu-toggle {
   align-items: center;
   justify-content: center;
