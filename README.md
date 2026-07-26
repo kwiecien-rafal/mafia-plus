@@ -4,7 +4,7 @@
 
 An extended version of the popular social-deduction game — Mafia (also known as Werewolf).
 
-Live at [mafia.rafalkwiecien.com](https://mafia.rafalkwiecien.com) (work in progress).
+Live at [mafia.rafalkwiecien.com](https://mafia.rafalkwiecien.com)
 
 ## Table of Contents
 
