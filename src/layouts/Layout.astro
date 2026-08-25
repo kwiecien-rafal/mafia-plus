@@ -1,13 +1,13 @@
 ---
 import "../styles/global.css";
-import { ui } from "../data/content";
+import type { PageSeo } from "../data/content";
 
 interface Props {
-  title?: string;
-  description?: string;
+  seo: PageSeo;
 }
-const { title = ui.seo.title.en, description = ui.seo.description.en } =
-  Astro.props;
+const { seo } = Astro.props;
+const { en: title } = seo.title;
+const { en: description } = seo.description;
 
 // Absolute URLs for canonical + social tags, resolved against the configured
 // site (astro.config.mjs). Crawlers and unfurlers require absolute image URLs.
@@ -30,8 +30,8 @@ const ogImage = new URL("/og-image.png", Astro.site).href;
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
 
-    <!-- Open Graph / Twitter link-preview card. Single-language (English) to
-         match the default lang; the image is the wordmark on the site's ink. -->
+    <!-- Open Graph / Twitter link-preview card; the image is the wordmark
+         on the site's ink. -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Mafia+" />
     <meta property="og:title" content={title} />
@@ -89,7 +89,7 @@ const ogImage = new URL("/og-image.png", Astro.site).href;
           function toggle() {
             card.setAttribute(
               "data-flipped",
-              card.getAttribute("data-flipped") === "true" ? "false" : "true"
+              card.getAttribute("data-flipped") === "true" ? "false" : "true",
             );
           }
           // Links on the card (edge-case jumps) must act without flipping it:

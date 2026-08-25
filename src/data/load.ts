@@ -181,11 +181,16 @@ export function loadExampleSets(): ExampleSetsFile {
 }
 
 // ── UI copy ───────────────────────────────────────────────────
+export interface PageSeo {
+  title: Bilingual;
+  description: Bilingual;
+}
+
 export interface UiFile {
   title: Bilingual;
   tagline: Bilingual;
   intro: Bilingual;
-  seo: { title: Bilingual; description: Bilingual };
+  seo: Record<"home" | "downloads" | "notFound", PageSeo>;
   nav: Record<"characters" | "rules" | "setup" | "edgeCases" | "downloads", Bilingual>;
   cardLabel: Bilingual;
   flipHint: Bilingual;
