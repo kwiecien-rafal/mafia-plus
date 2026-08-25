@@ -14,6 +14,8 @@ import {
 } from "./load";
 
 // ── UI copy ────────────────────────────────────────────────────
+export type { PageSeo } from "./load";
+
 const uiFile = loadUi();
 
 export const ui = uiFile;
