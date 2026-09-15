@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import playfairLatin from "@fontsource-variable/playfair-display/files/playfair-display-latin-wght-normal.woff2?url";
 import type { PageSeo } from "../data/content";
 
 interface Props {
@@ -27,6 +28,14 @@ const ogImage = new URL("/og-image.png", Astro.site).href;
       as="image"
       href="/mafia-banner.png"
       fetchpriority="high"
+    />
+
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href={playfairLatin}
+      crossorigin
     />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
